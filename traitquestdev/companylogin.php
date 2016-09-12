@@ -1,0 +1,37 @@
+<?php
+session_start();
+// to redirect user to home page once they have logged 
+if (isset($_SESSION['companyID']) || isset($_SESSION['userID']))
+{
+    header('location: home.php');
+}
+?>
+<!DOCTYPE>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Company Login</title>
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+					JAVASCRIPT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+<script type="text/javascript" src="js/companylogin.js"></script>
+</head>
+
+<body>
+	<h1>Company Login</h1>
+	<form id="formCompanyLogin" class="form" method="post">
+		<div id="columnCompany">
+			<input type="text" name="company" id="companyName" class="inputForm" placeholder="Company Name" />
+		</div>
+		<div id="columnEmail">
+			<input type="text" name="email" id="email" class="inputForm" placeholder="Email" />
+		</div>
+		<div id="columnPassword">
+			<input type="password" name="password" id="password" class="inputForm" placeholder="Password" />
+		</div>
+		<div id="loginResponse"></div>
+		<input type="submit" name="submit" id="loginSubmit" class="buttonForm" value="Login" />
+	</form>
+</body>
+</html>

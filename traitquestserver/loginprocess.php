@@ -11,7 +11,7 @@
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		
 		if (!isset($_SESSION['companyID']) && !isset($_SESSION['userID'])){// if employee is not logged in
-			$data['companyLoggedIn'] = false;
+			$data['loggedIn'] = false;
 			if (isset($_POST['name']))				                $name		= trim($_POST ['name']);
 			if (isset($_POST['email']))			                    $email 		= trim($_POST ['email']);
 			if (isset($_POST['password']))			                $password 	= $_POST ['password'];
@@ -29,46 +29,50 @@
 
 				// check if there is match of company name and admin email
 				$checkSQL = "SELECT * FROM company 
-								 WHERE name = :name
-									   AND email = :email";
+								 WHERE name = :name";
 				$companyPDO = $conn->prepare($checkSQL);
 				$companyPDO->bindParam(':name', $name, PDO::PARAM_STR);
-				$companyPDO->bindParam(':email', $email, PDO::PARAM_STR);
 				$companyPDO->execute();
 				
 				if($companyPDO->rowCount() != 0){
 					$companyResult = $companyPDO->fetch(PDO::FETCH_ASSOC);
 					
-					// check if the password is correct
-					if(md5($password) == $companyResult['password']){
-						// retrieve the user id from employee table
-						$checkuserSQL = "SELECT * FROM employee
+					$checkuserSQL = "SELECT * FROM employee
 											WHERE email = :email
 												AND companyid = :companyid";
-						$userPDO = $conn->prepare($checkuserSQL);
-						$userPDO->bindParam(':email', $email, PDO::PARAM_STR);
-						$userPDO->bindParam(':companyid', $companyResult['id'], PDO::PARAM_INT);
-						$userPDO->execute();
+					$userPDO = $conn->prepare($checkuserSQL);
+					$userPDO->bindParam(':email', $email, PDO::PARAM_STR);
+					$userPDO->bindParam(':companyid', $companyResult['id'], PDO::PARAM_INT);
+					$userPDO->execute();
 						
-						if($userPDO->rowCount() != 0){
-							$userResult = $userPDO->fetch(PDO::FETCH_ASSOC);
-							
-							// INPUT CODE HERE TO STORE USER DATA IN SESSION
-							$_SESSION['companyID'] = $companyResult['id'];
-							$_SESSION['userID'] = $userResult['id'];
-							$_SESSION['name'] = $companyResult['name'];
-							$_SESSION['logintype'] = "admin";
-							
-							$data['login'] = true;							
+					if($userPDO->rowCount() != 0){
+						$userResult = $userPDO->fetch(PDO::FETCH_ASSOC);
+						
+						// check if the employee has resigned from the company
+						if(!$userResult['isresigned']){
+							// check if the password is correct
+							if(md5($password) == $userResult['password']){
+														
+								// INPUT CODE HERE TO STORE USER DATA IN SESSION
+								$_SESSION['companyID'] = $userResult['companyid'];
+								$_SESSION['userID'] = $userResult['id'];
+								$_SESSION['name'] = $userResult['name'];
+								$_SESSION['logintype'] = "employee";
+								
+								$data['login'] = true;							
+							}
+							else{
+								$data['error'] = "Wrong password";
+								$data['login'] = false;	
+							}
 						}
 						else{
-							$data['error'] = "Some error has occured. Please try again.";
-							$data['login'] = false;	
-						}
-													
+							$data['error'] = "It seems like you have resigned from the company. Kindly contact your admin if this is not right.";
+							$data['login'] = false;
+						}														
 					}
 					else{
-						$data['error'] = "Wrong password";
+						$data['error'] = "Invalid company name and email";
 						$data['login'] = false;
 					}
 				}
@@ -82,7 +86,7 @@
 			}
 		}
 		else{// if user is logged in
-			$data['companyLoggedIn'] = true;
+			$data['loggedIn'] = true;
 		}
 		
 		echo json_encode($data);

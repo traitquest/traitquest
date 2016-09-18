@@ -21,10 +21,9 @@ $(document).ready(function(){
 		//get the form data
 		var formData= {
 			'name'				    :$('input[name=company]').val(),
-			'email'					:$('input[name=email]').val(),
-			'password'				:$('input[name=password]').val()
+			'email'					:$('input[name=email]').val()
 		};
-		console.log(formData);
+		//console.log(formData);
 		
 		//process the form
 		$.ajax({
@@ -56,10 +55,6 @@ $(document).ready(function(){
                         $('#columnEmail').find('.inputForm').addClass('error');
                         $('#columnEmail').append('<div class="columnError">' + data['email'] + '</div>');
                     }
-                    if(data['password']){
-                        $('#columnPassword').find('.inputForm').addClass('error');
-                        $('#columnPassword').append('<div class="columnError">' + data['password'] + '</div>');
-                    }
                     if(data['error']){
                         $('#signupResponse').append('<div class="signupError">' + data['error'] + '</div>');
                     }
@@ -69,12 +64,12 @@ $(document).ready(function(){
 			}
 			else{
 				// redirect to home page when user is logged in
-                window.location.href = "home.php";
+                window.location.href = "home";
 			}
 		})
 		//using the fail promise callback
 		.fail(function(data){
-            window.location.href = "500.php";
+            window.location.href = "500";
 		});
 		
 	});

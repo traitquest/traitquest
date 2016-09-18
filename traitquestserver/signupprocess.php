@@ -14,7 +14,6 @@
 			$data['userLoggedIn'] = false;
 			if (isset($_POST['name']))				                $name		= trim($_POST ['name']);
 			if (isset($_POST['email']))			                    $email 		= trim($_POST ['email']);
-			if (isset($_POST['password']))			                $password 	= $_POST ['password'];
 																	$registerDate	= date ("Y-m-d");
 
 			if(!trim($_POST['name'])){//if company's name is filled up
@@ -25,11 +24,15 @@
 				$data['email'] = "You have entered an invalid email address";
 				$validated = false;
 			}
-			if(strlen($password) >25 || strlen($password)<6){
-				$data['password'] = "Password must be between 6 and 25 characters";
-				$validated = false;
+			/*if(strlen($password) >20 || strlen($password)<8){
+				$data['password'] = "Password must be between 8 and 20 characters";
+				$validated = false;				
 			}
-
+			else if(!preg_match('/^(?=.*\d)(?=.*[@#\-_$%^&+=§!\?])(?=.*[a-z])(?=.*[A-Z])[0-9A-Za-z@#\-_$%^&+=§!\?]{8,20}$/', $password)){
+				$data['password'] = "Password must contain number, lowercase, uppercase and special character";
+				$validated = false;	
+			}*/
+				
 			if($validated == true){
 
 				// check if the company name has been registered in the database
@@ -43,15 +46,24 @@
 				if($companyPDO->rowCount() == 0){
 					// SQL QUERY
 					//$emailActivationCode = md5($email.time()); //for activation of the email use
+					
+					$password = md5('password');// to replace hardcoded string with randomPassword() in release version
+					
+					// insert a new company details and at the same time create an employee account
 					$sql = "INSERT INTO `company` (name, email, password, registerdate)
-												   VALUES (:name, :email, :password, :registerdate)";
+												   VALUES (:name, :email, :password, :registerdate);
+							SET @lastcompanyid = LAST_INSERT_ID();
+							INSERT INTO `employee` (companyid, name, email, password, isadmin) 
+												    VALUES (@lastcompanyid, 'Admin', :email, :password, :isadmin);";
 					$q = $conn->prepare($sql);
 					$q->execute(array(
 								':name'=> $name,
 								':email'=> $email,
-								':password'=> md5($password),
+								':password'=> $password,
+								':isadmin'=> TRUE,
 								':registerdate'=> $registerDate
 					));
+					
 
 					//INPUT CODE HERE TO SEND EMAIL TO USER ON NEW PASSWORD
 					/*$to = $email;
@@ -165,4 +177,43 @@
 		echo $e->getMessage();
 	}
 	$conn = null;
+	
+	// randomly generated password
+	function randomPassword() {
+		$lowercase = "abcdefghijklmnopqrstuwxyz";
+		$uppercase = "ABCDEFGHIJKLMNOPQRSTUWXYZ";
+		$number = "0123456789";
+		$specialcharacter = "!@#$%^&_-+=";
+		$pass = array(); //remember to declare $pass as an array
+		$lowercaseLength = strlen($lowercase) - 1; //put the length -1 in cache
+		$uppercaseLength = strlen($uppercase) - 1; //put the length -1 in cache
+		$numberLength = strlen($number) - 1; //put the length -1 in cache
+		$specialcharacterLength = strlen($specialcharacter) - 1; //put the length -1 in cache
+		// lowercase for first two characters
+		for ($i = 0; $i < 2; $i++) {
+			$n = rand(0, $lowercaseLength);
+			$pass[] = $lowercase[$n];
+		}
+		// uppercase for third character
+		for ($i = 0; $i < 1; $i++) {
+			$n = rand(0, $uppercaseLength);
+			$pass[] = $uppercase[$n];
+		}
+		// number for forth and fifth character
+		for ($i = 0; $i < 2; $i++) {
+			$n = rand(0, $numberLength);
+			$pass[] = $number[$n];
+		}
+		// special character for sixth character
+		for ($i = 0; $i < 1; $i++) {
+			$n = rand(0, $specialcharacterLength);
+			$pass[] = $specialcharacter[$n];
+		}
+		// uppercase for seventh and eighth character
+		for ($i = 0; $i < 2; $i++) {
+			$n = rand(0, $uppercaseLength);
+			$pass[] = $uppercase[$n];
+		}
+		return implode($pass); //turn the array into a string
+	}
 ?>

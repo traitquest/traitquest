@@ -1,19 +1,17 @@
 <?php
 	session_start();
-	if( ( isset($_SESSION['companyID']) || isset($_SESSION['userID']) ) && $_SESSION['logintype'] == "admin"){
-		header('location: admin');
+	if( ( isset($_SESSION['companyID']) || isset($_SESSION['userID']) ) && $_SESSION['logintype'] == "employee"){
+		header('location: home');
 	}
 	else if( ( !isset($_SESSION['companyID']) || !isset($_SESSION['userID']) )){
 		header('location: index');
 	}
-	
-	echo "Welcome, ".$_SESSION['name'];
 ?>
 <!DOCTYPE>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Trait Quest</title>
+<title>Employee Management</title>
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 					JAVASCRIPT
@@ -23,9 +21,7 @@
 <body>
 	<div>
 		<p>Welcome, <?php echo $_SESSION['name']; ?>!</p>
-		<p>My Profile</p>
-	</div>
-	<div>
-		<a href="changepassword">Change Password</a>
+		<h1>Employee Management</h1>
+	
 	</div>
 </body>

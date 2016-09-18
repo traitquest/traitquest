@@ -3,7 +3,7 @@ $(document).ready(function(){
 	var working = false;
 	$("#companyName").focus();
 	
-	$('#formCompanyLogin').submit(function(event){
+	$('#formEmployeeLogin').submit(function(event){
 		event.preventDefault();
 		
 		//to prevent multiple submission when multiple click on submit button
@@ -28,7 +28,7 @@ $(document).ready(function(){
 		//process the form
 		$.ajax({
 			type		:'POST', 	//define the type of HTTP verb we want to use
-			url			:'../traitquestserver/companyloginprocess.php',		//the url where we want to POST
+			url			:'../traitquestserver/loginprocess.php',		//the url where we want to POST
 			data		: formData,		//our data object
 			dataType	:'json',		//what type of data do we expect back from the server
 			encode		:true
@@ -38,15 +38,15 @@ $(document).ready(function(){
 		.done(function(data){
 			working = false;
 			//here we will handle errors and validation messages
-			if(!data['companyLoggedIn'])
+			if(!data['loggedIn'])
 			{	
 				$('input[name=password]').val('');
 				//check if it has errors
                 if(data['login']){
-					$('#formCompanyLogin')[0].reset();
+					$('#formEmployeeLogin')[0].reset();
 					
 					// redirect to home page when user is logged in
-					window.location.href = "admin";
+					window.location.href = "home";
                 }
                 else{
                     if(data['name']){
@@ -64,7 +64,7 @@ $(document).ready(function(){
 			}
 			else{
 				// redirect to home page when user is logged in
-                window.location.href = "admin";
+                window.location.href = "home";
 			}
 		})
 		//using the fail promise callback

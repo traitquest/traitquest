@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	$currentURL = 'home.php';
+	$currentURL = 'index';
 	if(isset($_SESSION['currentURL'])){
 		$currentURL = $_SESSION['currentURL'];
 	}

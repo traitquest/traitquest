@@ -1,10 +1,13 @@
 <?php
-session_start();
-// to redirect user to home page once they have logged in
-if (isset($_SESSION['companyID']) || isset($_SESSION['userID']))
-{
-    header('location: home.php');
-}
+	session_start();
+	// to redirect user to home page once they have logged in
+	if( ( isset($_SESSION['companyID']) || isset($_SESSION['userID']) ) && $_SESSION['logintype'] == "admin"){
+		header('location: admin');
+	}
+	else if( ( isset($_SESSION['companyID']) || isset($_SESSION['userID']) ) && $_SESSION['logintype'] == "employee"){
+		header('location: home');
+	}
+
 ?>
 <!DOCTYPE>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -26,9 +29,6 @@ if (isset($_SESSION['companyID']) || isset($_SESSION['userID']))
 		</div>
 		<div id="columnEmail">
 			<input type="text" name="email" id="email" class="inputForm" placeholder="Admin Email" />
-		</div>
-		<div id="columnPassword">
-			<input type="password" name="password" id="password" class="inputForm" placeholder="Password" />
 		</div>
 		<div id="signupResponse"></div>
 		<input type="submit" name="submit" id="signupSubmit" class="buttonForm" value="Sign Up" />

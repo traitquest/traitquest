@@ -7,7 +7,6 @@
 		header('location: index');
 	}
 	
-	echo "Welcome, ".$_SESSION['name'];
 ?>
 <!DOCTYPE>
 <html xmlns="http://www.w3.org/1999/xhtml">

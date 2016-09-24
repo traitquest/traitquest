@@ -1,0 +1,42 @@
+.main-header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 6rem;
+  color: white;
+  background: #444;
+  line-height: 6rem;
+  transform: translateY(0);
+  transform: translate3d(0,0,0);
+  transition: .25s transform;
+  backface-visibility: hidden;
+}
+
+.heads-up {
+  transform: translateY(-6rem);
+  transform: translate3d(0,-6rem,0);
+}
+
+.main-header h1 {
+  float: left;
+  font-size: 1.4rem;
+  margin: 0 0 0 2rem;
+  text-transform: uppercase;
+}
+
+.main-header nav {
+  float: right;
+  font-size: 1.4rem;
+}
+
+.main-header nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+.main-header nav li {
+  display: inline-block;
+  padding: 0 2rem;
+  border-left: .1rem solid #555;
+}

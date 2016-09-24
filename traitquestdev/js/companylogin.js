@@ -23,7 +23,7 @@ $(document).ready(function(){
 			'email'					:$('input[name=email]').val(),
 			'password'				:$('input[name=password]').val()
 		};
-		//console.log(formData);
+		console.log(formData);
 		
 		//process the form
 		$.ajax({
@@ -46,7 +46,7 @@ $(document).ready(function(){
 					$('#formCompanyLogin')[0].reset();
 					
 					// redirect to home page when user is logged in
-					window.location.href = "admin";
+					window.location.href = "home.php";
                 }
                 else{
                     if(data['name']){
@@ -64,12 +64,12 @@ $(document).ready(function(){
 			}
 			else{
 				// redirect to home page when user is logged in
-                window.location.href = "admin";
+                window.location.href = "home.php";
 			}
 		})
 		//using the fail promise callback
 		.fail(function(data){
-            window.location.href = "500";
+            window.location.href = "500.php";
 		});
 		
 	});

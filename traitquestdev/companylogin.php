@@ -1,18 +1,16 @@
 <?php
-	session_start();
-	// to redirect user to home page once they have logged 
-	if ( ( isset($_SESSION['companyID']) || isset($_SESSION['userID']) ) && $_SESSION['logintype'] == "admin"){
-		header('location: admin');
-	}
-	else if( ( isset($_SESSION['companyID']) || isset($_SESSION['userID']) ) && $_SESSION['logintype'] == "employee"){
-		header('location: home');
-	}
+session_start();
+// to redirect user to home page once they have logged 
+if (isset($_SESSION['companyID']) || isset($_SESSION['userID']))
+{
+    header('location: home.php');
+}
 ?>
 <!DOCTYPE>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Admin Login</title>
+<title>Company Login</title>
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 					JAVASCRIPT
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -21,7 +19,7 @@
 </head>
 
 <body>
-	<h1>Admin Login</h1>
+	<h1>Company Login</h1>
 	<form id="formCompanyLogin" class="form" method="post">
 		<div id="columnCompany">
 			<input type="text" name="company" id="companyName" class="inputForm" placeholder="Company Name" />

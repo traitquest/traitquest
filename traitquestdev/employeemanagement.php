@@ -17,11 +17,27 @@
 					JAVASCRIPT
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+<script type="text/javascript" src="js/employeemanagement.js"></script>
 
 <body>
 	<div>
 		<p>Welcome, <?php echo $_SESSION['name']; ?>!</p>
 		<h1>Employee Management</h1>
-	
+		<div>
+			<form id="formAddEmployee" class="form" method="post">
+				<div id="columnCode">
+					<input type="text" name="code" id="code" class="inputForm" placeholder="Employee Code" />
+				</div>
+				<div id="columnName">
+					<input type="text" name="name" id="name" class="inputForm" placeholder="Name" />
+				</div>
+				<div id="columnEmail">
+					<input type="text" name="email" id="email" class="inputForm" placeholder="Email" />
+				</div>
+				<div id="response"></div>
+				<input type="submit" name="submit" id="submit" class="buttonForm" value="Add" />
+			</form> 
+		</div>
+		<div id="employeeList"></div>
 	</div>
 </body>

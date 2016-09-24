@@ -43,6 +43,7 @@
 				`name` VARCHAR(128) NOT NULL,
 				`email` VARCHAR(128) NOT NULL,
 				`password` VARCHAR(128) NOT NULL,
+				`code` VARCHAR(128) DEFAULT 0,
 				`phone` VARCHAR(32),
 				`address` VARCHAR(128),
 				`poscode` INT,

@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	// to redirect user to home page once they have logged 
+	// to redirect user to home page once they have logged
 	if ( ( isset($_SESSION['companyID']) || isset($_SESSION['userID']) ) && $_SESSION['logintype'] == "admin"){
 		header('location: admin');
 	}
@@ -18,12 +18,18 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
 <script type="text/javascript" src="js/login.js"></script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+					CSS
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<link rel="stylesheet" type="text/css" href="css/global.css"/>
+<link rel="stylesheet" type="text/css" href="css/color.css"/>
 </head>
 
-<body>
-	<h1>Login</h1>
+<body class="top-down-logoblue-logogreen-grad">
+	<h1 class="text-align-center white">Login</h1>
 	<form id="formEmployeeLogin" class="form" method="post">
-		<div id="columnCompany">
+		<div id="columnCompany" hidden>
 			<input type="text" name="company" id="companyName" class="inputForm" placeholder="Company Name" />
 		</div>
 		<div id="columnEmail">

@@ -724,6 +724,34 @@
   background-color:#BFBFBF;
 }
 
-.test_bg{
-  background: linear-gradient(to top, #19B5FE 0%, #16A085 100%);
+.logogreen {
+  color:#36A935;
+}
+
+.logogreen_bg {
+  background-color:#36A935;
+}
+
+.logoblue {
+  color:#1D70B7;
+}
+
+.logoblue-bg {
+  background-color:#1D70B7;
+}
+
+.white {
+  color: white;
+}
+
+.white-bg {
+  background-color: white;
+}
+
+.black {
+  color: black;
+}
+
+.black-bg {
+  background-color: black;
 }

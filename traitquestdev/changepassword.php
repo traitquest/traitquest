@@ -16,8 +16,15 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
 <script type="text/javascript" src="js/changepassword.js"></script>
 
-<body>
-	<h1>Change Password</h1>
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+					CSS
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<link rel="stylesheet" type="text/css" href="css/global.css"/>
+<link rel="stylesheet" type="text/css" href="css/color.css"/>
+<?php include 'ohsemquestheader.php';?>
+
+<body class="top-down-logoblue-logogreen-grad">
+	<h1 calss="text-align-center white">Change Password</h1>
 	<form id="formChangePassword" class="form" method="post">
 		<div id="columnOldPassword">
 			<input type="password" name="oldPassword" id="oldPassword" class="inputForm" placeholder="Old Password" />

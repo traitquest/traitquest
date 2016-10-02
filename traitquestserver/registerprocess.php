@@ -76,6 +76,35 @@
 									':password'=> $password
 									));
 						$lastEmployeeID = $conn->lastInsertId();
+						
+						// Add KPI 'Take Photo' to the user
+						$selectPhotoTemplateSQL = "SELECT * FROM phototemplate
+													ORDER BY rand() 
+													LIMIT 1";
+						$selectPhotoTemplatePDO = $conn->prepare($selectPhotoTemplateSQL);
+						$selectPhotoTemplatePDO->execute();
+						if( $selectPhotoTemplatePDO->rowCount() != 0 ){
+							$photoTemplateResult = $selectPhotoTemplatePDO->fetch(PDO::FETCH_ASSOC);
+							$kpiType = 'photo';
+							$photoTemplateID = $photoTemplateResult['id'];
+							$addKPIPhotoSQL = "INSERT INTO `kpi` (userid, companyid, type, phototemplateid)
+																VALUES (:userid, :companyid, :type, :phototemplateid);";
+							$addKPIPhotoPDO = $conn->prepare($addKPIPhotoSQL);
+							$addKPIPhotoPDO->execute(array(
+													':userid'=> $lastEmployeeID,
+													':companyid'=> $companyID,
+													':type'=> $kpiType,
+													':phototemplateid'=> $photoTemplateID));	
+						}
+						// Add KPI 'Quiz' to the user
+						$kpiType = 'quiz';
+						$addKPIQuizSQL = "INSERT INTO `kpi` (userid, companyid, type)
+																VALUES (:userid, :companyid, :type);";
+						$addKPIQuizPDO = $conn->prepare($addKPIQuizSQL);
+						$addKPIQuizPDO->execute(array(
+												':userid'=>$lastEmployeeID,
+												':companyid'=> $companyID,
+												':type'=>$kpiType));	
 
 						//INPUT CODE HERE TO SEND EMAIL TO USER ON NEW PASSWORD
 						/*$to = $email;

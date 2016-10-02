@@ -36,6 +36,5 @@
 		<div id="registerResponse"></div>
 		<input type="submit" name="submit" id="registerSubmit" class="buttonForm" value="Register" />
 	</form>
-
 </body>
 </html>

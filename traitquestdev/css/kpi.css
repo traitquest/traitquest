@@ -1,0 +1,7 @@
+.photoContainer {display: inline-block;position: relative;}
+.image{width: 200px;height: 200px;display: block;margin: 0 auto;}
+.checked{width: 100px; height: 100px;top: 25%;left: 42.5%;position: absolute;visibility: hidden;display: block;margin: 0 auto;}
+.completed .checked{visibility: visible;}
+#completedBadge{display: block; margin: 0 auto;}
+#submitKPIPhoto, #completedButton{width: 200px; display: block; margin: 0 auto;}
+#kpiQuiz{height: 400px;}

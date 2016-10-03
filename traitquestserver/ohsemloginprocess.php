@@ -14,17 +14,21 @@
 			$data['loggedIn'] = false;
 			if (isset($_POST['name']))				                $name		= trim($_POST ['name']);
 			if (isset($_POST['email']))			                    $email 		= trim($_POST ['email']);
+			if (isset($_POST['phone']))			                    $phone 		= trim($_POST ['phone']);
 			if (isset($_POST['password']))			                $password 	= $_POST ['password'];
 
-			if(!trim($_POST ['name'])){//if company's name is filled up
+			/*if(!trim($_POST ['name'])){//if company's name is filled up
 				$data['name'] = "Enter your company name";
 				$validated = false;
-			}
+			}*/
 			if (!preg_match("/^[[:alnum:]][a-z0-9_.-]*@[a-z0-9.-]+\.[a-z]{2,4}$/i", trim($_POST['email']))){
 				$data['email'] = "You have entered an invalid email address";
 				$validated = false;
 			}
-
+			if(!trim($_POST ['phone'])){//if company's name is filled up
+				$data['phone'] = "Enter your phone number";
+				$validated = false;
+			}
 			if($validated == true){
 
 				// check if there is match of company name and admin email
@@ -51,7 +55,19 @@
 						// check if the employee has resigned from the company
 						if(!$userResult['isresigned']){
 							// check if the password is correct
-							if(md5($password) == $userResult['password']){
+							if($phone == $userResult['phone']){
+								$_SESSION['companyID'] = $userResult['companyid'];
+								$_SESSION['userID'] = $userResult['id'];
+								$_SESSION['name'] = $userResult['name'];
+								$_SESSION['logintype'] = "employee";
+								
+								$data['login'] = true;
+							}
+							else{
+								$data['error'] = "Wrong phone number";
+								$data['login'] = false;
+							}
+							/*if(md5($password) == $userResult['password']){
 														
 								// INPUT CODE HERE TO STORE USER DATA IN SESSION
 								$_SESSION['companyID'] = $userResult['companyid'];
@@ -64,7 +80,7 @@
 							else{
 								$data['error'] = "Wrong password";
 								$data['login'] = false;	
-							}
+							}*/
 						}
 						else{
 							$data['error'] = "It seems like you have resigned from the company. Kindly contact your admin if this is not right.";

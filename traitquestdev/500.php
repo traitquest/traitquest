@@ -1,0 +1,1 @@
+<?php echo "Some error has occured. Please try again later." ?>

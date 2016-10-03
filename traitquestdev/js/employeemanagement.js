@@ -36,7 +36,7 @@ $(document).ready(function(){
 			else{
 				var html = "<div>No employees record</div>";
 				var target = $('#employeeList');
-				target.append(html)
+				target.append(html);
 			}
 		}
 		else{

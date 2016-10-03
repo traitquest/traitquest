@@ -61,6 +61,40 @@
 		if( $conn->exec($sql) !== false ){
 			echo "Table Employee created successfully<br>";
 		}
+		
+		// create KPI table
+		$sql = "CREATE TABLE IF NOT EXISTS `kpi` (
+				`id` INT UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY, 
+				`userid` INT UNSIGNED NOT NULL,
+				`companyid` INT UNSIGNED NOT NULL,
+				`type` VARCHAR(128) NOT NULL,
+				`phototemplateid` INT,
+				`iscompleted` BOOLEAN NOT NULL DEFAULT 0,
+				FOREIGN KEY (`userid`) REFERENCES employee(`id`),
+				INDEX(`userid`)
+				)";
+
+		// check if Company table has been created
+		if( $conn->exec($sql) !== false ){
+			echo "Table KPI created successfully<br>";
+		}	
+		
+		// create photo template table
+		$sql = "CREATE TABLE IF NOT EXISTS `phototemplate` (
+				`id` INT UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY, 
+				`link1` TEXT NOT NULL,
+				`link2` TEXT NOT NULL,
+				`link3` TEXT NOT NULL,
+				`link4` TEXT NOT NULL,
+				`link5` TEXT NOT NULL,
+				`link6` TEXT NOT NULL
+				)";
+
+		// check if Company table has been created
+		if( $conn->exec($sql) !== false ){
+			echo "Table Photo Template created successfully<br>";
+		}
+		
 	}
 	catch(PDOException $e){
 		echo $sql . "<br>" . $e->getMessage();

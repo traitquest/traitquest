@@ -1,0 +1,58 @@
+@charset "utf-8";
+/* STRUCTURE
+------------------------------------------ 
+	1.0 BASE IMPORTS
+	2.0 GLOBALS 
+	3.0 HEADER
+	4.0 BODY
+		4.1 BODY AND FOOTER WRAPPER
+------------------------------------------ */
+
+/* 1.0 BASE IMPORTS
+------------------------------------------ */
+@import url("jquery.nouislider.css");
+/*@import url(http://fonts.googleapis.com/css?family=Lato:100,400,700,400italic);*/
+
+/* 2.0 GLOBALS
+------------------------------------------ */
+html, body{background:#F9F9F9;color:black;margin:0;padding:0; height:100%; }
+body{font-family: 'Lato', sans-serif; text-align:justify; }
+a, a:hover, a:active, a:focus {color:#000; text-decoration:none;}
+h1,h2,h3,h4,h5,h6 {color:black;}
+ul{margin:0; padding: 0; list-style:none;}
+form{margin: 0; padding: 0;}
+input:focus, textarea:focus, select:focus{ outline:none;}
+select{}
+textarea{resize:none;}
+#logo-image{max-height:60px;}
+.clear:after {clear: both;content: "";display: table;}
+.inputForm{padding-top: 8px; padding-bottom: 8px;}
+.columnInput{margin-bottom: 5px;}
+.button{padding-top: 8px; padding-bottom: 8px; border: none;color:white; background-color: #2ECC71; cursor: pointer;transition: all 0.5s ease;-moz-transition: all 0.5s ease;-webkit-transition: all 0.5s ease;-o-transition: all 0.5s ease;-ms-transition: all 0.5s ease;}
+.button:hover{color: white; background-color: #70D49A;}
+.button:active{color: white; background-color: #2ECC71;}
+.text-center{text-align: center;}
+.text-left{text-align: left;}
+.text-right{text-align: right;}
+.center{margin:0 auto;}
+.padding-xl{padding: 28px;}
+.padding-l{padding: 24px;}
+.padding-m{padding: 20px;}
+.padding-s{padding: 16px;}
+.padding-xs{padding: 12px;}
+.margin-xl{margin: 28px;}
+.margin-l{margin: 24px;}
+.margin-m{margin: 20px;}
+.margin-s{margin: 16px;}
+.margin-xs{margin: 12px;}
+.margin-topbottom-xl{margin-top: 28px; margin-bottom: 28px;}
+.margin-topbottom-l{margin-top: 24px; margin-bottom: 24px;}
+.margin-topbottom-m{margin-top: 20px; margin-bottom: 20px;}
+.margin-topbottom-s{margin-top: 16px; margin-bottom: 16px;}
+.margin-topbottom-xs{margin-top: 12px; margin-bottom: 12px;}
+.fontsize-s{font-size:14px;}
+/*#wrapper{ padding-bottom: 80px;  min-height:100%; position:relative;}*/
+
+/* 3.0 HEADER
+------------------------------------------ */
+#header{background:#C5EFF7;}

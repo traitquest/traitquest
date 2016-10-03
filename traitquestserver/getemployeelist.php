@@ -18,7 +18,7 @@
 								 WHERE companyid = :companyid
 								 ORDER BY name ASC";
 			$employeePDO = $conn->prepare($checkSQL);
-			$employeePDO->bindParam(':companyid', $companyID, PDO::PARAM_STR);
+			$employeePDO->bindParam(':companyid', $companyID, PDO::PARAM_INT);
 			$employeePDO->execute();
 			
 			if($employeePDO->rowCount() > 0){

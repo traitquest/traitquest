@@ -1,37 +1,34 @@
 // JavaScript Document
 $(document).ready(function(){
 	var working = false;
-	//$("#name").focus();
+	$("#companyName").focus();
 	
-	$('#formRegister').submit(function(event){
+	$('#formEmployeeLogin').submit(function(event){
 		event.preventDefault();
 		
 		//to prevent multiple submission when multiple click on submit button
 		if (working) return false;
 		working = true;
 		
-		//clearing messages and errors
+		//clearing messages and errors	
 		$('.columnError').remove();
-        $('.registerSuccess').remove();
-        $('.registerError').remove();
+        $('.loginError').remove();
 		$('.inputForm').each(function(){
             $(this).removeClass('error');
         });
-				
+		
 		//get the form data
 		var formData= {
-			'company'				    :$('input[name=company]').val(),
-			'name'						:$('input[name=name]').val(),
-			'email'						:$('input[name=email]').val(),
-			'phone'						:$('input[name=phonenumber]').val(),
-			'address'					:$('input[name=address]').val()
+			'name'				    :$('input[name=company]').val(),
+			'email'					:$('input[name=email]').val(),
+			'phone'					:$('input[name=phone]').val()
 		};
-		console.log(formData);
+		//console.log(formData);
 		
 		//process the form
 		$.ajax({
 			type		:'POST', 	//define the type of HTTP verb we want to use
-			url			:'../traitquestserver/registerprocess.php',		//the url where we want to POST
+			url			:'../traitquestserver/ohsemloginprocess.php',		//the url where we want to POST
 			data		: formData,		//our data object
 			dataType	:'json',		//what type of data do we expect back from the server
 			encode		:true
@@ -41,32 +38,30 @@ $(document).ready(function(){
 		.done(function(data){
 			working = false;
 			//here we will handle errors and validation messages
-			if(!data['userLoggedIn'])
+			if(!data['loggedIn'])
 			{	
-				$('input[name=password]').val('');
 				//check if it has errors
-                if(data['registered']){
-                    //$('#registerResponse').append('<div class="registerSuccess">' + data['message'] + '</div>');
-                    $('#formRegister')[0].reset();
-					if(data['redirect']){
-						 window.location.href = data['redirect'];
-					}
+                if(data['login']){
+					$('#formEmployeeLogin')[0].reset();
+					
+					// redirect to home page when user is logged in
+					window.location.href = "home";
                 }
                 else{
                     if(data['name']){
-                        $('#columnName').find('.inputForm').addClass('error');
-                        $('#columnName').append('<div class="columnError text-center softred">' + data['name'] + '</div>');
+                        $('#columnCompany').find('.inputForm').addClass('error');
+                        $('#columnCompany').append('<div class="columnError text-center softred">' + data['name'] + '</div>');
                     }
                     if(data['email']){
                         $('#columnEmail').find('.inputForm').addClass('error');
                         $('#columnEmail').append('<div class="columnError text-center softred">' + data['email'] + '</div>');
                     }
 					if(data['phone']){
-                        $('#columnPhoneNumber').find('.inputForm').addClass('error');
-                        $('#columnPhoneNumber').append('<div class="columnError text-center softred">' + data['phone'] + '</div>');
+                        $('#columnPhone').find('.inputForm').addClass('error');
+                        $('#columnPhone').append('<div class="columnError text-center softred">' + data['phone'] + '</div>');
                     }
                     if(data['error']){
-                        $('#registerResponse').append('<div class="registerError text-center softred">' + data['error'] + '</div>');
+                        $('#loginResponse').append('<div class="loginError text-center softred">' + data['error'] + '</div>');
                     }
                 }
 			}

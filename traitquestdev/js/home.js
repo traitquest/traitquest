@@ -21,29 +21,29 @@ $(document).ready(function(){
 					var html;
 					if(data['result'][i]['kpi']['type'] == 'photo'){
 						if(data['result'][i]['kpi']['iscompleted']==1){
-							html = '<div class="kpiRow"><div class="kpiData"><a href="kpi?id='+data['result'][i]['kpi']['id']+'">Take Photos</a></div>'
-									+ '<div class="completeContainer">' 
-									+ 'Complete'
+							html = '<div class="kpiRow margin-topbottom-xs col-sm-6 col-xs-12"><div class="kpiData col-xs-10 text-center"><a class="col-xs-12 button" href="kpi?id='+data['result'][i]['kpi']['id']+'">Take Photos</a></div>'
+									+ '<div class="completeContainer col-xs-2">' 
+									+ '<img class="completedIcon" src="images/checked.png" />'
 									+ '</div></div>';
 						}
 						else{
-							html = '<div class="kpiRow"><div class="kpiData"><a href="kpi?id='+data['result'][i]['kpi']['id']+'">Take Photos</a></div>'
-									+ '<div class="completeContainer">' 
-									+ 'Incomplete'
+							html = '<div class="kpiRow margin-topbottom-xs col-sm-6 col-xs-12"><div class="kpiData col-xs-10 text-center"><a class="col-xs-12 button" href="kpi?id='+data['result'][i]['kpi']['id']+'">Take Photos</a></div>'
+									+ '<div class="completeContainer col-xs-2">' 
+									+ '<img class="completedIcon" src="images/unchecked.png" />'
 									+ '</div></div>';
 						}
 					}
 					else if(data['result'][i]['kpi']['type'] == 'quiz'){
 						if(data['result'][i]['kpi']['iscompleted']==1){
-							html = '<div class="kpiRow"><div class="kpiData"><a href="kpi?id='+data['result'][i]['kpi']['id']+'">Quiz</a></div>'
-									+ '<div class="completeContainer">' 
-									+ 'Complete'
+							html = '<div class="kpiRow margin-topbottom-xs col-sm-6 col-xs-12"><div class="kpiData col-xs-10 text-center"><a class="col-xs-12 button" href="kpi?id='+data['result'][i]['kpi']['id']+'">Quiz</a></div>'
+									+ '<div class="completeContainer col-xs-2">' 
+									+ '<img class="completedIcon" src="images/checked.png" />'
 									+ '</div></div>';
 						}
 						else{
-							html = '<div class="kpiRow"><div class="kpiData"><a href="kpi?id='+data['result'][i]['kpi']['id']+'">Quiz</a></div>'
-									+ '<div class="completeContainer">' 
-									+ 'Incomplete'
+							html = '<div class="kpiRow margin-topbottom-xs col-sm-6 col-xs-12"><div class="kpiData col-xs-10 text-center"><a class="col-xs-12 button" href="kpi?id='+data['result'][i]['kpi']['id']+'">Quiz</a></div>'
+									+ '<div class="completeContainer col-xs-2">' 
+									+ '<img class="completedIcon" src="images/unchecked.png" />'
 									+ '</div></div>';
 						}
 					}

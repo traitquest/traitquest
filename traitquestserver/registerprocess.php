@@ -12,9 +12,12 @@
 		
 		if (!isset($_SESSION['userID'])){// if user is logged out
 			$data['userLoggedIn'] = false;
+			$address='';
 			if (isset($_POST['company']))				            $company	= trim($_POST ['company']);
 			if (isset($_POST['name']))				                $name		= trim($_POST ['name']);
 			if (isset($_POST['email']))			                    $email 		= trim($_POST ['email']);
+			if (isset($_POST['phone']))			                    $phone 		= trim($_POST ['phone']);			
+			if (isset($_POST['address']))		                    $address 		= trim($_POST ['address']);
 			//if (isset($_POST['password']))			                $password 		= $_POST ['password'];
 																	
 
@@ -24,6 +27,10 @@
 			}
 			if (!preg_match("/^[[:alnum:]][a-z0-9_.-]*@[a-z0-9.-]+\.[a-z]{2,4}$/i", trim($_POST['email']))){
 				$data['email'] = "You have entered an invalid email address";
+				$validated = false;
+			}
+			if (!trim($_POST['phone'])){
+				$data['phone'] = "Enter your phone number";
 				$validated = false;
 			}
 			/*if(strlen($password) >20 || strlen($password)<8){
@@ -66,14 +73,16 @@
 						$password = md5($randomPassword);// to replace hardcoded string with randomPassword() in release version
 						
 						// insert the user into the event
-						$sql = "INSERT INTO `employee` (companyid, name, email, password) 
-														VALUES (:companyid, :name, :email, :password);";
+						$sql = "INSERT INTO `employee` (companyid, name, email, password, phone, address) 
+														VALUES (:companyid, :name, :email, :password, :phone, :address);";
 						$q = $conn->prepare($sql);
 						$q->execute(array(
 									':companyid'=> $companyID,
 									':name'=> $name,
 									':email'=> $email,
-									':password'=> $password
+									':password'=> $password,
+									':phone'=> $phone,
+									':address'=> $address
 									));
 						$lastEmployeeID = $conn->lastInsertId();
 						
@@ -190,7 +199,9 @@
 
 						mail($emailTo, $alternativeHeaders, $alternativeBody, $alternativeHeaders);*/
 						$data['registered'] = true;
-						$data['message'] = "Your password will be sent to your email address shortly.";				
+						$urlParam = "cid=".$companyID."&id=".$lastEmployeeID."&code=".$password;
+						$data['redirect'] = "verify?".$urlParam;
+						//$data['message'] = "Your password will be sent to your email address shortly.";				
 					}
 					else{
 						$data['registered'] = false;

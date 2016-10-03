@@ -31,17 +31,20 @@ $(document).ready(function(){
 		if(data['userLoggedIn'])
 		{	
 			if(data['return']){
-				var html;
+				var descriptionhtml;
+				var descriptiontarget =  $('#kpiDescription');
                 if(data['kpi']['type'] == 'photo'){
+					descriptionhtml = '<h2 class="text-center">Taking Photos</h2><h5 class="text-center">This is like a treasure hunt game! Go around the hall and take the following pictures with your mobile phone, tap on each picture when completed and show the pictures at our booth.</h5>';
+					descriptiontarget.append(descriptionhtml);
+				
 					getKPIPhoto( data['kpi']['phototemplateid'] );
 				}
 				else if(data['kpi']['type'] == 'quiz'){
+					descriptionhtml = '<h2 class="text-center">Quiz</h2><h5 class="text-center">Exercise your brain. Answer as many questions correctly as possible.</h5>';
+					descriptiontarget.append(descriptionhtml);
 					$("#kpiQuizContainer").show();
 					//html = '<iframe id="kpiQuiz" src="https://docs.google.com/forms/d/e/1FAIpQLSfufMiybUS3ho6Uv8rqujN4qnvd1c2Wxp6wRshuIKBaTeut_w/viewform?embedded=true"  onload="submitQuiz()" width="760" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>';			
 				}
-				
-				var target = $('#kpiContainer');
-				target.append(html);
 				
 				if(data['kpi']['iscompleted'] == 1){
 					$('#completedPopUp').modal('show');
@@ -82,12 +85,12 @@ $(document).ready(function(){
 			//here we will handle errors and validation messages
 			if(data['return'])
 			{	
-				var html = '<div class="photoContainer" id="photoKPI1"><img class="image" src="' + data['result']['link1'] + '" /><img class="checked" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Checkmark_green.svg/2000px-Checkmark_green.svg.png" /></div>'
-							+ '<div class="photoContainer" id="photoKPI2"><img class="image" src="' + data['result']['link2'] + '" /><img class="checked" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Checkmark_green.svg/2000px-Checkmark_green.svg.png" /></div>'
-							+ '<div class="photoContainer" id="photoKPI3"><img class="image" src="' + data['result']['link3'] + '" /><img class="checked" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Checkmark_green.svg/2000px-Checkmark_green.svg.png" /></div>'
-							+ '<div class="photoContainer" id="photoKPI4"><img class="image" src="' + data['result']['link4'] + '" /><img class="checked" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Checkmark_green.svg/2000px-Checkmark_green.svg.png" /></div>'
-							+ '<div class="photoContainer" id="photoKPI5"><img class="image" src="' + data['result']['link5'] + '" /><img class="checked" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Checkmark_green.svg/2000px-Checkmark_green.svg.png" /></div>'
-							+ '<div class="photoContainer" id="photoKPI6"><img class="image" src="' + data['result']['link6'] + '" /><img class="checked" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Checkmark_green.svg/2000px-Checkmark_green.svg.png" /></div>';
+				var html = '<div class="photoContainer margin-topbottom-s col-lg-4 col-md-4 col-sm-6 col-xs-12" id="photoKPI1"><img class="image" src="' + data['result']['link1'] + '" /><img class="checked" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Checkmark_green.svg/2000px-Checkmark_green.svg.png" /></div>'
+							+ '<div class="photoContainer margin-topbottom-s col-lg-4 col-md-4 col-sm-6 col-xs-12" id="photoKPI2"><img class="image" src="' + data['result']['link2'] + '" /><img class="checked" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Checkmark_green.svg/2000px-Checkmark_green.svg.png" /></div>'
+							+ '<div class="photoContainer margin-topbottom-s col-lg-4 col-md-4 col-sm-6 col-xs-12" id="photoKPI3"><img class="image" src="' + data['result']['link3'] + '" /><img class="checked" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Checkmark_green.svg/2000px-Checkmark_green.svg.png" /></div>'
+							+ '<div class="photoContainer margin-topbottom-s col-lg-4 col-md-4 col-sm-6 col-xs-12" id="photoKPI4"><img class="image" src="' + data['result']['link4'] + '" /><img class="checked" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Checkmark_green.svg/2000px-Checkmark_green.svg.png" /></div>'
+							+ '<div class="photoContainer margin-topbottom-s col-lg-4 col-md-4 col-sm-6 col-xs-12" id="photoKPI5"><img class="image" src="' + data['result']['link5'] + '" /><img class="checked" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Checkmark_green.svg/2000px-Checkmark_green.svg.png" /></div>'
+							+ '<div class="photoContainer margin-topbottom-s col-lg-4 col-md-4 col-sm-6 col-xs-12" id="photoKPI6"><img class="image" src="' + data['result']['link6'] + '" /><img class="checked" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Checkmark_green.svg/2000px-Checkmark_green.svg.png" /></div>';
 				
 				var target = $('#kpiContainer');
 				target.append(html);
@@ -120,9 +123,10 @@ $(document).ready(function(){
 		});
 		
 		if( score == total ){
-			var html = '<button id="submitKPIPhoto">Submit</button>';
+			var html = '<button id="submitKPIPhoto" class="button center margin-topbottom-xs">Submit</button>';
 			var target = $('#kpiSubmission');
 			target.append(html);
+			$('html, body').animate({ scrollTop: $('#kpiSubmission').offset().top }, 'slow');
 		}
 		else{
 			$('#submitKPIPhoto').remove();

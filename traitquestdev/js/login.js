@@ -51,14 +51,14 @@ $(document).ready(function(){
                 else{
                     if(data['name']){
                         $('#columnCompany').find('.inputForm').addClass('error');
-                        $('#columnCompany').append('<div class="columnError">' + data['name'] + '</div>');
+                        $('#columnCompany').append('<div class="columnError softred">' + data['name'] + '</div>');
                     }
                     if(data['email']){
                         $('#columnEmail').find('.inputForm').addClass('error');
-                        $('#columnEmail').append('<div class="columnError">' + data['email'] + '</div>');
+                        $('#columnEmail').append('<div class="columnError softred">' + data['email'] + '</div>');
                     }
                     if(data['error']){
-                        $('#loginResponse').append('<div class="loginError">' + data['error'] + '</div>');
+                        $('#loginResponse').append('<div class="loginError softred">' + data['error'] + '</div>');
                     }
                 }
 			}

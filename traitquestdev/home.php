@@ -12,7 +12,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>TraitQuest</title>
+<title>Ohsem Quest</title>
+<link rel="shortcut icon" href="images/icon.ico">
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+					CSS
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+<link rel="stylesheet" type="text/css" href="css/color.css"/>
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+<link rel="stylesheet" type="text/css" href="css/home.css"/>
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 					JAVASCRIPT
@@ -21,16 +29,15 @@
 <script type="text/javascript" src="js/home.js"></script>
 
 <body>
-	<div>
-		<p>Welcome, <?php echo $_SESSION['name']; ?>!</p>
-		<p>My Profile</p>
+<div id="wrapper">
+	<?php include "header.php" ;?>
+	<div id="kpiContainer" class="padding-m">
+		<h2 class="text-center">Welcome to Ohsem Quest!</h2>
+		<div class="container">
+			<h4 class="text-center">Complete the two tasks below and stand a chance to win 'Ohsem' prizes!</h4>
+		</div>
+		<div id="kpiList" class="container"></div>
 	</div>
-	<div>
-		<a href="changepassword">Change Password</a>
-	</div>
-	<div id="kpiContainer">
-		<h2>Pick Your KPI</h2>
-		<div id="kpiList"></div>
-	</div>
-	
+</div><!-- wrapper -->	
 </body>
+</html>

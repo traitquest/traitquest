@@ -14,11 +14,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>KPI</title
+<title>KPI</title>
+<link rel="shortcut icon" href="images/icon.ico">
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 						CSS
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+<link rel="stylesheet" type="text/css" href="css/color.css"/>
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+<link rel="stylesheet" type="text/css" href="css/kpi.css"/>
+
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 					JAVASCRIPT
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -26,47 +31,24 @@
 <script type="text/javascript" src="js/bootstrap.js"></script>
 <script type="text/javascript" src="js/kpi.js"></script>
 
-<style>
-.photoContainer {
-	margin: 25px;
-	width: 200px;
-	height: 200px;
-	display: inline-block;
-	position: relative;
-}
-.image{
-	width: 200px;
-	height: 200px;
-}
-.checked{
-	width: 100px; 
-	height: 100px;
-	top: 25%;
-	left: 25%;
-	position: absolute;
-	visibility: hidden;
-}
-.completed .checked{
-	visibility: visible;
-}
-</style>
-
 <body>
-	<div>
-		<p>Welcome, <?php echo $_SESSION['name']; ?>!</p>
-	</div>
-	<div id="kpiContainer">
+<div id="wrapper">	
+	<?php include "header.php" ;?>
+	<div id="kpiContainer" class="container">
+		<div id="kpiDescription"></div>
 		<div id="kpiQuizContainer" hidden>
-			<iframe id="kpiQuiz" src="https://docs.google.com/forms/d/e/1FAIpQLSfufMiybUS3ho6Uv8rqujN4qnvd1c2Wxp6wRshuIKBaTeut_w/viewform?embedded=true" width="760" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+			<iframe id="kpiQuiz" class="col-xs-12" src="https://docs.google.com/forms/d/e/1FAIpQLSfLmbaA3df_z71TowGJjVu8gkp2ZWRkpDaY85sAJf-pVmseaA/viewform?embedded=true" frameborder="0">Loading...</iframe>
 		</div>
 	</div>
-	<div id="kpiSubmission"></div>
+	<div id="kpiSubmission" class="margin-topbottom-s"></div>
 	<div id="completedPopUp" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
 	    <div class="modal-dialog modal-sm" role="document">
-			<div class="modal-content">
-			  <img src="http://viddyoze.com/club-final/images/badge.png" />
-			  <input type="submit" id="completedButton" value="Next" />
+			<div class="modal-content padding-s">
+			  <img id="completedBadge" src="http://viddyoze.com/club-final/images/badge.png" />
+			  <p class="text-center margin-topbottom-s fontsize-s">Congratulations! You have completed the task!</p>
+			  <input type="submit" id="completedButton" class="button margin-topbottom-xs" value="Next" />
 			</div>
 	    </div>
-	</div>	
+	</div>
+</div>
 </body>

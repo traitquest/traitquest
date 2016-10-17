@@ -12,6 +12,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="title" content="Traitquest">
 <meta name="description" content="Traitquest Admin Login">
 <meta name="keywords" content="Traitquest, Admin, Login">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -35,21 +36,29 @@
 <div id="wrapper">
 	<?php include "header.php"; ?>
 	<div id="mainContainer" class="container">
-		<h1 class="text-center">Admin Login</h1>
-		<form id="formCompanyLogin" class="form" method="post">
+		<h1 class="text-center" hidden>Admin Login</h1>
+		<form id="formCompanyLogin" class="form padding-topbottom-s" method="post">
 			<div id="columnCompany" class="columnInput">
-				<input type="text" name="company" id="companyName" class="inputForm margin-align-center" placeholder="Company Name" />
+				<div class="icon-addon">
+					<input type="text" name="company" id="companyName" class="inputForm padding-left30px" placeholder="Company" />
+					<i class="glyphicon glyphicon-briefcase"></i>
+				</div>
 			</div>
 			<div id="columnEmail" class="columnInput">
-				<input type="text" name="email" id="email" class="inputForm margin-align-center" placeholder="Email" />
+				<div class="icon-addon">
+					<input type="text" name="email" id="email" class="inputForm padding-left30px" placeholder="Email" />
+					<i class="glyphicon glyphicon-envelope"></i>
+				</div>
 			</div>
 			<div id="columnPassword" class="columnInput">
-				<input type="password" name="password" id="password" class="inputForm margin-align-center" placeholder="Password" />
+				<div class="icon-addon">
+					<input type="password" name="password" id="password" class="inputForm padding-left30px" placeholder="Password" />
+					<i class="glyphicon glyphicon-lock"></i>
+				</div>
 			</div>
 			<div id="loginResponse"></div>
-			<input type="submit" name="submit" id="loginSubmit" class="buttonForm button margin-align-center" value="Login" />
-		</form>	
+			<input type="submit" name="submit" id="loginSubmit" class="buttonForm button" value="Login As Admin" />
+		</form>
 	</div>
-	<?php include "footer.php" ?>
 </body>
 </html>

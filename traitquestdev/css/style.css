@@ -28,7 +28,7 @@ textarea{resize:none;}
 .clear:after {clear: both;content: "";display: table;}
 .inputForm{width: 200px; padding:8px; display:block; margin: 0 auto;}
 .columnInput{margin-bottom: 5px;}
-.button{padding-top: 8px; padding-bottom: 8px; border: none;color:white; background-color: #2ECC71; cursor: pointer;transition: all 0.5s ease;-moz-transition: all 0.5s ease;-webkit-transition: all 0.5s ease;-o-transition: all 0.5s ease;-ms-transition: all 0.5s ease;}
+.button{padding-top: 8px; padding-bottom: 8px; border: none;color:white; background-color: #4970B5; cursor: pointer;transition: all 0.5s ease;-moz-transition: all 0.5s ease;-webkit-transition: all 0.5s ease;-o-transition: all 0.5s ease;-ms-transition: all 0.5s ease;}
 .button:hover{color: white; background-color: #70D49A;}
 .button:active{color: white; background-color: #2ECC71;}
 .buttonForm{width: 200px; display:block; margin: 0 auto;}
@@ -67,11 +67,15 @@ textarea{resize:none;}
 .no-list-style{list-style-type:none;}
 .display-block{display:block;}
 .display-inlineblock{display:inline-block;}
+.icon-addon{width:200px;position:relative;margin:0 auto;}
+.icon-addon .glyphicon{position:absolute;padding:10px;}
+.padding-left30px{padding-left:30px;}
+
 /*#wrapper{ padding-bottom: 80px;  min-height:100%; position:relative;}*/
 
 /* 3.0 HEADER
 ------------------------------------------ */
-#header{background:#C5EFF7;}
+#header{background:#ADEAFF;}
 
 /* 4.0 FOOTER
 ------------------------------------------ */

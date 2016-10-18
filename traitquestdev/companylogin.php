@@ -12,9 +12,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="title" content="Traitquest">
-<meta name="description" content="Traitquest Admin Login">
-<meta name="keywords" content="Traitquest, Admin, Login">
+<meta name="title" content="TraitQuest">
+<meta name="description" content="TraitQuest Admin Login">
+<meta name="keywords" content="TraitQuest, Admin, Login">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Admin Login</title>
 
@@ -36,7 +36,6 @@
 <div id="wrapper">
 	<?php include "header.php"; ?>
 	<div id="mainContainer" class="container">
-		<h1 class="text-center" hidden>Admin Login</h1>
 		<form id="formCompanyLogin" class="form padding-topbottom-s" method="post">
 			<div id="columnCompany" class="columnInput">
 				<div class="icon-addon">
@@ -60,5 +59,6 @@
 			<input type="submit" name="submit" id="loginSubmit" class="buttonForm button" value="Login As Admin" />
 		</form>
 	</div>
+	<?php include "footer.php" ?>
 </body>
 </html>

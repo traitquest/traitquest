@@ -46,30 +46,30 @@ $(document).ready(function(){
 					$('#formCompanyLogin')[0].reset();
 					
 					// redirect to home page when user is logged in
-					window.location.href = "admin";
+					window.location.href = "admin.php";
                 }
                 else{
                     if(data['name']){
                         $('#columnCompany').find('.inputForm').addClass('error');
-                        $('#columnCompany').append('<div class="columnError">' + data['name'] + '</div>');
+                        $('#columnCompany').append('<div class="columnError text-center red fontsize-xs">' + data['name'] + '</div>');
                     }
                     if(data['email']){
                         $('#columnEmail').find('.inputForm').addClass('error');
-                        $('#columnEmail').append('<div class="columnError">' + data['email'] + '</div>');
+                        $('#columnEmail').append('<div class="columnError text-center red fontsize-xs">' + data['email'] + '</div>');
                     }
                     if(data['error']){
-                        $('#loginResponse').append('<div class="loginError">' + data['error'] + '</div>');
+                        $('#loginResponse').append('<div class="loginError text-center red fontsize-xs">' + data['error'] + '</div>');
                     }
                 }
 			}
 			else{
 				// redirect to home page when user is logged in
-                window.location.href = "admin";
+                window.location.href = "admin.php";
 			}
 		})
 		//using the fail promise callback
 		.fail(function(data){
-            window.location.href = "500";
+            window.location.href = "500.php";
 		});
 		
 	});

@@ -26,7 +26,7 @@ $(document).ready(function(){
 			'phone'						:$('input[name=phonenumber]').val(),
 			'address'					:$("#address").val()
 		};
-		console.log(formData);
+		//console.log(formData);
 		
 		//process the form
 		$.ajax({

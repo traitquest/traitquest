@@ -17,8 +17,9 @@
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 					CSS
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-<link rel="stylesheet" type="text/css" href="css/global.css"/>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
 <link rel="stylesheet" type="text/css" href="css/color.css"/>
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 					JAVASCRIPT
@@ -31,8 +32,8 @@
 <body class="top-down-logoblue-logogreen-grad">
 	<h1 class="text-align-center white">Login</h1>
 	<form id="formEmployeeLogin" class="form" method="post">
-		<div id="columnCompany" hidden>
-			<input type="text" name="company" id="companyName" class="inputForm" value="Ohsem Quest" />
+		<div id="columnCompany">
+			<input type="text" name="company" id="companyName" class="inputForm" placeholder="Company" />
 		</div>
 		<div id="columnEmail">
 			<input type="text" name="email" id="email" class="inputForm" placeholder="Email" />

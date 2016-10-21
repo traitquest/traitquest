@@ -1,5 +1,5 @@
 <?php
-	include "connection.php";
+	include "../../traitquestserver/connection.php";
 
 	session_start();
 	$data = array();		// array to pass back data

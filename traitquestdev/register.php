@@ -13,6 +13,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="title" content="TraitQuest">
+<meta name="description" content="TraitQuest Register">
+<meta name="keywords" content="TraitQuest, Register">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Registration</title>
 <link rel="shortcut icon" href="images/icon.ico">
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -21,7 +25,6 @@
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
 <link rel="stylesheet" type="text/css" href="css/color.css"/>
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
-<link rel="stylesheet" type="text/css" href="css/ohsem.css"/>
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 					JAVASCRIPT
@@ -35,26 +38,43 @@
 <div id="wrapper">
 	<?php include "header.php"; ?>
 	<div id="mainContainer" class="container">
-		<h2 class="text-center">Register For Free</h2>
+		<h1 class="text-center">Join Now For FREE!</h1>
 		<form id="formRegister" class="form" method="post">
 			<div id="columnCompany" class="columnInput" hidden>
 				<input type="text" name="company" id="company" class="inputForm" value="Ohsem Quest" />
 			</div>
 			<div id="columnName" class="columnInput">
-				<input type="text" name="name" id="name" class="inputForm" placeholder="Name" />
+				<div class="icon-addon">
+					<input type="text" name="company" id="companyName" class="inputForm padding-left30px" placeholder="Company" />
+					<i class="glyphicon glyphicon-briefcase"></i>
+				</div>
 			</div>
 			<div id="columnEmail" class="columnInput">
-				<input type="text" name="email" id="email" class="inputForm" placeholder="Email" />
+				<div class="icon-addon">
+					<input type="text" name="email" id="email" class="inputForm padding-left30px" placeholder="Email" />
+					<i class="glyphicon glyphicon-envelope"></i>
+				</div>
 			</div>
 			<div id="columnPhoneNumber" class="columnInput">
-				<input type="number" name="phonenumber" id="phonenumber" class="inputForm" placeholder="Phone Number" />
+				<div class="icon-addon">
+					<input type="number" name="phonenumber" id="phonenumber" class="inputForm padding-left30px" placeholder="Phone" />
+					<i class="glyphicon glyphicon-earphone"></i>
+				</div>
 			</div>
 			<div id="columnAddress" class="columnInput">
-				<input type="text" name="address" id="address" class="inputForm" placeholder="Company (Optional)" />
+				<div class="icon-addon inputAddress">
+					<textarea type="text" name="address" id="address" class="inputForm padding-left30px inputAddress" rows="4" placeholder="Address"></textarea>
+					<i class="glyphicon glyphicon-home"></i>
+				</div>
 			</div>
 			<div id="registerResponse"></div>
 			<input type="submit" name="submit" id="registerSubmit" class="buttonForm button" value="Register" />
 		</form>
+		<div class="inputForm">
+			<p>By clicking Register, you agree to our <a href="#" class="linkblue">Terms of Use</a> and <a href="#" class="linkblue">Privacy Policy</a></p>
+			<p>Free license is only valid for one(1) month and up to five(5) employees</p>
+		</div>
 	</div><!-- mainContainer -->
+	<?php include "footer.php" ?>
 </body>
 </html>

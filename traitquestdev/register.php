@@ -40,9 +40,6 @@
 	<div id="mainContainer" class="container">
 		<h1 class="text-center">Join Now For FREE!</h1>
 		<form id="formRegister" class="form" method="post">
-			<div id="columnCompany" class="columnInput" hidden>
-				<input type="text" name="company" id="company" class="inputForm" value="Ohsem Quest" />
-			</div>
 			<div id="columnName" class="columnInput">
 				<div class="icon-addon">
 					<input type="text" name="company" id="companyName" class="inputForm padding-left30px" placeholder="Company" />
@@ -71,8 +68,8 @@
 			<input type="submit" name="submit" id="registerSubmit" class="buttonForm button" value="Register" />
 		</form>
 		<div class="inputForm">
-			<p>By clicking Register, you agree to our <a href="#" class="linkblue">Terms of Use</a> and <a href="#" class="linkblue">Privacy Policy</a></p>
-			<p>Free license is only valid for one(1) month and up to five(5) employees</p>
+			<p class="fontsize-xs">By clicking Register, you agree to our <a href="#" class="blue">Terms of Use</a> and <a href="#" class="blue">Privacy Policy</a></p>
+			<p class="fontsize-xs">Free license is only valid for one(1) month and up to five(5) employees</p>
 		</div>
 	</div><!-- mainContainer -->
 	<?php include "footer.php" ?>

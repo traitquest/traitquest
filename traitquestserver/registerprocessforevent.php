@@ -37,7 +37,7 @@
 				$data['password'] = "Password must be between 8 and 20 characters";
 				$validated = false;				
 			}
-			else if(!preg_match('/^(?=.*\d)(?=.*[@#\-_$%^&+=§!\?])(?=.*[a-z])(?=.*[A-Z])[0-9A-Za-z@#\-_$%^&+=§!\?]{8,20}$/', $password)){
+			else if(!preg_match('/^(?=.*\d)(?=.*[@#\-_$%^&+=ยง!\?])(?=.*[a-z])(?=.*[A-Z])[0-9A-Za-z@#\-_$%^&+=ยง!\?]{8,20}$/', $password)){
 				$data['password'] = "Password must contain number, lowercase, uppercase and special character";
 				$validated = false;	
 			}*/

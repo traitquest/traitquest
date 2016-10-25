@@ -16,7 +16,8 @@
 <meta name="description" content="TraitQuest Admin Login">
 <meta name="keywords" content="TraitQuest, Admin, Login">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Admin Login</title>
+<title>Login</title>
+<link rel="shortcut icon" href="images/icon.ico">
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 					CSS

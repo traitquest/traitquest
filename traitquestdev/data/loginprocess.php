@@ -1,5 +1,5 @@
 <?php
-	include "connection.php";
+	include "../../traitquestserver/connection.php";
 
 	session_start();
 	$data = array();		// array to pass back data
@@ -21,7 +21,7 @@
 				$validated = false;
 			}
 			if (!preg_match("/^[[:alnum:]][a-z0-9_.-]*@[a-z0-9.-]+\.[a-z]{2,4}$/i", trim($_POST['email']))){
-				$data['email'] = "You have entered an invalid email address";
+				$data['email'] = "Enter a valid email address";
 				$validated = false;
 			}
 
@@ -52,14 +52,23 @@
 						if(!$userResult['isresigned']){
 							// check if the password is correct
 							if(md5($password) == $userResult['password']){
-														
-								// INPUT CODE HERE TO STORE USER DATA IN SESSION
-								$_SESSION['companyID'] = $userResult['companyid'];
-								$_SESSION['userID'] = $userResult['id'];
-								$_SESSION['name'] = $userResult['name'];
-								$_SESSION['logintype'] = "employee";
 								
-								$data['login'] = true;							
+								// check if the company license still valid
+								$today = date ('Y-m-d');
+								if( strtotime($today) <= strtotime($companyResult['expirydate']) ){
+														
+									// INPUT CODE HERE TO STORE USER DATA IN SESSION
+									$_SESSION['companyID'] = $userResult['companyid'];
+									$_SESSION['userID'] = $userResult['id'];
+									$_SESSION['name'] = $userResult['name'];
+									$_SESSION['logintype'] = "employee";
+									
+									$data['login'] = true;	
+								}
+								else{
+									$data['error'] = "License expired. Please notify your admin.";
+									$data['login'] = false;	
+								}
 							}
 							else{
 								$data['error'] = "Wrong password";
@@ -78,8 +87,7 @@
 					}
 				}
 				else{
-					$data['error'] = "Invalid email address"; // For Ohsem
-					//$data['error'] = "Invalid company name and email";
+					$data['error'] = "Invalid company name and email";
 					$data['login'] = false;
 				}
 			}

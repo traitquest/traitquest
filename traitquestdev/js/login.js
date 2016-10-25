@@ -28,7 +28,7 @@ $(document).ready(function(){
 		//process the form
 		$.ajax({
 			type		:'POST', 	//define the type of HTTP verb we want to use
-			url			:'../traitquestserver/loginprocess.php',		//the url where we want to POST
+			url			:'data/loginprocess.php',		//the url where we want to POST
 			data		: formData,		//our data object
 			dataType	:'json',		//what type of data do we expect back from the server
 			encode		:true
@@ -51,25 +51,25 @@ $(document).ready(function(){
                 else{
                     if(data['name']){
                         $('#columnCompany').find('.inputForm').addClass('error');
-                        $('#columnCompany').append('<div class="columnError softred">' + data['name'] + '</div>');
+                        $('#columnCompany').append('<div class="columnError text-center red fontsize-xs">' + data['name'] + '</div>');
                     }
                     if(data['email']){
                         $('#columnEmail').find('.inputForm').addClass('error');
-                        $('#columnEmail').append('<div class="columnError softred">' + data['email'] + '</div>');
+                        $('#columnEmail').append('<div class="columnError text-center red fontsize-xs">' + data['email'] + '</div>');
                     }
                     if(data['error']){
-                        $('#loginResponse').append('<div class="loginError softred">' + data['error'] + '</div>');
+                        $('#loginResponse').append('<div class="loginError text-center red fontsize-xs">' + data['error'] + '</div>');
                     }
                 }
 			}
 			else{
 				// redirect to home page when user is logged in
-                window.location.href = "home";
+                window.location.href = "home.php";
 			}
 		})
 		//using the fail promise callback
 		.fail(function(data){
-            window.location.href = "500";
+            window.location.href = "500.php";
 		});
 		
 	});

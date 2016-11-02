@@ -2,7 +2,7 @@
 $(document).ready(function(){
 	var working = false;
 	$("#companyName").focus();
-	
+
 	$('#formCompanyLogin').submit(function(event){
 		event.preventDefault();
 		
@@ -36,7 +36,7 @@ $(document).ready(function(){
 		
 		//using the done promise callback
 		.done(function(data){
-			working = false;
+			working = false;	
 			//here we will handle errors and validation messages
 			if(!data['companyLoggedIn'])
 			{	

@@ -41,37 +41,31 @@ $(document).ready(function(){
 		.done(function(data){
 			working = false;
 			//here we will handle errors and validation messages
-			if(!data['loggedIn'])
-			{	
-				$('input[name=password]').val('');
-				//check if it has errors
-                if(data['sentMessage']){
-					$('#formContact')[0].reset();
-					
-					if(data['response']){
-                        $('#contactResponse').append('<div class="columnMessageSuccess text-center green fontsize-xs">' + data['response'] + '</div>');
-                    }
-                }
-                else{
-                    if(data['name']){
-                        $('#columnContactName').find('.inputMessageForm').addClass('error');
-                        $('#columnContactName').append('<div class="columnMessageError text-center red fontsize-xs">' + data['name'] + '</div>');
-                    }
-                    if(data['email']){
-                        $('#columnContactEmail').find('.inputMessageForm').addClass('error');
-                        $('#columnContactEmail').append('<div class="columnMessageError text-center red fontsize-xs">' + data['email'] + '</div>');
-                    }
-					if(data['message']){
-                        $('#columnMessage').find('.inputMessageForm').addClass('error');
-                        $('#columnMessage').append('<div class="columnMessageError text-center red fontsize-xs">' + data['message'] + '</div>');
-                    }
-                    
-                }
+
+			//check if it has errors
+			if(data['sentMessage']){
+				$('#formContact')[0].reset();
+				
+				if(data['response']){
+					$('#contactResponse').append('<div class="columnMessageSuccess text-center green fontsize-xs">' + data['response'] + '</div>');
+				}
 			}
 			else{
-				// redirect to home page when user is logged in
-                window.location.href = "home.php";
+				if(data['name']){
+					$('#columnContactName').find('.inputMessageForm').addClass('error');
+					$('#columnContactName').append('<div class="columnMessageError text-center red fontsize-xs">' + data['name'] + '</div>');
+				}
+				if(data['email']){
+					$('#columnContactEmail').find('.inputMessageForm').addClass('error');
+					$('#columnContactEmail').append('<div class="columnMessageError text-center red fontsize-xs">' + data['email'] + '</div>');
+				}
+				if(data['message']){
+					$('#columnMessage').find('.inputMessageForm').addClass('error');
+					$('#columnMessage').append('<div class="columnMessageError text-center red fontsize-xs">' + data['message'] + '</div>');
+				}
+				
 			}
+
 		})
 		//using the fail promise callback
 		.fail(function(data){

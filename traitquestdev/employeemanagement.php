@@ -11,8 +11,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Employee Management</title>
-
+<link rel="shortcut icon" href="images/icon.ico">
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+					CSS
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+<link rel="stylesheet" type="text/css" href="css/color.css"/>
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 					JAVASCRIPT
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -20,9 +27,9 @@
 <script type="text/javascript" src="js/employeemanagement.js"></script>
 
 <body>
-	<div>
-		<p>Welcome, <?php echo $_SESSION['name']; ?>!</p>
-		<h1>Employee Management</h1>
+<div id="wrapper">
+	<?php include "header.php"; ?>
+	<div id="mainContainer" class="container">
 		<div>
 			<form id="formAddEmployee" class="form" method="post">
 				<div id="columnCode">
@@ -38,6 +45,16 @@
 				<input type="submit" name="submit" id="submit" class="buttonForm" value="Add" />
 			</form> 
 		</div>
+		<div>
+			<form id="formSearchEmployee" class="form" method="post">
+				<div id="columnSearch">
+					<input type="text" name="search" id="search" class="inputForm" placeholder="Search" />
+				</div>
+				<input type="submit" name="submitSearch" id="submitSearch" class="buttonForm" value="Search" />
+			</form>
+		</div>
 		<div id="employeeList"></div>
 	</div>
+</div>
 </body>
+</html>

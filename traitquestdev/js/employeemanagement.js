@@ -1,53 +1,7 @@
 // JavaScript Document
 $(document).ready(function(){
-	
-	/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-		TO RETRIEVE EMPLOYEE DATA
-	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-	$.ajax({
-		type		:'POST', 	//define the type of HTTP verb we want to use
-		url			:'data/getemployeelist.php',		//the url where we want to POST
-		data		: '',		//our data object
-		dataType	:'json',		//what type of data do we expect back from the server
-		encode		:true
-	})
-	
-	//using the done promise callback
-	.done(function(data){
-		//working = false;
-		//here we will handle errors and validation messages
-		if(data['isAdmin'])
-		{	
-			if(data['return']){
-                var resultNumber = data['result'].length;
-				
-                for(var i=0; i<resultNumber; i++){
-					var html = '<div class="employeeRow"><div class="employeeData">'
-								+ data['result'][i]['employee']['code'] + ' '
-								+ data['result'][i]['employee']['name'] + ' '
-								+ data['result'][i]['employee']['email'] + '</div>'
-								+ '<div class="deleteContainer">' 
-								+ '<button class="deleteEmployee" data-id="' + data['result'][i]['employee']['id'] + '">Del</button>'
-								+ '</div></div>';
-					var target = $('#employeeList');
-                    target.append(html);
-				}
-			}
-			else{
-				var html = "<div>No employees record</div>";
-				var target = $('#employeeList');
-				target.append(html);
-			}
-		}
-		else{
-			// redirect to home page when user is logged in
-			window.location.href = "login";
-		}
-	})
-	//using the fail promise callback
-	.fail(function(data){
-		window.location.href = "500";
-	});
+	searchWorking = false;
+	searchEmployee();
 	
 	/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		TO ADD EMPLOYEE DATA
@@ -91,7 +45,7 @@ $(document).ready(function(){
                 if(data['employeeAdded']){
 					$('#formAddEmployee')[0].reset();
 					var source = $('<div class="employeeRow"><div class="employeeData">'
-									  + data['employee']['code'] + ''
+									  + data['employee']['code'] + ' '
 									  + data['employee']['name'] + ' '
 									  + data['employee']['email'] + '</div>'
 									  + '<div class="deleteContainer">' 
@@ -101,7 +55,7 @@ $(document).ready(function(){
 					source.prependTo(target).hide().slideDown();
                 }
                 else{
-                    if(data['error']){
+                    if(data['error']){ 
                         $('#response').append('<div class="error">' + data['error'] + '</div>');
                     }
                 }
@@ -117,13 +71,24 @@ $(document).ready(function(){
 		});	
 	});
 	
+	/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		TO SEARCH EMPLOYEE
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+	$('#formSearchEmployee').submit(function(event){
+		event.preventDefault();
+		//to prevent multiple submission when multiple click on submit button
+		if (searchWorking) return false;
+		searchWorking = true;
+		searchEmployee();
+	});
+	
 	$(this).on('click','.deleteEmployee',function(){
 		id = $(this).attr('data-id'); // Get the clicked id for deletion 
 		currentRow = $(this).closest('.employeeRow'); // Get a reference to the row that has the button we clicked
-
+		
 		$.ajax({
 			type:'post',
-			url:'../traitquestserver/removeemployeeprocess.php',
+			url:'data/removeemployeeprocess.php',
 			data:{'action':'deleteEntry','id':id},
 			success:function(response){
 				if (response == 'employeeRemoved') {
@@ -141,5 +106,64 @@ $(document).ready(function(){
 			}
 		})
 	})
+	
+	function searchEmployee(){
+		/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+			TO RETRIEVE EMPLOYEE DATA
+		~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+		//get the form data
+		var formData= {
+			'search'			  :$('input[name=search]').val()
+		};
+		
+		$.ajax({
+			type		:'POST', 	//define the type of HTTP verb we want to use
+			url			:'data/getemployeelist.php',		//the url where we want to POST
+			data		: formData,		//our data object
+			dataType	:'json',		//what type of data do we expect back from the server
+			encode		:true
+		})
+		
+		//using the done promise callback
+		.done(function(data){
+			searchWorking = false;
+			//here we will handle errors and validation messages
+			if(data['isAdmin'])
+			{	
+				var html;
+				var target = $('#employeeList');
+				// empty the container before searching
+				target.empty();
+				if(data['return']){
+					var resultNumber = data['result'].length;
+					
+					for(var i=0; i<resultNumber; i++){
+						html = '<div class="employeeRow"><div class="employeeData">'
+									+ data['result'][i]['employee']['code'] + ' '
+									+ data['result'][i]['employee']['name'] + ' '
+									+ data['result'][i]['employee']['email'] + '</div>'
+									+ '<div class="deleteContainer">' 
+									+ '<button class="deleteEmployee" data-id="' + data['result'][i]['employee']['id'] + '">Del</button>'
+									+ '</div></div>';
+						
+						target.append(html);
+					}
+				}
+				else{
+					html = "<div>No employees record</div>";
+					target.append(html);
+				}
+			}
+			else{
+				// redirect to home page when user is logged in
+				window.location.href = "login";
+			}
+		})
+		//using the fail promise callback
+		.fail(function(data){
+			window.location.href = "500";
+		});
+	}
+	
 })
 

@@ -6,16 +6,19 @@
 .white-bg{background-color:white;}
 .black{color: black;}
 .black-bg{background-color:black;}
-.grey{color: #333333; }
-.grey-bg{background-color: #333333; }
-.blue{color:#0000EE}
+.lightgrey{color: #666666;}
+.lightgrey-bg{background-color: #666666;}
+.grey{color: #333333;}
+.grey-bg{background-color: #333333;}
+.blue{color: #0000EE;}
+.blue-bg{background-color: #0000EE;}
 .red{color: #E74C3C;}
 .red-bg{background-color: #E74C3C;}
-.green{color:#27AE60;}
-.green-bg{background-color:#27AE60;}
-.yellow{color:#F5D76E}
-.yellow-bg{background-color:#F5D76E}
-.cyan{color:#D5FFFF;}
-.cyan-bg{background-color:#D5FFFF;}
-.darkgreen{color:#99C4C4;}
-.darkgreen-bg{background-color:#99C4C4;}
+.green{color: #27AE60;}
+.green-bg{background-color: #27AE60;}
+.yellow{color: #F5D76E}
+.yellow-bg{background-color: #F5D76E}
+.cyan{color: #D5FFFF;}
+.cyan-bg{background-color: #D5FFFF;}
+.darkgreen{color: #99C4C4;}
+.darkgreen-bg{background-color: #99C4C4;}

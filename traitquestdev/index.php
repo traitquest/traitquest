@@ -21,6 +21,7 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
 <script type="text/javascript" src="js/contact.js"></script>
 <script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/smoothscroll.js"></script>
 
 </head>
 <body>
@@ -29,11 +30,11 @@
 		<div class="col-sm-4 col-xs-4">
 			<a href="http://traitquest.com/"><img id="logo-image" src="images/logo.png" /></a>
 		</div>
-		<div class="col-sm-8 col-xs-8"><!nav>
+		<div id="Navbar" class="col-sm-8 col-xs-8"><!nav>
 			<ul class="no-list-style text-right padding-top-s">
 				<li class="navSelection"><a href="#about">About</a></li>
 				<li class="navSelection"><a href="#features">Features</a></li>
-				<li class="navSelection"><a href="#testimonial">Testimonial</a></li>
+				<li class="navSelection hidden"><a href="#testimonial">Testimonial</a></li>
 				<li class="navSelection"><a href="#contact">Contact</a></li>
 			</ul>
 		</div><!nav.>
@@ -92,7 +93,7 @@
 		</div>
 
 		<div class="padding-topbottom-m">
-			<button class="registerButton">Register For Free</button>
+			<button class="registerButton" data-toggle="modal" data-target=".freeRegister">Register For Free</button>
 		</div><!RegisterForFree>
 	</div><!image.>
 
@@ -104,12 +105,12 @@
 				<div class="col-md-3 col-sm-5">
 					<img src="./images/avatar.png" class="display-block center padding-topbottom-s imageMaxWidth100px"></img>
 				</div>
-				<div id="cyan-bg" class="col-md-6 col-sm-4 margin-topbottom-m padding-topbottom-m">
+				<div class="cyan-bg col-md-6 col-sm-4 margin-topbottom-m padding-topbottom-m">
 					<p class="padding-bottom-s">I feel so unmotivated at work!</p>
 				</div>
 			</div>
 				<div class="col-md-12 col-sm-12 margin-topbottom-s">
-					<div id="darkgreen-bg" class="col-md-6 col-md-offset-3 col-sm-4 col-sm-offset-5 margin-topbottom-m padding-topbottom-m">
+					<div class="darkgreen-bg col-md-6 col-md-offset-3 col-sm-4 col-sm-offset-5 margin-topbottom-m padding-topbottom-m">
 						<p>That is because you are not having fun while you work!</p>
 					</div>
 					<div class="col-md-3 col-sm-3">
@@ -182,7 +183,48 @@
 	</div>
 
 	<div class="padding-topbottom-xl">
-		<button class="registerButton">Register For Free</button>
+		<button class="registerButton" data-toggle="modal" data-target=".freeRegister">Register For Free</button>
+		<div class="modal fade freeRegister" tabindex="-1" role="dialog" aria-labelledby="freeRegisterModal">
+			<div class="modal-dialog modal-sm" role="document">
+				<div class="modal-content">
+
+						<h3 class="text-center">Join Now For FREE!</h3>
+						<form id="formRegister" class="form" method="post">
+							<div id="columnName" class="columnInput">
+								<div class="icon-addon">
+									<input type="text" name="company" id="companyName" class="inputForm padding-left30px" placeholder="Company" />
+									<i class="glyphicon glyphicon-briefcase"></i>
+								</div>
+							</div>
+							<div id="columnEmail" class="columnInput">
+								<div class="icon-addon">
+									<input type="text" name="email" id="email" class="inputForm padding-left30px" placeholder="Email" />
+									<i class="glyphicon glyphicon-envelope"></i>
+								</div>
+							</div>
+							<div id="columnPhoneNumber" class="columnInput">
+								<div class="icon-addon">
+									<input type="number" name="phonenumber" id="phonenumber" class="inputForm padding-left30px" placeholder="Phone" />
+									<i class="glyphicon glyphicon-earphone"></i>
+								</div>
+							</div>
+							<div id="columnAddress" class="columnInput">
+								<div class="icon-addon inputAddress">
+									<textarea type="text" name="address" id="address" class="inputForm padding-left30px inputAddress" rows="4" placeholder="Address"></textarea>
+									<i class="glyphicon glyphicon-home"></i>
+								</div>
+							</div>
+							<div id="registerResponse"></div>
+							<input type="submit" name="submit" id="registerSubmit" class="buttonForm button" value="Register" />
+						</form>
+						<div class="inputForm">
+							<p class="fontsize-xs">By clicking Register, you agree to our <a href="#" class="blue">Terms of Use</a> and <a href="#" class="blue">Privacy Policy</a></p>
+							<p class="fontsize-xs">Free license is only valid for one(1) month and up to five(5) employees</p>
+						</div>
+
+				</div>
+			</div>
+		</div><!FreeRegisterModal.>
 	</div><!RegisterForFree>
 
 

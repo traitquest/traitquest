@@ -9,6 +9,7 @@
 		$conn = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);
 		// set the PDO error mode to exception
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		if (isset($_POST['search']))				   {$search 	= trim($_POST ['search']);} else { $search='';}
 		
 		if (isset($_SESSION['userID']) && isset($_SESSION['companyID']) && $_SESSION['logintype'] == "admin" ){// if user is admin
 			$data['isAdmin'] = true;
@@ -16,6 +17,9 @@
 			
 			$checkSQL = "SELECT * FROM employee 
 								 WHERE companyid = :companyid
+									   AND ( name LIKE '%$search%' 
+										     OR email LIKE '%$search%'
+											 OR code LIKE '%$search%' )
 								 ORDER BY name ASC";
 			$employeePDO = $conn->prepare($checkSQL);
 			$employeePDO->bindParam(':companyid', $companyID, PDO::PARAM_INT);

@@ -30,19 +30,27 @@
 </head>
 
 <body class="top-down-logoblue-logogreen-grad">
-	<h1 class="text-align-center white">Login</h1>
 	<form id="formEmployeeLogin" class="form" method="post">
 		<div id="columnCompany">
-			<input type="text" name="company" id="companyName" class="inputForm" placeholder="Company" />
+			<div class="icon-addon">
+				<input type="text" name="company" id="companyName" class="inputForm padding-left30px" placeholder="Company" />
+				<i class="glyphicon glyphicon-briefcase"></i>
+			</div>
 		</div>
 		<div id="columnEmail">
-			<input type="text" name="email" id="email" class="inputForm" placeholder="Email" />
+			<div class="icon-addon">
+				<input type="text" name="email" id="email" class="inputForm padding-left30px" placeholder="Email" />
+				<i class="glyphicon glyphicon-envelope"></i>
+			</div>
 		</div>
 		<div id="columnPassword">
-			<input type="password" name="password" id="password" class="inputForm" placeholder="Password" />
+			<div class="icon-addon">
+				<input type="password" name="password" id="password" class="inputForm padding-left30px" placeholder="Password" />
+				<i class="glyphicon glyphicon-lock"></i>
+			</div>
 		</div>
 		<div id="loginResponse"></div>
-		<input type="submit" name="submit" id="loginSubmit" class="buttonForm" value="Login" />
+		<input type="submit" name="submit" id="loginSubmit" class="buttonForm button" value="Login" />
 	</form>
 </body>
 </html>

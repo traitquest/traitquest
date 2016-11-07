@@ -22,22 +22,36 @@
 <script type="text/javascript" src="js/contact.js"></script>
 <script type="text/javascript" src="js/bootstrap.js"></script>
 <script type="text/javascript" src="js/smoothscroll.js"></script>
+<script type="text/javascript" src="js/mobilenav.js"></script>
 
 </head>
 <body>
 	<div id="header-bg"><!image>
-		<div class="indexHeader col-sm-12 col-xs-12"><!header>
-		<div class="col-sm-4 col-xs-4">
+		<div class="indexHeader"><!header>
+		<div class="col-md-4 col-sm-4 col-xs-4">
 			<a href="http://traitquest.com/"><img id="logo-image" src="images/logo.png" /></a>
 		</div>
-		<div id="Navbar" class="col-sm-8 col-xs-8"><!nav>
-			<ul class="no-list-style text-right padding-top-s">
+		<div class="col-md-8 hidden-sm hidden-xs"><!nav>
+			<ul id="navBar" class="no-list-style text-right padding-topbottom-s navBar">
 				<li class="navSelection"><a href="#about">About</a></li>
 				<li class="navSelection"><a href="#features">Features</a></li>
 				<li class="navSelection hidden"><a href="#testimonial">Testimonial</a></li>
 				<li class="navSelection"><a href="#contact">Contact</a></li>
 			</ul>
 		</div><!nav.>
+
+		<div id="mobileNav" class="mobileNav"><!mobilenav>
+			<a href="javascript:void(0)" id="closeMobileNav" class="closeBtn white">&times;</a>
+			<a href="#about" class="closeMobileNav padding-top-m display-block fontsize-m white">About</a>
+			<a href="#features" class="closeMobileNav padding-top-m display-block fontsize-m white">Features</a>
+			<a href="#testimonial" class="hidden closeMobileNav padding-top-m display-block fontsize-m white">Testimonial</a>
+			<a href="#contact" class="closeMobileNav padding-top-m display-block fontsize-m white">Contact</a>
+		</div>
+		<i id="openMobileNav" class="glyphicon glyphicon-menu-hamburger
+			hidden-lg hidden-md col-sm-8 col-xs-8
+			display-block text-right padding-topbottom-s fontsize-l cursor-pointer"></i>
+
+
 	</div><!header.>
 		<div class="col-sm-12 col-xs-12">
 			<div class="col-sm-5 col-sm-offset-1 col-xs-10 col-xs-offset-1 text-right">

@@ -32,6 +32,10 @@ textarea{resize:none;}
 #footer-bg{background-color:#666666;margin-bottom:40px;}
 .indexHeader{padding-top:5px;height:70px;background-color:rgba(255,255,255,0.4);border-bottom:1px solid rgba(255,255,255,0.4)}
 .navSelection{display:block;display:inline;width:60px;padding:10px;border-radius:8px;}
+.mobileNav {height: 100%;width: 0;position: fixed;z-index: 1;top: 0;left: 0;background-color:#333333;overflow-x: hidden;transition: 0.5s;padding-top: 60px;text-align:center;}
+.mobileNav .closeBtn {position: absolute;top: 0;right: 0;font-size:46px; padding-right:12px;}
+.mobileNav a:hover{color:#666666;}
+.cursor-pointer{cursor:pointer;}
 .clear:after {clear: both;content: "";display: table;}
 .inputForm{width:200px;padding:8px;display:block;margin:0 auto;}
 .inputAddress{height:80px;}

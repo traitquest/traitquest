@@ -62,8 +62,24 @@
 			echo "Table Employee created successfully<br>";
 		}
 		
+		// create Supervisor table
+		$sql = "CREATE TABLE IF NOT EXISTS `supervisor` (
+				`companyid` INT UNSIGNED NOT NULL,
+				`superiorid` INT UNSIGNED NOT NULL PRIMARY KEY,
+				`subordinateid` INT UNSIGNED NOT NULL,
+				FOREIGN KEY (`companyid`) REFERENCES company(`id`),
+				FOREIGN KEY (`superiorid`) REFERENCES employee(`id`),
+				FOREIGN KEY (`subordinateid`) REFERENCES employee(`id`),
+				INDEX(`companyid`)
+				)";
+		
+		// check if Employee table has been created
+		if( $conn->exec($sql) !== false ){
+			echo "Table Supervisor created successfully<br>";
+		}
+		
 		// create KPI table
-		$sql = "CREATE TABLE IF NOT EXISTS `kpi` (
+		/*$sql = "CREATE TABLE IF NOT EXISTS `kpi` (
 				`id` INT UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY, 
 				`userid` INT UNSIGNED NOT NULL,
 				`companyid` INT UNSIGNED NOT NULL,
@@ -93,7 +109,7 @@
 		// check if Company table has been created
 		if( $conn->exec($sql) !== false ){
 			echo "Table Photo Template created successfully<br>";
-		}
+		}*/
 		
 	}
 	catch(PDOException $e){

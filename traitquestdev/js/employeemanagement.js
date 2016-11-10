@@ -46,7 +46,8 @@ $(document).ready(function(){
 					$('#formAddEmployee')[0].reset();
 					var source = $('<div class="employeeRow"><div class="employeeData">'
 									  + data['employee']['code'] + ' '
-									  + data['employee']['name'] + ' '
+									  + '<a href="employeeassignment.php?id=' + data['employee']['id'] + '">'
+									  + data['employee']['name'] + '</a>' + ' '
 									  + data['employee']['email'] + '</div>'
 									  + '<div class="deleteContainer">' 
 									  + '<button class="deleteEmployee" data-id="' + data['employee']['id'] + '">Del</button>'
@@ -62,12 +63,12 @@ $(document).ready(function(){
 			}
 			else{
 				// redirect to login page if user is not logged in
-                window.location.href = "login";
+                window.location.href = "login.php";
 			}
 		})
 		//using the fail promise callback
 		.fail(function(data){
-            window.location.href = "500";
+            window.location.href = "500.php";
 		});	
 	});
 	
@@ -101,7 +102,7 @@ $(document).ready(function(){
 				}
 				else{
 					// throw catch error here
-					 window.location.href = "500";
+					 window.location.href = "500.php";
 				}
 			}
 		})
@@ -140,6 +141,8 @@ $(document).ready(function(){
 					for(var i=0; i<resultNumber; i++){
 						html = '<div class="employeeRow"><div class="employeeData">'
 									+ data['result'][i]['employee']['code'] + ' '
+									+ '<a href="employeeassignment.php?id=' + data['result'][i]['employee']['id'] + '">'
+									+ data['result'][i]['employee']['name'] + '</a>' + ' '
 									+ data['result'][i]['employee']['name'] + ' '
 									+ data['result'][i]['employee']['email'] + '</div>'
 									+ '<div class="deleteContainer">' 
@@ -156,12 +159,12 @@ $(document).ready(function(){
 			}
 			else{
 				// redirect to home page when user is logged in
-				window.location.href = "login";
+				window.location.href = "login.php";
 			}
 		})
 		//using the fail promise callback
 		.fail(function(data){
-			window.location.href = "500";
+			window.location.href = "500.php";
 		});
 	}
 	

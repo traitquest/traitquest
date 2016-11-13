@@ -6,10 +6,14 @@
 .white-bg{background-color:white;}
 .black{color: black;}
 .black-bg{background-color:black;}
-.lightgrey{color: #666666;}
-.lightgrey-bg{background-color: #666666;}
 .grey{color: #333333;}
 .grey-bg{background-color: #333333;}
+.lightgrey{color: #666666;}
+.lightgrey-bg{background-color: #666666;}
+.grey30{color:#4D4D4D;}
+.grey30-bg{background-color:#4D4D4D;}
+.grey95{color:#F2F2F2;}
+.grey95-bg{background-color:#F2F2F2;}
 .blue{color: #0000EE;}
 .blue-bg{background-color: #0000EE;}
 .red{color: #E74C3C;}
@@ -22,3 +26,5 @@
 .cyan-bg{background-color: #D5FFFF;}
 .darkgreen{color: #99C4C4;}
 .darkgreen-bg{background-color: #99C4C4;}
+.gold{color:#FFD700;}
+.gold-bg{background-color:#FFD700;}

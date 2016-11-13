@@ -1,0 +1,13 @@
+header {
+  height: 120px;
+  border-bottom: 2px solid black;
+}
+
+h1 {
+  margin: 10px 10% 0px 0px;
+}
+
+h2 {
+  margin: 0px;
+  padding-right: 15px;
+}

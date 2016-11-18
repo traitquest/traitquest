@@ -29,6 +29,7 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
 <?php /*<script type="text/javascript" src="js/getcompany.js"></script>*/ ?>
 <script type="text/javascript" src="js/mobilenav.js"></script>
+<script type="text/javascript" src="js/setheight.js"></script>
 </head>
 
 <body>
@@ -44,27 +45,48 @@
 		hidden-lg hidden-md col-sm-8 col-xs-8
 		display-block text-right padding-topbottom-s fontsize-l cursor-pointer"></i><!mobilenav.> */?>
 
-	<div class="col-lg-2 col-md-2 hidden-sm hidden-xs sideBar">
+	<div class="hidden-sm hidden-xs sideBar affix"><!sideBar>
+		<div class="col-lg-12 col-md-12 col-sm-12">
+			<img class="col-lg-5 col-md-5 col-sm-5 margin-top-s imageMaxWidth150px display-block display-inline" src="./images/avatar2.jpg">
+				<p class="col-lg-7 col-md-7 col-sm-7 margin-top-l fontsize-m display-block display-inline">User123456789 123456789</p>
+			</img>
+		</div>
+		<div class="clear-both">
+			<ul>
+				<li class="padding-top-m">
+					<h2 class="display-block display-inline"><i class="glyphicon glyphicon-envelope"></i></h2>
+					<h3 class="display-block display-inline">Company</h3>
+				</li>
 
+				<li class="padding-top-m">Employees</li>
+				<li class="padding-top-m">Settings</li>
+				<li class="padding-top-m">Logout</li>
+
+			</ul>
+		</div>
 	</div>
 
-	<div class="col-lg-10 col-md-10 grey95-bg padding-bottom-s">
+	<div class="col-lg-9 col-lg-offset-3 col-md-9 col-md-offset-3 grey95-bg padding-bottom-s">
 		<div class="padding-topbottom-xs">
 			<a href="http://traitquest.com/"><img id="logo-image" src="images/logo.png" /></a>
 		</div>
 	</div>
-	<div style="width:100%;" class="col-lg-10 col-md-10 padding-topbottom-xs white-bg">
+
+
+	<div class="col-lg-9 col-lg-offset-3 col-md-9 col-md-offset-3 padding-topbottom-xs white-bg">
 		<div class="padding-topbottom-m">
-			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-4">
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 				<h3>Company</h3>
 			</div>
-			<div class="text-right col-lg-1 col-lg-offset-5 col-md-1 col-md-offset-5 col-sm-1 col-sm-offset-5 col-xs-2 col-xs-offset-6">
+			<div class="text-right col-lg-1 col-lg-offset-5 col-md-1 col-md-offset-5 col-sm-1 col-sm-offset-5 col-xs-2 col-xs-offset-4">
 				<a href="#"><h4><i class="glyphicon glyphicon-edit"></i></h4></a>
 			</div>
 		</div>
 	</div>
-	<div class="col-lg-10 col-md-10 grey95-bg padding-bottom-s">
-			<div class="col-lg-10 col-md-10 padding-top-l"><!1stwindow>
+
+
+	<div class="col-lg-9 col-lg-offset-3 col-md-9 col-md-offset-3 grey95-bg padding-bottom-s"><!content goes here>
+			<div class="col-lg-12 col-md-12 padding-top-l"><!1stwindow>
 				<div class="padding-bottom-s padding-leftright-s border-top-grey white-bg">
 					<h3 class="grey30">Tesla Motors Inc</h3>
 					<div class="padding-top-s">
@@ -81,7 +103,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-lg-10 col-md-10 padding-top-l"><!2ndwindow>
+			<div class="col-lg-12 col-md-12 padding-top-l"><!2ndwindow>
 				<div class="padding-bottom-s padding-leftright-s border-top-grey white-bg">
 					<h3 class="grey30">Description</h3>
 					<p class="padding-top-s">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -104,18 +126,18 @@
 					</p>
 				</div>
 			</div>
-			<div class="col-lg-10 col-md-10 padding-top-l"><!3rdwindow>
+			<div class="col-lg-12 col-md-12 padding-top-l"><!3rdwindow>
 				<div class="padding-bottom-s padding-leftright-s border-top-grey white-bg">
-					<h3 class="grey30">Vision</h3>
+					<h3 class="grey30 padding-bottom-s">Vision</h3>
 					<p class="fontsize-m">To help people be healthy</p>
 					<p class="fontsize-m">To have our product in every home in United States</p>
 					<p class="fontsize-m">To help people enjoy life, or offer an affordable solution to health care</p>
 				</div>
 			</div>
-			<div class="col-lg-10 col-md-10 padding-topbottom-l"><!4thwindow>
+			<div class="col-lg-12 col-md-12 padding-topbottom-l"><!4thwindow>
 				<div class="padding-leftright-s border-top-grey white-bg">
 					<h3 class="grey30">Mission</h3>
-					<p class="fontsize-m">Our mission is to deliver happiness to customers, employees, and vendors</p>
+					<p class="fontsize-m padding-top-s padding-bottom-m">Our mission is to deliver happiness to customers, employees, and vendors</p>
 				</div>
 			</div>
 
@@ -125,7 +147,7 @@
 				</div>
 			</footer>
 
-	</div>
+	</div><!content ends here>
 
 
 

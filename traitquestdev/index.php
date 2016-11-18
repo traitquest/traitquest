@@ -174,25 +174,39 @@
 
 	<div id="features" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-topbottom-m margin-topbottom-m"><!Features>
 		<h1 class="text-center padding-topbottom-m">Features</h1>
-		<div class="col-lg-4 col-lg-offset-2 col-md-4 col-md-offset-2 col-sm-4 col-sm-offset-2 col-xs-12 padding-topbottom-l">
-			<img src="./images/featureicons/1.png" class="featureIcon display-block center padding-bottom-m"></img>
-			<p class="padding-top-m text-center">Performance Management System</p>
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-topbottom-s margin-topbottom-s">
+			<div class="col-lg-3 col-lg-offset-2 col-md-3 col-md-offset-2 col-sm-6 col-xs-12 padding-bottom-s">
+				<img src="./images/featureicons/1.png" class="featureIcon display-block center padding-bottom-s"></img>
+				<h3 class="padding-top-s text-center">Performance Management System</h3>
+				<p class="padding-topbottom-m">From Daily to Weekly to Monthly to Quarterly feedbacks and constant updates.
+				KRAs, Objectives & KPIs are align and adjust according to department, position and personnel</p>
+			</div>
+			<div class="col-lg-3 col-lg-offset-2 col-md-3 col-md-offset-2 col-sm-6 col-xs-12 padding-top-s">
+				<img src="./images/featureicons/2.png" class="featureIcon display-block center padding-bottom-s"></img>
+				<h3 class="padding-top-s text-center">Engagement Platform</h3>
+				<p class="padding-topbottom-m">Provides Realtime peer-to-peer and top down recognition. Surveys,
+				feedbacks from employees improve experience detailing job satisfaction and identifying training and competency requirement</p>
+			</div>
 		</div>
-		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 padding-topbottom-l">
-			<img src="./images/featureicons/2.png" class="featureIcon display-block center padding-bottom-m"></img>
-			<p class="padding-top-m text-center">Engagement Platform</p>
-		</div>
-		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 padding-topbottom-l">
-			<img src="./images/featureicons/1.png" class="featureIcon display-block center padding-bottom-m"></img>
-			<p class="padding-top-m text-center">T<sup>3</sup> - Track, Trace, and Treats</p>
-		</div>
-		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 padding-topbottom-l">
-			<img src="./images/featureicons/1.png" class="featureIcon display-block center padding-bottom-m"></img>
-			<p class="padding-top-m text-center">Rewards and Recognition</p>
-		</div>
-		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 padding-topbottom-l">
-			<img src="./images/featureicons/1.png" class="featureIcon display-block center padding-bottom-m"></img>
-			<p class="padding-top-m text-center">Staff Retention Program</p>
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-topbottom-s margin-topbottom-s">
+			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 padding-topbottom-l">
+				<img src="./images/featureicons/1.png" class="featureIcon display-block center padding-bottom-s"></img>
+				<h3 class="padding-top-s text-center">T<sup>3</sup> - Track, Trace, and Treats</h3>
+				<p class="padding-topbottom-m">Provides Realtime peer-to-peer and top down recognition. Surveys,
+				feedbacks from employees improve experience detailing job satisfaction and identifying training and competency requirement</p>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 padding-topbottom-l">
+				<img src="./images/featureicons/1.png" class="featureIcon display-block center padding-bottom-s"></img>
+				<h3 class="padding-top-s text-center">Rewards and Recognition</h3>
+				<p class="padding-topbottom-m">Provides Realtime peer-to-peer and top down recognition. Surveys,
+				feedbacks from employees improve experience detailing job satisfaction and identifying training and competency requirement</p>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 padding-topbottom-l">
+				<img src="./images/featureicons/1.png" class="featureIcon display-block center padding-bottom-s"></img>
+				<h3 class="padding-top-s text-center">Staff Retention Program</h3>
+				<p class="padding-topbottom-m">Provides Realtime peer-to-peer and top down recognition. Surveys,
+				feedbacks from employees improve experience detailing job satisfaction and identifying training and competency requirement</p>
+			</div>
 		</div>
 	</div>
 

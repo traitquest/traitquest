@@ -17,7 +17,7 @@
 ------------------------------------------ */
 html, body{background:#F9F9F9;color:#333333;}
 html{position:relative; min-height:100%;}
-body{font-family: 'Lato', sans-serif; text-align:justify; margin-bottom:40px;}
+body{font-family: 'Lato', sans-serif; text-align:justify; }
 a, a:hover, a:active, a:focus {text-decoration:none;}
 a.yellowAnchor{color:#F5D76E;}
 a.yellowAnchor:hover{color:#DCC163;}
@@ -111,12 +111,13 @@ textarea{resize:none;}
 .glyphicon-m{font-size:18px;}
 .glyphicon-lg{font-size:24px;}
 .sideBar{float:left;width:25%;background-color:#93A7AC;max-height:100%;}
+.sideBarSelected{background-color:#DBE3E2;}
 
 /*#wrapper{ padding-bottom: 80px;  min-height:100%; position:relative;}*/
 
 /* 3.0 HEADER
 ------------------------------------------ */
-#header-bg{background-image:url('../images/bg-img.jpg');background-size: 100% 100%;}
+#header-bg{background-image:url('../images/bg-img.jpg');background-size: 100% 100%;background-repeat: no-repeat;}
 
 
 /* 4.0 FOOTER

@@ -26,6 +26,7 @@
 
 </head>
 <body>
+
 	<div id="header-bg"><!image>
 		<div class="indexHeader"><!header>
 		<div class="col-md-4 col-sm-4 col-xs-4">
@@ -51,38 +52,43 @@
 			hidden-lg hidden-md col-sm-8 col-xs-8
 			display-block text-right padding-topbottom-s fontsize-l cursor-pointer"></i>
 
-	</div><!header.>
+	</div><!--header.-->
+
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 			<div class="col-lg-4 col-lg-offset-2 col-md-4 col-md-offset-2 hidden-sm hidden-xs text-right">
-			<h1 class="gold">We bring your employees to a whole new level</h1>
-		</div>
-			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-			<form id="formEmployeeLogin" class="form padding-topbottom-s col-lg-4 col-lg-offset-4 col-md-4 col-offset-4 col-sm-4 col-sm-offset-4 col-xs-4" method="post"><!login>
+				<h1 class="gold">We bring your employees to a whole new level of engagement!</h1>
+			</div>
+
+			<div class="col-lg-4 col-lg-offset-2 col-md-4 col-offset-2 col-sm-12 col-xs-12">
+			<div class="inputForm">
+				<form id="formEmployeeLogin" class="padding-topbottom-s" method="post"><!login>
+
 				<div id="columnCompany" class="padding-top-s">
-				<div class="icon-addon">
-					<input type="text" name="company" id="companyName" class="inputForm padding-left30px" placeholder="Company" />
-					<i class="glyphicon glyphicon-briefcase"></i>
+					<div class="icon-addon">
+						<input type="text" name="company" id="companyName" class="inputForm padding-left30px" placeholder="Company" />
+						<i class="glyphicon glyphicon-briefcase"></i>
+					</div>
 				</div>
-			</div>
 				<div id="columnEmail" class="padding-top-s">
-				<div class="icon-addon">
-					<input type="text" name="email" id="email" class="inputForm padding-left30px" placeholder="Email" />
-					<i class="glyphicon glyphicon-envelope"></i>
+					<div class="icon-addon">
+						<input type="text" name="email" id="email" class="inputForm padding-left30px" placeholder="Email" />
+						<i class="glyphicon glyphicon-envelope"></i>
+					</div>
 				</div>
-			</div>
 				<div id="columnPassword" class="padding-top-s">
-				<div class="icon-addon">
-					<input type="password" name="password" id="password" class="inputForm padding-left30px" placeholder="Password" />
-					<i class="glyphicon glyphicon-lock"></i>
+					<div class="icon-addon">
+						<input type="password" name="password" id="password" class="inputForm padding-left30px" placeholder="Password" />
+						<i class="glyphicon glyphicon-lock"></i>
+					</div>
 				</div>
-			</div>
 				<div id="loginResponse" class="padding-topbottom-xs"></div>
 				<input type="submit" name="submit" id="loginSubmit" class="buttonForm button" value="Login" />
 
 
 				<a href="#" class="clear yellowAnchor" data-toggle="modal" data-target=".forgottenPasswordModal">Forgotten Password?</a><!ForgottenPasswordModal>
 				<a href="#" class="clear yellowAnchor" data-toggle="modal" data-target=".companyLoginModal">Admin Login</a><!LoginAsAdmin>
-					</form><!login.>
+				</form><!login.>
+
 					<div class="modal fade forgottenPasswordModal" tabindex="-1" role="dialog" aria-labelledby="forgottenPasswordModal">
 			  		<div class="modal-dialog modal-sm" role="document">
 			    		<div class="modal-content">
@@ -100,6 +106,7 @@
 			    		</div>
 			  		</div>
 					</div><!ForgottenPasswordModal.>
+
 					<div class="modal fade companyLoginModal" tabindex="-1" role="dialog" aria-labelledby="companyLoginModal"><!companyLoginModal>
 			  		<div class="modal-dialog modal-sm" role="document">
 			    		<div class="modal-content">
@@ -129,12 +136,15 @@
 							</div>
 						</div>
 					</div><!companyLoginModal.>
+
 				</div>
+			</div>
 		</div>
 
 		<div class="padding-topbottom-m">
 			<button class="registerButton" data-toggle="modal" data-target=".freeRegister">Register For Free</button>
 		</div><!RegisterForFree>
+
 	</div><!image.>
 
 
@@ -172,7 +182,7 @@
 
 
 
-	<div id="features" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-topbottom-m margin-topbottom-m"><!Features>
+	<div id="features" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-topbottom-s"><!Features>
 		<h1 class="text-center padding-topbottom-m">Features</h1>
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-topbottom-s margin-topbottom-s">
 			<div class="col-lg-3 col-lg-offset-2 col-md-3 col-md-offset-2 col-sm-6 col-xs-12 padding-bottom-s">
@@ -192,25 +202,23 @@
 			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 padding-topbottom-l">
 				<img src="./images/featureicons/1.png" class="featureIcon display-block center padding-bottom-s"></img>
 				<h3 class="padding-top-s text-center">T<sup>3</sup> - Track, Trace, and Treats</h3>
-				<p class="padding-topbottom-m">Provides Realtime peer-to-peer and top down recognition. Surveys,
-				feedbacks from employees improve experience detailing job satisfaction and identifying training and competency requirement</p>
+				<p class="padding-topbottom-m">Mentorship & Coaching through regular feedbacks, develop succession planning and career planning.
+					Digitally recorded, traceable and retrievable anytime with information security for privacy</p>
 			</div>
 			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 padding-topbottom-l">
 				<img src="./images/featureicons/1.png" class="featureIcon display-block center padding-bottom-s"></img>
 				<h3 class="padding-top-s text-center">Rewards and Recognition</h3>
-				<p class="padding-topbottom-m">Provides Realtime peer-to-peer and top down recognition. Surveys,
-				feedbacks from employees improve experience detailing job satisfaction and identifying training and competency requirement</p>
+				<p class="padding-topbottom-m">Make it known through recognition and appreciate their efforts. Every employees are responsible.</p>
 			</div>
 			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 padding-topbottom-l">
 				<img src="./images/featureicons/1.png" class="featureIcon display-block center padding-bottom-s"></img>
 				<h3 class="padding-top-s text-center">Staff Retention Program</h3>
-				<p class="padding-topbottom-m">Provides Realtime peer-to-peer and top down recognition. Surveys,
-				feedbacks from employees improve experience detailing job satisfaction and identifying training and competency requirement</p>
+				<p class="padding-topbottom-m">Provides Ownership and autonomy. Engaged, Motivated and Valued.</p>
 			</div>
 		</div>
 	</div>
 
-	<div class="padding-topbottom-xl">
+	<div class="padding-topbottom-m">
 		<button class="registerButton" data-toggle="modal" data-target=".freeRegister">Register For Free</button>
 		<div class="modal fade freeRegister" tabindex="-1" role="dialog" aria-labelledby="freeRegisterModal">
 			<div class="modal-dialog modal-sm" role="document">
@@ -218,10 +226,16 @@
 
 						<h3 class="text-center">Join Now For FREE!</h3>
 						<form id="formRegister" class="form" method="post">
-							<div id="columnName" class="columnInput">
+							<div id="columnCompanyName" class="columnInput">
 								<div class="icon-addon">
 									<input type="text" name="company" id="companyName" class="inputForm padding-left30px" placeholder="Company" />
 									<i class="glyphicon glyphicon-briefcase"></i>
+								</div>
+							</div>
+							<div id="columnName" class="columnInput">
+								<div class="icon-addon">
+									<input type="text" name="fullname" id="fullName" class="inputForm padding-left30px" placeholder="Full Name" />
+									<i class="glyphicon glyphicon-user"></i>
 								</div>
 							</div>
 							<div id="columnEmail" class="columnInput">
@@ -234,12 +248,6 @@
 								<div class="icon-addon">
 									<input type="number" name="phonenumber" id="phonenumber" class="inputForm padding-left30px" placeholder="Phone" />
 									<i class="glyphicon glyphicon-earphone"></i>
-								</div>
-							</div>
-							<div id="columnAddress" class="columnInput">
-								<div class="icon-addon inputAddress">
-									<textarea type="text" name="address" id="address" class="inputForm padding-left30px inputAddress" rows="4" placeholder="Address"></textarea>
-									<i class="glyphicon glyphicon-home"></i>
 								</div>
 							</div>
 							<div id="registerResponse"></div>
@@ -269,13 +277,13 @@
 		</div>
 		<div id="contact" class="col-lg-3 col-md-3 col-sm-6 col-xs-12 margin-bottom-s padding-top-xl text-right white">
 			<ul class="padding-bottom-m no-list-style">
-				<li class="padding-bottom-xs">TraitQuest Sdn Bhd</li>
-				<li class="padding-bottom-xs">3 Mile Square</li>
-				<li class="padding-bottom-xs">3 Jalan Klang Lama</li>
-				<li class="padding-bottom-xs"> 58100 Kuala Lumpur</li>
+				<li>TraitQuest Sdn Bhd</li>
+				<li>3 Mile Square</li>
+				<li>3 Jalan Klang Lama</li>
+				<li>58100 Kuala Lumpur</li>
 			</ul>
-			<ul class="padding-bottom-m no-list-style">
-				<li class="padding-bottom-xs">hello@traitquest.com (Email)</li>
+			<ul class="padding-topbottom-m no-list-style">
+				<li class="padding-bottom-xs">hello@traitquest.com <i class="glyphicon glyphicon-envelope padding-left10px"></i></li>
 			</ul>
 			<p class="padding-topbottom-m fontsize-m">Follow Us!</p>
 			<ul class="no-list-style">

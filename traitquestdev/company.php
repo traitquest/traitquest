@@ -53,19 +53,28 @@
 		</div>
 		<div class="clear-both">
 			<ul>
-				<li class="padding-top-m">
-					<h2 class="display-block display-inline"><i class="glyphicon glyphicon-envelope"></i></h2>
-					<h3 class="display-block display-inline">Company</h3>
+				<li class="padding-top-m sideBarSelected">
+					<h3 class="display-block display-inline padding-left10px"><i class="glyphicon glyphicon-briefcase"></i></h3>
+					<h3 class="display-block display-inline padding-left10px">Company</h3>
 				</li>
-
-				<li class="padding-top-m">Employees</li>
-				<li class="padding-top-m">Settings</li>
-				<li class="padding-top-m">Logout</li>
+				<li class="padding-top-m">
+					<h3 class="display-block display-inline padding-left10px"><i class="glyphicon glyphicon-user"></i></h3>
+					<h3 class="display-block display-inline padding-left10px">Employees</h3>
+				</li>
+				<li class="padding-top-m">
+					<h3 class="display-block display-inline padding-left10px"><i class="glyphicon glyphicon-cog"></i></h3>
+					<h3 class="display-block display-inline padding-left10px">Settings</h3>
+				</li>
+				<li class="padding-top-m">
+					<h3 class="display-block display-inline padding-left10px"><i class="glyphicon glyphicon-off"></i></h3>
+					<h3 class="display-block display-inline padding-left10px">Logout</h3>
+				</li>
 
 			</ul>
 		</div>
 	</div>
 
+<div>
 	<div class="col-lg-9 col-lg-offset-3 col-md-9 col-md-offset-3 grey95-bg padding-bottom-s">
 		<div class="padding-topbottom-xs">
 			<a href="http://traitquest.com/"><img id="logo-image" src="images/logo.png" /></a>
@@ -85,7 +94,7 @@
 	</div>
 
 
-	<div class="col-lg-9 col-lg-offset-3 col-md-9 col-md-offset-3 grey95-bg padding-bottom-s"><!content goes here>
+	<div style="margin-bottom:40px;position:relative;" class="col-lg-9 col-lg-offset-3 col-md-9 col-md-offset-3 grey95-bg padding-bottom-s"><!content goes here>
 			<div class="col-lg-12 col-md-12 padding-top-l"><!1stwindow>
 				<div class="padding-bottom-s padding-leftright-s border-top-grey white-bg">
 					<h3 class="grey30">Tesla Motors Inc</h3>

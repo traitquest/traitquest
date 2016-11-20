@@ -19,7 +19,7 @@
 					JAVASCRIPT
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
-<script type="text/javascript" src="js/contact.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
 <script type="text/javascript" src="js/bootstrap.js"></script>
 <script type="text/javascript" src="js/smoothscroll.js"></script>
 <script type="text/javascript" src="js/mobilenav.js"></script>
@@ -63,21 +63,21 @@
 			<div class="inputForm">
 				<form id="formEmployeeLogin" class="padding-topbottom-s" method="post"><!login>
 
-				<div id="columnCompany" class="padding-top-s">
+				<div id="columnLoginCompany" class="padding-top-s">
 					<div class="icon-addon">
-						<input type="text" name="company" id="companyName" class="inputForm padding-left30px" placeholder="Company" />
+						<input type="text" name="loginCompany" id="companyName" class="inputLoginForm inputForm padding-left30px" placeholder="Company" />
 						<i class="glyphicon glyphicon-briefcase"></i>
 					</div>
 				</div>
-				<div id="columnEmail" class="padding-top-s">
+				<div id="columnLoginEmail" class="padding-top-s">
 					<div class="icon-addon">
-						<input type="text" name="email" id="email" class="inputForm padding-left30px" placeholder="Email" />
+						<input type="text" name="loginEmail" id="email" class="inputLoginForm inputForm padding-left30px" placeholder="Email" />
 						<i class="glyphicon glyphicon-envelope"></i>
 					</div>
 				</div>
-				<div id="columnPassword" class="padding-top-s">
+				<div id="columnLoginPassword" class="padding-top-s">
 					<div class="icon-addon">
-						<input type="password" name="password" id="password" class="inputForm padding-left30px" placeholder="Password" />
+						<input type="password" name="loginPassword" id="password" class="inputLoginForm inputForm padding-left30px" placeholder="Password" />
 						<i class="glyphicon glyphicon-lock"></i>
 					</div>
 				</div>
@@ -94,13 +94,13 @@
 			    		<div class="modal-content">
 								<h3 class="text-center grey">Please enter your e-mail</h3>
 									<form id="formForgottenPassword" class="form padding-topbottom-s" method="post">
-										<div id="columnEmail" class="padding-topbottom-xs">
+										<div id="columnForgottenPasswordEmail" class="padding-topbottom-xs">
 											<div class="icon-addon">
-												<input type="text" name="email" id="email" class="inputForm padding-left30px" placeholder="Email" />
+												<input type="text" name="forgottenPasswordEmail" id="forgottenPasswordEmail" class="inputForgottenPasswordForm inputForm padding-left30px" placeholder="Email" />
 												<i class="glyphicon glyphicon-envelope"></i>
 											</div>
 										</div>
-										<div id="response"></div>
+										<div id="forgottenPasswordResponse"></div>
 										<input type="submit" name="submit" id="submit" class="buttonForm button margin-topbottom-xs" value="Reset Password" />
 									</form>
 			    		</div>
@@ -112,25 +112,25 @@
 			    		<div class="modal-content">
 								<h3 class="text-center grey">Admin Login</h3>
 								<form id="formCompanyLogin" class="form padding-topbottom-s" method="post">
-									<div id="columnCompany" class="columnInput">
+									<div id="columnCompanyLoginCompany" class="columnInput">
 										<div class="icon-addon">
-										<input type="text" name="company" id="companyName" class="inputForm padding-left30px" placeholder="Company" />
+										<input type="text" name="companyLoginCompany" id="companyLoginCompany" class="inputCompanyLoginForm inputForm padding-left30px" placeholder="Company" />
 										<i class="glyphicon glyphicon-briefcase"></i>
 										</div>
 									</div>
-									<div id="columnEmail" class="columnInput">
+									<div id="columnCompanyLoginEmail" class="columnInput">
 										<div class="icon-addon">
-										<input type="text" name="email" id="email" class="inputForm padding-left30px" placeholder="Email" />
+										<input type="text" name="companyLoginEmail" id="companyLoginEmail" class="inputCompanyLoginForm inputForm padding-left30px" placeholder="Email" />
 										<i class="glyphicon glyphicon-envelope"></i>
 										</div>
 									</div>
-									<div id="columnPassword" class="columnInput">
+									<div id="columnCompanyLoginPassword" class="columnInput">
 										<div class="icon-addon">
-										<input type="password" name="password" id="password" class="inputForm padding-left30px" placeholder="Password" />
+										<input type="password" name="companyLoginPassword" id="companyLoginPassword" class="inputCompanyLoginForm inputForm padding-left30px" placeholder="Password" />
 										<i class="glyphicon glyphicon-lock"></i>
 										</div>
 									</div>
-									<div id="loginResponse"></div>
+									<div id="companyLoginResponse"></div>
 									<input type="submit" name="submit" id="loginSubmit" class="buttonForm button" value="Login As Admin" />
 								</form>
 							</div>
@@ -226,27 +226,27 @@
 
 						<h3 class="text-center">Join Now For FREE!</h3>
 						<form id="formRegister" class="form" method="post">
-							<div id="columnCompanyName" class="columnInput">
+							<div id="columnRegisterCompanyName" class="columnInput">
 								<div class="icon-addon">
-									<input type="text" name="company" id="companyName" class="inputForm padding-left30px" placeholder="Company" />
+									<input type="text" name="registerCompany" id="companyName" class="inputRegisterForm inputForm padding-left30px" placeholder="Company" />
 									<i class="glyphicon glyphicon-briefcase"></i>
 								</div>
 							</div>
-							<div id="columnName" class="columnInput">
+							<div id="columnRegisterName" class="columnInput">
 								<div class="icon-addon">
-									<input type="text" name="fullname" id="fullName" class="inputForm padding-left30px" placeholder="Full Name" />
+									<input type="text" name="registerName" id="fullName" class="inputRegisterForm inputForm padding-left30px" placeholder="Full Name" />
 									<i class="glyphicon glyphicon-user"></i>
 								</div>
 							</div>
-							<div id="columnEmail" class="columnInput">
+							<div id="columnRegisterEmail" class="columnInput">
 								<div class="icon-addon">
-									<input type="text" name="email" id="email" class="inputForm padding-left30px" placeholder="Email" />
+									<input type="text" name="registerEmail" id="email" class="inputRegisterForm inputForm padding-left30px" placeholder="Email" />
 									<i class="glyphicon glyphicon-envelope"></i>
 								</div>
 							</div>
-							<div id="columnPhoneNumber" class="columnInput">
+							<div id="columnRegisterPhoneNumber" class="columnInput">
 								<div class="icon-addon">
-									<input type="number" name="phonenumber" id="phonenumber" class="inputForm padding-left30px" placeholder="Phone" />
+									<input type="number" name="registerPhoneNumber" id="phonenumber" class="inputRegisterForm inputForm padding-left30px" placeholder="Phone" />
 									<i class="glyphicon glyphicon-earphone"></i>
 								</div>
 							</div>
@@ -309,19 +309,19 @@
 			<form id="formContact" class="form" method="post">
 				<div id="columnContactName" class="padding-top-xs">
 					<div class="icon-addon">
-						<input type="text" name="name" id="name" class="inputForm padding-left30px" placeholder="Name" />
+						<input type="text" name="name" id="name" class="inputMessageForm inputForm padding-left30px" placeholder="Name" />
 						<i class="glyphicon glyphicon-user"></i>
 					</div>
 				</div>
 				<div id="columnContactEmail" class="padding-top-xs">
 					<div class="icon-addon">
-						<input type="text" name="contactemail" id="contactemail" class="inputForm padding-left30px" placeholder="Email" />
+						<input type="text" name="contactemail" id="contactemail" class="inputMessageForm inputForm padding-left30px" placeholder="Email" />
 						<i class="glyphicon glyphicon-envelope"></i>
 					</div>
 				</div>
 				<div id="columnSubject" class="padding-top-xs">
 					<div class="icon-addon">
-					<select id="subject" class="inputForm padding-left30px" >
+					<select id="subject" class="inputMessageForm inputForm padding-left30px" >
 						<option value="Enquiries">Enquiries</option>
 						<option value="Request For Demo">Request For Demo</option>
 						<option value="Feedback">Feedback</option>
@@ -332,7 +332,7 @@
 				</div>
 				<div id="columnMessage" class="padding-top-xs">
 					<div class="icon-addon">
-						<textarea type="text" name="message" id="message" class="inputForm padding-left30px" rows="4" placeholder="Message"></textarea>
+						<textarea type="text" name="message" id="message" class="inputMessageForm inputForm padding-left30px" rows="4" placeholder="Message"></textarea>
 						<i class="glyphicon glyphicon-comment"></i>
 					</div>
 				</div>

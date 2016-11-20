@@ -13,12 +13,17 @@
 		if (!isset($_SESSION['userID'])){// if user is logged out
 			$data['userLoggedIn'] = false;
 			if (isset($_POST['company']))				            $company	= trim($_POST ['company']);
+			if (isset($_POST['name']))				            	$name		= trim($_POST ['name']);
 			if (isset($_POST['email']))			                    $email 		= trim($_POST ['email']);
 			if (isset($_POST['phone']))			                    $phone 		= trim($_POST ['phone']);			
-			if (isset($_POST['address']))		                    $address 	= trim($_POST ['address']);
+			//if (isset($_POST['address']))		                    $address 	= trim($_POST ['address']);
 																	
 			if(!trim($_POST['company'])){//if user's name is filled up
 				$data['company'] = "Enter your company name";
+				$validated = false;
+			}
+			if(!trim($_POST['name'])){//if user's name is filled up
+				$data['name'] = "Enter your name";
 				$validated = false;
 			}
 			if (!preg_match("/^[[:alnum:]][a-z0-9_.-]*@[a-z0-9.-]+\.[a-z]{2,4}$/i", trim($_POST['email']))){
@@ -29,11 +34,11 @@
 				$data['phone'] = "Enter your phone number";
 				$validated = false;
 			}
-			if (!trim($_POST['address'])){
+			/*if (!trim($_POST['address'])){
 				$data['address'] = "Enter your address";
 				$validated = false;
 			}
-			/*if(strlen($password) >20 || strlen($password)<8){
+			if(strlen($password) >20 || strlen($password)<8){
 				$data['password'] = "Password must be between 8 and 20 characters";
 				$validated = false;				
 			}
@@ -62,18 +67,18 @@
 					$expirydate = date('Y-m-d', strtotime("+31 days")); // the expiry date of the company license
 					$isadmin = 1;
 					// insert the company and insert admin as user
-					$registerCompanySQL = "INSERT INTO `company` ( name, email, password, phone, address, maxsize, registerdate, expirydate ) 
-													VALUES (:name, :email, :password, :phone, :address, :maxsize, :registerdate, :expirydate);
+					$registerCompanySQL = "INSERT INTO `company` ( name, email, password, phone, maxsize, registerdate, expirydate ) 
+													VALUES (:name, :email, :password, :phone, :maxsize, :registerdate, :expirydate);
 							SET @lastcompanyid = LAST_INSERT_ID();
 							INSERT INTO `employee` (companyid, name, email, password, isadmin) 
-												    VALUES (@lastcompanyid, 'Admin', :email, :password, :isadmin);";
+												    VALUES (@lastcompanyid, :adminname, :email, :password, :isadmin);";
 					$registerCompanyPDO = $conn->prepare($registerCompanySQL);
 					$registerCompanyPDO->execute(array(
 												':name'=> $company,
+												':adminname' => $name,
 												':email'=> $email,
 												':password'=> $password,
 												':phone'=> $phone,
-												':address'=> $address,
 												':maxsize'=> $maxsize,
 												':registerdate'=> $registerdate,
 												':expirydate'=> $expirydate,

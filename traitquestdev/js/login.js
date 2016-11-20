@@ -1,29 +1,27 @@
 // JavaScript Document
 $(document).ready(function(){
-	var working = false;
-	$("#companyName").focus();
-	
+	var loginWorking = false;
 	$('#formEmployeeLogin').submit(function(event){
 		event.preventDefault();
 		
 		//to prevent multiple submission when multiple click on submit button
-		if (working) return false;
-		working = true;
+		if (loginWorking) return false;
+		loginWorking = true;
 		
 		//clearing messages and errors	
-		$('.columnError').remove();
+		$('.columnLoginError').remove();
         $('.loginError').remove();
-		$('.inputForm').each(function(){
+		$('.inputLoginForm').each(function(){
             $(this).removeClass('error');
         });
 		
 		//get the form data
 		var formData= {
-			'name'				    :$('input[name=company]').val(),
-			'email'					:$('input[name=email]').val(),
-			'password'				:$('input[name=password]').val()
+			'name'				    :$('input[name=loginCompany]').val(),
+			'email'					:$('input[name=loginEmail]').val(),
+			'password'				:$('input[name=loginPassword]').val()
 		};
-		//console.log(formData);
+		console.log(formData);
 		
 		//process the form
 		$.ajax({
@@ -36,29 +34,29 @@ $(document).ready(function(){
 		
 		//using the done promise callback
 		.done(function(data){
-			working = false;
+			loginWorking = false;
 			//here we will handle errors and validation messages
 			if(!data['loggedIn'])
 			{	
-				$('input[name=password]').val('');
+				$('input[name=loginPassword]').val('');
 				//check if it has errors
                 if(data['login']){
 					$('#formEmployeeLogin')[0].reset();
 					
 					// redirect to home page when user is logged in
-					window.location.href = "home";
+					window.location.href = "home.php";
                 }
                 else{
                     if(data['name']){
-                        $('#columnCompany').find('.inputForm').addClass('error');
-                        $('#columnCompany').append('<div class="columnError text-center red fontsize-xs">' + data['name'] + '</div>');
+                        $('#columnLoginCompany').find('.inputLoginForm').addClass('error');
+                        $('#columnLoginCompany').append('<div class="columnLoginError text-center red fontsize-s">' + data['name'] + '</div>');
                     }
                     if(data['email']){
-                        $('#columnEmail').find('.inputForm').addClass('error');
-                        $('#columnEmail').append('<div class="columnError text-center red fontsize-xs">' + data['email'] + '</div>');
+                        $('#columnLoginEmail').find('.inputLoginForm').addClass('error');
+                        $('#columnLoginEmail').append('<div class="columnLoginError text-center red fontsize-s">' + data['email'] + '</div>');
                     }
                     if(data['error']){
-                        $('#loginResponse').append('<div class="loginError text-center red fontsize-xs">' + data['error'] + '</div>');
+                        $('#loginResponse').append('<div class="loginError text-center red fontsize-s">' + data['error'] + '</div>');
                     }
                 }
 			}

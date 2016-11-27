@@ -16,7 +16,6 @@
 /* 2.0 GLOBALS
 ------------------------------------------ */
 html, body{background:#F9F9F9;color:#333333;}
-html{position:relative; min-height:100%;}
 body{font-family: 'Lato', sans-serif; text-align:justify; }
 a, a:hover, a:active, a:focus {text-decoration:none;}
 a.yellowAnchor{color:#F5D76E;}
@@ -123,5 +122,44 @@ textarea{resize:none;}
 /* 4.0 FOOTER
 ------------------------------------------ */
 #footer-bg{background-color:#666666;margin-bottom:40px;}
-.footer{position:absolute;bottom:0;width:90%;height:40px;}
-.footer-black{position:absolute;bottom:0;background-color:#333333;width:100%;height:40px;}
+.stickyFooter-black{
+  position:absolute;
+  bottom:0;
+  background-color:#333333;
+  width:100%;
+  height:40px;
+}
+/* Small devices (tablets, 768px and up) */
+@media (min-width: @screen-sm-min) {
+  .stickyFooter{
+    position:absolute;
+    bottom:0;
+    background-color:#333333;
+    width:100%;
+    height:40px;
+  }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: @screen-md-min) {
+  .stickyFooter{
+    position:absolute;
+    margin-left:33%;
+    bottom:0;
+    background-color:#333333;
+    width:100%;
+    height:40px;
+  }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: @screen-lg-min) {
+  .stickyFooter{
+    position:absolute;
+    margin-left:33%;
+    bottom:0;
+    background-color:#333333;
+    width:100%;
+    height:40px;
+  }
+}

@@ -61,7 +61,7 @@
 				if($companyPDO->rowCount() == 0){
 					
 					$randomPassword = randomPassword();
-					$password = md5('12345678'); // to replace hardcoded string with randomPassword() in release version
+					$password = $randomPassword; // to replace hardcoded string with randomPassword() in release version
 					$maxsize = 5; // max number of a company
 					$registerdate = date ('Y-m-d'); // register date of the company
 					$expirydate = date('Y-m-d', strtotime("+31 days")); // the expiry date of the company license
@@ -86,7 +86,7 @@
 												));						
 						
 					//INPUT CODE HERE TO SEND EMAIL TO USER ON NEW PASSWORD
-					/*$to = $email;
+					$to = $email;
 
 					$subject = 'TraitQuest Registration';
 
@@ -135,17 +135,12 @@
 									<p>Hi '.$name.',</p>
 									<p>Thank you for registering to TraitQuest.</p>
 									<p>Your account details are as follow:<br/>
+									   Company: '.$company.'<br/>
 									   Email: '.$email.'<br/>
 									   Password: '.$randomPassword.'
 									</p>
-									<p>To complete your registration, please verify your account by clicking on the following link:</p>
-									<table id="email-link" cellpadding="5" cellspacing="0" width="400" align="center">
-										<tr>
-											<td align="center">
-												<a href="http://www.traitquest.com/verify?'.$urlParam.'">Click here to login</a>
-											</td>
-										</tr>
-									</table>
+									<p>You are recommended to change this password once you are login.</p>
+									<br/>
 									<p>Best wishes, <br/>The TraitQuest Team</p>
 								</td>
 							</tr>
@@ -163,7 +158,7 @@
 					</html>';
 					mail($to, $subject, $message, $headers);
 
-					$emailTo = 'activation@traitquest.com';
+					/*$emailTo = 'activation@traitquest.com';
 					$alternativeBody = "Name: $name \n\nEmail: $email \n\nActivation Link: http://traitquest.com/verify?".$urlParam;
 					$alternativeHeaders = $name. 'Account';
 

@@ -78,6 +78,61 @@
 			echo "Table Supervisor created successfully<br>";
 		}
 		
+		// create KPI Category table
+		$sql = "CREATE TABLE IF NOT EXISTS `kpicategory` (
+				`id` INT UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY, 
+				`title` LONGTEXT NOT NULL,
+				)";
+		
+		// check if KPI Category table has been created
+		if( $conn->exec($sql) !== false ){
+			echo "Table KPI Category created successfully<br>";
+		}
+		
+		// create KPI table
+		$sql = "CREATE TABLE IF NOT EXISTS `kpi` (
+				`id` INT UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY, 
+				`employeeid` INT UNSIGNED NOT NULL,
+				`companyid` INT UNSIGNED NOT NULL,
+				`kpicategoryid` INT UNSIGNED NOT NULL,
+				`description` LONGTEXT,
+				`startdate` TIMESTAMP,
+				`enddate` TIMESTAMP,
+				`progress` INT NOT NULL DEFAULT 0,
+				`issubmitted` BOOLEAN NOT NULL DEFAULT 0,
+				`ischecked` BOOLEAN NOT NULL DEFAULT 0,				
+				`isverified` BOOLEAN NOT NULL DEFAULT 0,
+				`reviewdby` VARCHAR(128),
+				FOREIGN KEY (`employeeid`) REFERENCES employee(`id`),
+				FOREIGN KEY (`companyid`) REFERENCES company(`id`),
+				FOREIGN KEY (`kpicategoryid`) REFERENCES kpicategory(`id`),
+				INDEX(`employeeid`)
+				)";
+
+		// check if Company table has been created
+		if( $conn->exec($sql) !== false ){
+			echo "Table KPI created successfully<br>";
+		}
+		
+		// create KPI Record table
+		$sql = "CREATE TABLE IF NOT EXISTS `kpirecord` (
+				`id` INT UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY, 
+				`kpiid` INT UNSIGNED NOT NULL,
+				`employeeid` INT UNSIGNED NOT NULL,
+				`companyid` INT UNSIGNED NOT NULL,
+				`date` TIMESTAMP,
+				`progress` INT NOT NULL DEFAULT 0,
+				FOREIGN KEY (`kpiid`) REFERENCES kpi(`id`),
+				FOREIGN KEY (`employeeid`) REFERENCES employee(`id`),
+				FOREIGN KEY (`companyid`) REFERENCES company(`id`),
+				INDEX(`employeeid`)
+				)";
+
+		// check if Company table has been created
+		if( $conn->exec($sql) !== false ){
+			echo "Table KPI Record created successfully<br>";
+		}
+		
 		// create KPI table
 		/*$sql = "CREATE TABLE IF NOT EXISTS `kpi` (
 				`id` INT UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY, 

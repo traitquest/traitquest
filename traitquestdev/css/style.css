@@ -26,6 +26,14 @@ form{margin: 0; padding: 0;}
 input:focus, textarea:focus, select:focus{ outline:none;}
 input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{-webkit-appearance:none;margin:0;}
 textarea{resize:none;}
+button {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+    border: 0;
+    background: transparent;
+}
 #logo-image{max-height:60px;}
 .indexHeader{padding-top:5px;height:70px;background-color:rgba(255,255,255,0.4);border-bottom:1px solid rgba(255,255,255,0.4)}
 .navSelection{display:block;display:inline;width:60px;padding:10px;border-radius:8px;}
@@ -41,6 +49,9 @@ textarea{resize:none;}
 .button{padding-top: 8px; padding-bottom: 8px; border: none;color:white; background-color: #4970B5; cursor: pointer;transition: all 0.5s ease;-moz-transition: all 0.5s ease;-webkit-transition: all 0.5s ease;-o-transition: all 0.5s ease;-ms-transition: all 0.5s ease;}
 .button:hover{color: white; background-color: #345082;}
 .button:active{color: white; background-color: #4970B5;}
+.buttonCancel{padding-top: 8px; padding-bottom: 8px; border: none;color:white; background-color: #AEA096; cursor: pointer;transition: all 0.5s ease;-moz-transition: all 0.5s ease;-webkit-transition: all 0.5s ease;-o-transition: all 0.5s ease;-ms-transition: all 0.5s ease;}
+.buttonCancel:hover{color: white; background-color: #8B8078;}
+.buttonCancel:active{color: white; background-color: #4970B5;}
 .buttonForm{width: 200px; display:block; margin: 0 auto;}
 .registerButton{width:200px;padding:8px;display:block;margin:0 auto; border: none;color:white; background-color:#7EACFF; cursor: pointer;transition: all 0.5s ease;-moz-transition: all 0.5s ease;-webkit-transition: all 0.5s ease;-o-transition: all 0.5s ease;-ms-transition: all 0.5s ease;}
 .registerButton:hover{color: white; background-color: #345082;}
@@ -101,17 +112,30 @@ textarea{resize:none;}
 .display-inlineblock{display:inline-block;}
 .icon-addon{width:200px;position:relative;margin:0 auto;}
 .icon-addon .glyphicon{position:absolute;padding:10px;}
+.icon-addon-right .glyphicon{right:0;}
 .padding-left30px{padding-left:30px;}
 .padding-left10px{padding-left:10px;}
 .featureIcon{max-width:120px; height:auto;}
-.imageMaxWidth100px{max-width:100px;height:auto;}
-.imageMaxWidth150px{max-width:150px;height:auto;}
+.imageSize100px{min-width:100px;max-width:100px;height:auto;}
+.imageSize150px{min-width:150px;max-width:150px;height:auto;}
 .border-top-grey{border-top:3px solid #999999;}
 .glyphicon-m{font-size:18px;}
 .glyphicon-lg{font-size:24px;}
-.sideBar{float:left;width:25%;background-color:#93A7AC;max-height:100%;}
+.sideBar{float:left;width:16.6667%;background-color:#93A7AC;max-height:100%;}
 .sideBarSelected{background-color:#DBE3E2;}
-
+.float-left{float:left;}
+.float-right{float:right;}
+.assignButton{width:150px;padding:8px;border:none;cursor:pointer;transition:all 0.5s ease;-moz-transition:all 0.5s ease;-webkit-transition:all 0.5s ease;-o-transition:all 0.5s ease;-ms-transition:all 0.5s ease;}
+.assignButtonBlue{background-color:#4970B5;}
+.assignButtonBlue:hover{background-color:#345082;}
+.assignButtonGreen{background-color:#63D490;}
+.assignButtonGreen:hover{background-color:#4FA973;}
+.img-wrap{position:relative;}
+.img-wrap .del{position:absolute;top:0;left:85;}
+.img-wrap .del:hover{color:#B83C30;}
+.img-wrap .edit{position:absolute;top:57;left:85;}
+.img-wrap .edit:hover{color:#1F8B4C;}
+.breakword{word-wrap:break-word;}
 /*#wrapper{ padding-bottom: 80px;  min-height:100%; position:relative;}*/
 
 /* 3.0 HEADER

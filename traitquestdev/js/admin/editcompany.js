@@ -32,7 +32,7 @@ $(document).ready(function(){
 		//process the form
 		$.ajax({
 			type		:'POST', 	//define the type of HTTP verb we want to use
-			url			:'data/editcompanyprocess.php',		//the url where we want to POST
+			url			:'../data/admin/company/editcompanyprocess.php',		//the url where we want to POST
 			data		: formData,		//our data object
 			dataType	:'json',		//what type of data do we expect back from the server
 			encode		:true
@@ -49,28 +49,31 @@ $(document).ready(function(){
                 }
                 else{
 					// redirect after editing
-					window.location.href = "company.php";
+					window.history.back();
 				}
 			}
 			else{
 				// redirect to home page when user is not logged in
-                window.location.href = "index.php";
+                window.location.href = "../index.php";
 			}
 		})
 		//using the fail promise callback
 		.fail(function(data){
-            window.location.href = "500.php";
+            window.location.href = "../500.php";
 		});
 		
 	});
 	
+	this.getElementById('editCompanyCancel').addEventListener('click',function(){
+		window.history.back();
+	}, false);
 })
 
 
 function populateForm(){
 	$.ajax({
 			type		:'POST', 	//define the type of HTTP verb we want to use
-			url			:'data/getcompanyprocess.php',		//the url where we want to POST
+			url			:'../data/admin/company/getcompanyprocess.php',		//the url where we want to POST
 			data		: {},		//our data object
 			dataType	:'json',		//what type of data do we expect back from the server
 			encode		:true
@@ -87,11 +90,11 @@ function populateForm(){
 			$("#mission").val( data['company']['mission'] );
 		}
 		else{
-			window.location.href = "index.php";
+			window.location.href = "../index.php";
 		}
 	})
 	//using the fail promise callback
 	.fail(function(data){
-		window.location.href = "500.php";
+		window.location.href = "../500.php";
 	});
 }

@@ -46,7 +46,7 @@ $(document).ready(function(){
 					$('#formCompanyLogin')[0].reset();
 					
 					// redirect to home page when user is logged in
-					window.location.href = "admin.php";
+					window.location.href = "admin/employee.php";
                 }
                 else{
                     if(data['name']){
@@ -64,7 +64,7 @@ $(document).ready(function(){
 			}
 			else{
 				// redirect to home page when user is logged in
-                window.location.href = "admin.php";
+                window.location.href = "admin/employee.php";
 			}
 		})
 		//using the fail promise callback

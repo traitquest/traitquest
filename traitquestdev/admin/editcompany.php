@@ -39,7 +39,7 @@
 		<img class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 margin-top-s imageSize100px" src="../images/avatar2.jpg">
 		<p class="col-lg-10 col-md-10 col-sm-10 margin-top-s fontsize-s white breakword">User123456789 123456789</p>
 		<a href="#" class="closeMobileNav padding-top-m display-block fontsize-m white">Company</a>
-		<a href="#" class="closeMobileNav padding-top-m display-block fontsize-m white">Employees</a>
+		<a href="employee.php" class="closeMobileNav padding-top-m display-block fontsize-m white">Employees</a>
 		<a href="#" class="closeMobileNav padding-top-m display-block fontsize-m white">Settings</a>
 		<a href="#" class="closeMobileNav padding-top-m display-block fontsize-m white">Logout</a>
 	</div>
@@ -56,7 +56,7 @@
 					<h4 class="display-block display-inline padding-left10px"><i class="glyphicon glyphicon-briefcase"></i></h4>
 					<h4 class="display-block display-inline padding-left10px">Company</h4>
 				</li></a>
-				<a href="#"><li class="padding-topbottom-s">
+				<a href="employee.php"><li class="padding-topbottom-s">
 					<h4 class="display-block display-inline padding-left10px"><i class="glyphicon glyphicon-user"></i></h4>
 					<h4 class="display-block display-inline padding-left10px">Employees</h4>
 				</li></a>

@@ -1,5 +1,5 @@
 <?php
-	include "../../traitquestserver/connection.php";
+	include "../../../../traitquestserver/connection.php";
 
 	session_start();
 	$data = array();		// array to pass back data
@@ -87,7 +87,7 @@
 					}
 				}
 				else{
-					$data['error'] = "You have exceeded your package limit. Contact Trait Quest for upgrade.";
+					$data['error'] = "You have exceeded your package limit. Contact TraitQuest for upgrade.";
 					$data['employeeAdded'] = false;
 				}
 			}

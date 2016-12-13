@@ -2,7 +2,7 @@
 $(document).ready(function(){
 	var currentEmployeeID = getUrlParameter('id');
 	if( currentEmployeeID === undefined || currentEmployeeID == '' ){
-		window.location.href = "employeemanagement.php";
+		window.location.href = "employee.php";
 	}
 	getSuperiorList();
 	getSubordinateList();
@@ -30,19 +30,35 @@ $(document).ready(function(){
 
 		$.ajax({
 			type:'post',
-			url:'data/assignemployeeprocess.php',
+			url:'../data/admin/employee/assignemployeeprocess.php',
 			data:{'action':'assignSuperior','selectedEmployeeID':id, 'currentEmployeeID':currentEmployeeID},
 			success:function(result){
 				var data = JSON.parse(result);
+				var codeHTML;
 				if (data['response'] == 'superiorAssigned') {
-					var source = $('<div class="employeeRow"><div class="employeeData">'
+					codeHTML = '';
+					if(data['employee']['code'] != '' && !$.isEmptyObject(data['employee']['code'] )){
+						codeHTML = '<li><i>( ' + data['employee']['code']  + ' )</i></li>'
+					}
+					
+					var source = $('<div class="employeeRow margin-top-s col-lg-4 col-md-4 col-sm-6 col-xs-12">'
+								   + '<div class="img-wrap">'
+								   + '<img class="imageSize100px col-lg-6 col-md-6 col-sm-6 col-xs-6" src="' + data['employee']['imagelink'] + '">'
+								   + '<button class="removeSuperior" data-id="' + data['employee']['id'] + '"><i class="del red glyphicon glyphicon-remove-sign"></i></button>'
+								   + '</div>'
+								   + '<ul class="margin-top-m padding-leftright-xs col-lg-6 col-md-6 col-sm-12 col-xs-12">'
+								   + '<li>' + data['employee']['name'] + '</li>'
+								   + codeHTML
+								   + '</ul>'
+								   + '</div>');
+					/*var source = $('<div class="employeeRow"><div class="employeeData">'
 									  + data['employee']['code'] + ' '
 									  + '<a href="employeeassignment.php?id=' + data['employee']['id'] + '">'
 									  + data['employee']['name'] + '</a>' + ' '
 									  + data['employee']['email'] + '</div>'
 									  + '<div class="remove">' 
 									  + '<button class="removeSuperior" data-id="' + data['employee']['id'] + '">Remove</button>'
-									  + '</div></div>');
+									  + '</div></div>');*/
 					var target = '#superiorList';
 					$(target).find('.noRecord').remove();
 					source.appendTo(target).hide().slideDown();
@@ -52,7 +68,7 @@ $(document).ready(function(){
 				}
 				else{
 					// throw catch error here
-					 window.location.href = "500.php";
+					 window.location.href = "../500.php";
 				}
 			}
 		})
@@ -67,19 +83,35 @@ $(document).ready(function(){
 
 		$.ajax({
 			type:'post',
-			url:'data/assignemployeeprocess.php',
+			url:'../data/admin/employee/assignemployeeprocess.php',
 			data:{'action':'assignSubordinate','selectedEmployeeID':id, 'currentEmployeeID':currentEmployeeID},
 			success:function(result){
 				var data = JSON.parse(result);
+				var codeHTML;
 				if (data['response'] == 'subordinateAssigned') {
-					var source = $('<div class="employeeRow"><div class="employeeData">'
+					codeHTML = '';
+					if(data['employee']['code'] != '' && !$.isEmptyObject(data['employee']['code'] )){
+						codeHTML = '<li><i>( ' + data['employee']['code']  + ' )</i></li>'
+					}
+					
+					var source = $('<div class="employeeRow margin-top-s col-lg-4 col-md-4 col-sm-6 col-xs-12">'
+								   + '<div class="img-wrap">'
+								   + '<img class="imageSize100px col-lg-6 col-md-6 col-sm-6 col-xs-6" src="' + data['employee']['imagelink'] + '">'
+								   + '<button class="removeSubordinate" data-id="' + data['employee']['id'] + '"><i class="del red glyphicon glyphicon-remove-sign"></i></button>'
+								   + '</div>'
+								   + '<ul class="margin-top-m padding-leftright-xs col-lg-6 col-md-6 col-sm-12 col-xs-12">'
+								   + '<li>' + data['employee']['name'] + '</li>'
+								   + codeHTML
+								   + '</ul>'
+								   + '</div>');
+					/*var source = $('<div class="employeeRow"><div class="employeeData">'
 									  + data['employee']['code'] + ' '
 									  + '<a href="employeeassignment.php?id=' + data['employee']['id'] + '">'
 									  + data['employee']['name'] + '</a>' + ' '
 									  + data['employee']['email'] + '</div>'
 									  + '<div class="remove">' 
 									  + '<button class="removeSubordinate" data-id="' + data['employee']['id'] + '">Remove</button>'
-									  + '</div></div>');
+									  + '</div></div>');*/
 					var target = '#subordinateList';
 					$(target).find('.noRecord').remove();
 					source.appendTo(target).hide().slideDown();
@@ -89,7 +121,7 @@ $(document).ready(function(){
 				}
 				else{
 					// throw catch error here
-					 window.location.href = "500.php";
+					 window.location.href = "../500.php";
 				}
 			}
 		})
@@ -104,7 +136,7 @@ $(document).ready(function(){
 
 		$.ajax({
 			type:'post',
-			url:'data/assignemployeeprocess.php',
+			url:'../data/admin/employee/assignemployeeprocess.php',
 			data:{'action':'removeSuperior','selectedEmployeeID':id, 'currentEmployeeID':currentEmployeeID},
 			success:function(result){
 				var data = JSON.parse(result);
@@ -118,7 +150,7 @@ $(document).ready(function(){
 				}
 				else{
 					// throw catch error here
-					 window.location.href = "500.php";
+					 window.location.href = "../500.php";
 				}
 			}
 		})
@@ -133,7 +165,7 @@ $(document).ready(function(){
 
 		$.ajax({
 			type:'post',
-			url:'data/assignemployeeprocess.php',
+			url:'../data/admin/employee/assignemployeeprocess.php',
 			data:{'action':'removeSubordinate','selectedEmployeeID':id, 'currentEmployeeID':currentEmployeeID},
 			success:function(result){
 				var data = JSON.parse(result);
@@ -147,7 +179,7 @@ $(document).ready(function(){
 				}
 				else{
 					// throw catch error here
-					 window.location.href = "500.php";
+					 window.location.href = "../500.php";
 				}
 			}
 		})
@@ -159,7 +191,7 @@ $(document).ready(function(){
 	function getSuperiorList(){
 		$.ajax({
 			type:'post',
-			url:'data/getemployeehierarchyprocess.php',
+			url:'../data/admin/employee/getemployeehierarchyprocess.php',
 			data:{'action':'getSuperior','employeeID':currentEmployeeID},
 			success:function(result){
 				var data = JSON.parse(result);
@@ -168,16 +200,31 @@ $(document).ready(function(){
 				
 				if (data['response'] == 'success') {
 					var resultNumber = data['result'].length;
-					
+					var codeHTML;
 					for(var i=0; i < resultNumber; i++){
-						html = '<div class="employeeRow"><div class="employeeData">'
+						codeHTML = '';
+						if(data['result'][i]['superior']['data']['code'] != '' && !$.isEmptyObject(data['result'][i]['superior']['data']['code'] )){
+							codeHTML = '<li><i>( ' + data['result'][i]['superior']['data']['code']  + ' )</i></li>'
+						}
+						
+						html = '<div class="employeeRow margin-top-s col-lg-4 col-md-4 col-sm-6 col-xs-12">'
+							   + '<div class="img-wrap">'
+							   + '<img class="imageSize100px col-lg-6 col-md-6 col-sm-6 col-xs-6" src="' + data['result'][i]['superior']['data']['imagelink'] + '">'
+							   + '<button class="removeSuperior" data-id="' + data['result'][i]['superior']['data']['id'] + '"><i class="del red glyphicon glyphicon-remove-sign"></i></button>'
+							   + '</div>'
+							   + '<ul class="margin-top-m padding-leftright-xs col-lg-6 col-md-6 col-sm-12 col-xs-12">'
+							   + '<li>' + data['result'][i]['superior']['data']['name'] + '</li>'
+							   + codeHTML
+							   + '</ul>'
+							   + '</div>';
+						/*html = '<div class="employeeRow"><div class="employeeData">'
 							    + data['result'][i]['superior']['data']['code'] + ' '
 							    + '<a href="employeeassignment.php?id=' + data['result'][i]['superior']['data']['id'] + '">'
 							    + data['result'][i]['superior']['data']['name'] + '</a>' + ' '
 							    + data['result'][i]['superior']['data']['email'] + '</div>'
 								+ '<div class="remove">' 
 								+ '<button class="removeSuperior" data-id="' + data['result'][i]['superior']['data']['id'] + '">Remove</button>'
-								+ '</div></div>';
+								+ '</div></div>';*/
 							
 						target.append(html);
 					}
@@ -187,11 +234,11 @@ $(document).ready(function(){
 					target.append(html);
 				}
 				else if(data['response'] == 'notAdmin'){
-					window.location.href = "login.php";
+					window.location.href = "../index.php";
 				}
 				else{
 					// throw catch error here
-					window.location.href = "500.php";
+					window.location.href = "../500.php";
 				}
 			}
 		})
@@ -204,7 +251,7 @@ $(document).ready(function(){
 	function getSubordinateList(){
 		$.ajax({
 			type:'post',
-			url:'data/getemployeehierarchyprocess.php',
+			url:'../data/admin/employee/getemployeehierarchyprocess.php',
 			data:{'action':'getSubordinate','employeeID':currentEmployeeID},
 			success:function(result){
 				var data = JSON.parse(result);
@@ -213,15 +260,30 @@ $(document).ready(function(){
 				
 				if (data['response'] == 'success') {
 					var resultNumber = data['result'].length;
-					
+					var codeHTML;
 					for(var i=0; i < resultNumber; i++){
-						html = '<div class="employeeRow"><div class="employeeData">'
+						codeHTML = '';
+						if(data['result'][i]['subordinate']['data']['code'] != '' && !$.isEmptyObject(data['result'][i]['subordinate']['data']['code'] )){
+							codeHTML = '<li><i>( ' + data['result'][i]['subordinate']['data']['code']  + ' )</i></li>'
+						}
+						
+						html = '<div class="employeeRow margin-top-s col-lg-4 col-md-4 col-sm-6 col-xs-12">'
+							   + '<div class="img-wrap">'
+							   + '<img class="imageSize100px col-lg-6 col-md-6 col-sm-6 col-xs-6" src="' + data['result'][i]['subordinate']['data']['imagelink'] + '">'
+							   + '<button class="removeSubordinate" data-id="' + data['result'][i]['subordinate']['data']['id'] + '"><i class="del red glyphicon glyphicon-remove-sign"></i></button>'
+							   + '</div>'
+							   + '<ul class="margin-top-m padding-leftright-xs col-lg-6 col-md-6 col-sm-12 col-xs-12">'
+							   + '<li>' + data['result'][i]['subordinate']['data']['name'] + '</li>'
+							   + codeHTML
+							   + '</ul>'
+							   + '</div>';
+						/*html = '<div class="employeeRow"><div class="employeeData">'
 							    + data['result'][i]['subordinate']['data']['code'] + ' '
 							    + '<a href="employeeassignment.php?id=' + data['result'][i]['subordinate']['data']['id'] + '">'
 							    + data['result'][i]['subordinate']['data']['name'] + '</a>' + ' '
 							    + data['result'][i]['subordinate']['data']['email'] + '</div>'
 								+ '<button class="removeSubordinate" data-id="' + data['result'][i]['subordinate']['data']['id'] + '">Remove</button>'
-								+ '</div></div>';
+								+ '</div></div>';*/
 							
 						target.append(html);
 					}
@@ -231,11 +293,11 @@ $(document).ready(function(){
 					target.append(html);
 				}
 				else if(data['response'] == 'notAdmin'){
-					window.location.href = "login.php";
+					window.location.href = "../index.php";
 				}
 				else{
 					// throw catch error here
-					window.location.href = "500.php";
+					window.location.href = "../500.php";
 				}
 			}
 		})
@@ -253,7 +315,7 @@ $(document).ready(function(){
 		
 		$.ajax({
 			type		:'POST', 	//define the type of HTTP verb we want to use
-			url			:'data/getemployeelist.php',		//the url where we want to POST
+			url			:'../data/admin/employee/getemployeelist.php',		//the url where we want to POST
 			data		: formData,		//our data object
 			dataType	:'json',		//what type of data do we expect back from the server
 			encode		:true
@@ -275,7 +337,22 @@ $(document).ready(function(){
 					for(var i=0; i<resultNumber; i++){
 						// prevent display own name
 						if( currentEmployeeID != data['result'][i]['employee']['id'] ){
-							html = '<div class="employeeRow"><div class="employeeData">'
+							var codeHTML = '';
+							if(data['result'][i]['employee']['code'] != '' && !$.isEmptyObject(data['result'][i]['employee']['code'])){
+								codeHTML = '<li><i>( ' + data['result'][i]['employee']['code'] + ' )</i></li>'
+							}
+							
+							html = '<div class="employeeRow margin-top-s col-lg-12 col-md-12 col-sm-12 col-xs-12">'
+									+ '<img class="imageSize100px col-lg-1 col-md-1" src="' + data['result'][i]['employee']['imagelink'] + '">'
+									+ '<ul class="margin-top-m padding-leftright-xs col-lg-5 col-md-5">'
+									+ '<li>' + data['result'][i]['employee']['name'] + '</li>'
+									+ codeHTML
+									+ '</ul>'
+									+ '<button class="assignSuperior white assignButton assignButtonBlue margin-xs col-lg-3 col-md-3 margin-top-m" data-id="' + data['result'][i]['employee']['id'] + '">Superior</button>'
+									+ '<button class="assignSubordinate white assignButton assignButtonGreen margin-xs col-lg-3 col-md-3 margin-top-m" data-id="' + data['result'][i]['employee']['id'] + '">Subordinate</button>'
+									+ '</div>';
+									
+							/*html = '<div class="employeeRow"><div class="employeeData">'
 									+ data['result'][i]['employee']['code'] + ' '
 									+ data['result'][i]['employee']['name'] + ' '
 									+ data['result'][i]['employee']['email'] + '</div>'
@@ -284,7 +361,7 @@ $(document).ready(function(){
 									+ '</div>'
 									+ '<div class="assignSubordinateContainer">' 
 									+ '<button class="assignSubordinate" data-id="' + data['result'][i]['employee']['id'] + '">Subordinate</button>'
-									+ '</div></div>';
+									+ '</div></div>';*/
 						
 							target.append(html);
 						}
@@ -297,12 +374,12 @@ $(document).ready(function(){
 			}
 			else{
 				// redirect to home page when user is logged in
-				window.location.href = "login.php";
+				window.location.href = "../index.php";
 			}
 		})
 		//using the fail promise callback
 		.fail(function(data){
-			window.location.href = "500.php";
+			window.location.href = "../500.php";
 		});
 	}
 	

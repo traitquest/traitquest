@@ -1,20 +1,20 @@
 <?php/*
-	session_start();
+session_start();
 	// to redirect user to home page once they have logged in
 	if( !isset($_SESSION['companyID']) || !isset($_SESSION['userID'])){
-		header('location: index.php');
+		header('location: ../index.php');
 	}
-	else if( ( isset($_SESSION['companyID']) && isset($_SESSION['userID']) ) && $_SESSION['logintype'] == "admin" ){
-		header('location: admin.php');
-	}*/
-
+	else if( ( isset($_SESSION['companyID']) && isset($_SESSION['userID']) ) && $_SESSION['logintype'] == "employee" ){
+		header('location: ../home.php');
+	}
+*/
 ?>
 <!DOCTYPE>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Edit Profile</title>
+<title>People</title>
 <link rel="shortcut icon" href="images/icon.ico">
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 					CSS
@@ -27,13 +27,12 @@
 					JAVASCRIPT
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
-<script type="text/javascript" src="js/setheight.js"></script>
 <script type="text/javascript" src="js/mobilenav.js"></script>
-<!--<script type="text/javascript" src="js/editprofile.js"></script>-->
-
+<script type="text/javascript" src="js/setheight.js"></script>
 </head>
 
 <body>
+
 	<div id="mobileNav" class="mobileNav"><!mobilenav>
 		<a href="javascript:void(0)" id="closeMobileNav" class="closeBtn white">&times;</a>
 		<img class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 margin-top-s imageSize100px" src="./images/avatar2.jpg">
@@ -61,7 +60,7 @@
 					<h4 class="display-block display-inline padding-left10px"><i class="glyphicon glyphicon-briefcase"></i></h4>
 					<h4 class="display-block display-inline padding-left10px">Company</h4>
 				</li></a>
-				<a href="#"><li class="padding-topbottom-s sideBarSelected">
+				<a href="#"><li class="padding-topbottom-s">
 					<h4 class="display-block display-inline padding-left10px"><i class="glyphicon glyphicon-user"></i></h4>
 					<h4 class="display-block display-inline padding-left10px">Profile</h4>
 				</li></a>
@@ -69,7 +68,7 @@
 					<h4 class="display-block display-inline padding-left10px"><i class="glyphicon glyphicon-stats"></i></h4>
 					<h4 class="display-block display-inline padding-left10px">KPI</h4>
 				</li></a>
-				<a href="#"><li class="padding-topbottom-s">
+				<a href="#"><li class="padding-topbottom-s sideBarSelected">
 					<h4 class="display-block display-inline padding-left10px"><i class="glyphicon glyphicon-user"></i></h4>
 					<h4 class="display-block display-inline padding-left10px">People</h4>
 				</li></a>
@@ -86,6 +85,7 @@
 		</div>
 	</div>
 
+
 	<div class="clear col-lg-10 col-lg-offset-2 col-md-10 col-md-offset-2 padding-topbottom-xs grey95-bg">
 
 			<a href="http://traitquest.com/">
@@ -98,42 +98,38 @@
 
 	</div>
 
+
 	<div class="clear col-lg-10 col-lg-offset-2 col-md-10 col-md-offset-2 white-bg">
 
 			<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 padding-topbottom-s">
-				<h3>Edit Profile</h3>
+				<h3>People</h3>
 			</div>
 
 	</div>
 
-
 	<div class="col-lg-10 col-lg-offset-2 col-md-10 col-md-offset-2 col-sm-12 col-xs-12 grey95-bg padding-bottom-s"><!content goes here>
-		<div class="col-lg-12 col-md-12 margin-topbottom-s padding-topbottom-l padding-leftright-s border-top-grey white-bg">
-		<div id="mainContainer">
-			<form id="formEditProfile" class="form" method="post">
-				<div id="columnAddress" class="columnInput">
-					<p class="clear-both padding-top-s">Address</p>
-					<textarea type="text" name="address" id="address" class="col-lg-12 col-md-12 col-sm-12 col-xs-12" rows="4"></textarea>
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-topbottom-s padding-leftright-s padding-bottom-s border-top-grey white-bg"><!1stwindow>
+				<div class="margin-top-s col-lg-4 col-md-4 col-sm-6 col-xs-12">
+					<img class="imageSize100px col-lg-6 col-md-6 col-sm-6 col-xs-6" src="./images/avatar5.jpg">
+					<ul class="margin-top-m padding-leftright-xs col-lg-6 col-md-6 col-sm-12 col-xs-12"><li>name</li><li>email</li></ul>
 				</div>
-				<div id="columnPhone" class="columnInput">
-					<p class="clear-both padding-top-s">Phone</p>
-					<input type="text" name="phone" id="phone" class="col-lg-12 col-md-12 col-sm-12 col-xs-12" />
+				<div class="margin-top-s col-lg-4 col-md-4 col-sm-6 col-xs-12">
+					<img class="imageSize100px col-lg-6 col-md-6 col-sm-6 col-xs-6" src="./images/avatar6.jpg">
+					<ul class="margin-top-m padding-leftright-xs col-lg-6 col-md-6 col-sm-12 col-xs-12"><li>name</li><li>email</li></ul>
 				</div>
+				<div class="margin-top-s col-lg-4 col-md-4 col-sm-6 col-xs-12">
+					<img class="imageSize100px col-lg-6 col-md-6 col-sm-6 col-xs-6" src="./images/avatar7.jpg">
+					<ul class="margin-top-m padding-leftright-xs col-lg-6 col-md-6 col-sm-12 col-xs-12"><li>name</li><li>email</li></ul>
+				</div>
+			</div>
 
-				<div id="editResponse"></div>
-				<div class="text-right">
-					<input type="submit" name="submit" id="editProfileSubmit" class="buttonForm button clear-both display-block display-inline margin-top-xs" value="Save" />
-					<input type="submit" name="submit" id="editProfileCancel" class="buttonForm buttonCancel clear-both display-block display-inline margin-top-xs" value="Cancel" />
-				</div>
-			</form>
-		</div>
-		</div>
+
 		<footer class="stickyFooter grey95-bg">
 			<div class="">
 				<p class="text-center fontsize-s padding-top-xs grey30"><strong>&copy; 2016 TraitQuest. All rights reserved.</strong></p>
 			</div>
 		</footer>
-	</div>
-</div>
+
+	</div><!content ends here>
 </body>
 </html>

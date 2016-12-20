@@ -94,18 +94,19 @@
 
 	</div>
 	<div class="col-lg-10 col-lg-offset-2 col-md-10 col-md-offset-2 col-sm-12 col-xs-12 grey95-bg padding-bottom-s"><!content goes here>
-			<div id="mainContainer" class="clear col-lg-12 col-md-12 margin-topbottom-s padding-topbottom-l padding-leftright-s border-top-grey white-bg">
-				<form id="formEditEmployee" class="form" method="post">					
+			<div id="mainContainer" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-topbottom-s padding-topbottom-l padding-leftright-s border-top-grey white-bg">
+				<form id="formEditEmployee" class="form" method="post">
 					<div id="editEmployeeResponse" class="red text-center col-lg-12 col-md-12 col-sm-12 col-xs-12"></div>
-					<div id="columnEmployeePic" class="clear col-lg-2 col-md-4 col-sm-4 col-xs-12"></div>
-					<div id="columnEmployeeName" class="clear col-lg-3 col-md-4 col-sm-4 col-xs-12">
+					<div id="columnEmployeePic" class="col-lg-3 col-md-4 col-sm-4 col-xs-12"></div>
+					<div id="columnEmployeeName" class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
 						<input type="text" name="employeeName" id="employeeName" class="inputForm margin-top-l" placeholder="Name" />
 					</div>
-					<div id="columnEmployeeCode" class="clear col-lg-3 col-md-4 col-sm-4 col-xs-12">
+					<div id="columnEmployeeCode" class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
 						<input type="text" name="employeeCode" id="employeeCode" class="inputForm margin-top-l" placeholder="Code" />
 					</div>
-					<div class="clear col-lg-3 col-md-4 col-sm-4 col-xs-12">
-					<input type="submit" name="submit" id="editEmployeeSubmit" class="inputForm button margin-top-l" value="Save" />
+					<div class="col-lg-3 col-lg-offset-0 col-md-4 col-md-offset-8 col-sm-4 col-sm-offset-8 col-xs-12">
+					<input type="submit" name="submit" id="editEmployeeSubmit" class="clear-both inputForm button margin-top-l" value="Save" />
+					<a href="" class="clear-both white inputForm buttonCancel margin-top-l text-center">Cancel</a>
 					</div>
 				</form>
 			</div>

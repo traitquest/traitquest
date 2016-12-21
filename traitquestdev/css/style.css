@@ -100,6 +100,11 @@ button {
 .margin-top-m{margin-top: 20px;}
 .margin-top-s{margin-top: 16px;}
 .margin-top-xs{margin-top: 12px;}
+.margin-bottom-xl{margin-top: 28px;}
+.margin-bottom-l{margin-top: 24px;}
+.margin-bottom-m{margin-top: 20px;}
+.margin-bottom-s{margin-top: 16px;}
+.margin-bottom-xs{margin-top: 12px;}
 .left0{margin-left:0;}
 .right0{margin-right:0;}
 .fontsize-xs{font-size:10px;}
@@ -115,7 +120,7 @@ button {
 .icon-addon-right .glyphicon{right:0;}
 .padding-left30px{padding-left:30px;}
 .padding-left10px{padding-left:10px;}
-.featureIcon{max-width:120px; height:auto;}
+.featureIcon{min-width:120px;max-width:120px;height:auto;}
 .imageSize100px{min-width:100px;max-width:100px;height:auto;}
 .imageSize150px{min-width:150px;max-width:150px;height:auto;}
 .border-top-grey{border-top:3px solid #999999;}
@@ -130,12 +135,26 @@ button {
 .assignButtonBlue:hover{background-color:#345082;}
 .assignButtonGreen{background-color:#63D490;}
 .assignButtonGreen:hover{background-color:#4FA973;}
+.buttonwidth70{width:70px;height:20px;border:none;cursor:pointer;transition:all 0.5s ease;-moz-transition:all 0.5s ease;-webkit-transition:all 0.5s ease;-o-transition:all 0.5s ease;-ms-transition:all 0.5s ease;}
+.buttonverify{background-color:#55FF99;}
+.buttonverify:hover{background-color:#44CC7A;}
+.buttonverify:active{transform:translateY(2px);}
+.buttondeny{background-color:#FF8080;}
+.buttondeny:hover{background-color:#CC6666;}
+.buttondeny:active{transform:translateY(2px);}
 .img-wrap{position:relative;}
 .img-wrap .del{position:absolute;top:0;left:85;}
 .img-wrap .del:hover{color:#B83C30;}
 .img-wrap .edit{position:absolute;top:57;left:85;}
 .img-wrap .edit:hover{color:#1F8B4C;}
+.img-description{position:absolute;top:15;left:30.5;visibility:hidden;opacity:0;}
+.img-description-mobile{position:absolute;top:15;left:98;visibility:hidden;opacity:0;}
+.img-wrap:hover .img-description{visibility:visible;opacity:0.6;}
+.img-wrap:hover .img-description-mobile{visibility:visible;opacity:0.6;}
 .breakword{word-wrap:break-word;}
+.statuspending{width:70px;height:20px;background-color:#33E9ED;}
+.statusverified{width:70px;height:20px;background-color:#55FF99;}
+
 /*#wrapper{ padding-bottom: 80px;  min-height:100%; position:relative;}*/
 
 /* 3.0 HEADER

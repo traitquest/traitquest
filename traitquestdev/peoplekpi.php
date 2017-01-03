@@ -1,19 +1,18 @@
-<?php/*
-session_start();
-	// to redirect user to home page once they have logged in
-	if( !isset($_SESSION['companyID']) || !isset($_SESSION['userID'])){
-		header('location: ../index.php');
+<?php
+	session_start();
+	if( ( isset($_SESSION['companyID']) || isset($_SESSION['userID']) ) && $_SESSION['logintype'] == "admin"){
+		header('location: admin.php');
 	}
-	else if( ( isset($_SESSION['companyID']) && isset($_SESSION['userID']) ) && $_SESSION['logintype'] == "employee" ){
-		header('location: ../home.php');
+	else if( ( !isset($_SESSION['companyID']) || !isset($_SESSION['userID']) )){
+		header('location: index.php');
 	}
-*/
 ?>
 <!DOCTYPE>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title>People</title>
 <link rel="shortcut icon" href="images/icon.ico">
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

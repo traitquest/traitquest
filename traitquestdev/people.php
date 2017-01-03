@@ -1,13 +1,12 @@
-<?php/*
-session_start();
-	// to redirect user to home page once they have logged in
-	if( !isset($_SESSION['companyID']) || !isset($_SESSION['userID'])){
-		header('location: ../index.php');
+
+<?php
+	session_start();
+	if( ( isset($_SESSION['companyID']) || isset($_SESSION['userID']) ) && $_SESSION['logintype'] == "admin"){
+		header('location: admin.php');
 	}
-	else if( ( isset($_SESSION['companyID']) && isset($_SESSION['userID']) ) && $_SESSION['logintype'] == "employee" ){
-		header('location: ../home.php');
+	else if( ( !isset($_SESSION['companyID']) || !isset($_SESSION['userID']) )){
+		header('location: index.php');
 	}
-*/
 ?>
 <!DOCTYPE>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -27,6 +26,7 @@ session_start();
 					JAVASCRIPT
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+<script type="text/javascript" src="js/people.js"></script>
 <script type="text/javascript" src="js/mobilenav.js"></script>
 <script type="text/javascript" src="js/setheight.js"></script>
 </head>

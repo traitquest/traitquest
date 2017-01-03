@@ -45,7 +45,7 @@ $(document).ready(function(){
                 }
                 else{
 					// redirect after editing
-					window.location.href = "profile.php";
+					window.history.back();
 				}
 			}
 			else{

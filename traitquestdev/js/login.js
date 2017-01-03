@@ -67,7 +67,7 @@ $(document).ready(function(){
 		})
 		//using the fail promise callback
 		.fail(function(data){
-            window.location.href = "500.php";
+            //window.location.href = "500.php";
 		});
 		
 	});

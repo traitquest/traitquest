@@ -78,6 +78,80 @@
 			echo "Table Supervisor created successfully<br>";
 		}
 		
+		// create KRA Template table
+		$sql = "CREATE TABLE IF NOT EXISTS `kratemplate` (
+				`id` INT UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY, 
+				`title` LONGTEXT NOT NULL,
+				`description` LONGTEXT
+				)";
+		
+		// check if KPI Template table has been created
+		if( $conn->exec($sql) !== false ){
+			echo "Table KRA Template created successfully<br>";
+		}
+		
+		// create KPI Template table
+		$sql = "CREATE TABLE IF NOT EXISTS `kpitemplate` (
+				`id` INT UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY, 
+				`kraid` INT UNSIGNED NOT NULL,
+				`title` LONGTEXT NOT NULL,
+				`description` LONGTEXT,
+				FOREIGN KEY (`kraid`) REFERENCES kpitemplate(`id`)
+				)";
+		
+		// check if KPI Template table has been created
+		if( $conn->exec($sql) !== false ){
+			echo "Table KPI Template created successfully<br>";
+		}
+		
+		// create KPI table
+		$sql = "CREATE TABLE IF NOT EXISTS `kpi` (
+				`id` INT UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY, 
+				`employeeid` INT UNSIGNED NOT NULL,
+				`companyid` INT UNSIGNED NOT NULL,
+				`kratemplateid` INT UNSIGNED NOT NULL,
+				`kpitemplateid` INT UNSIGNED NOT NULL,
+				`description` LONGTEXT,
+				`startdate` DATE,
+				`enddate` DATE,
+				`progress` INT NOT NULL DEFAULT 0,
+				`issubmitted` BOOLEAN NOT NULL DEFAULT 0,
+				`ischecked` BOOLEAN NOT NULL DEFAULT 0,				
+				`isverified` BOOLEAN NOT NULL DEFAULT 0,
+				`reviewdby` VARCHAR(128),
+				`commentemployee` LONGTEXT,
+				`commentsupervisor` LONGTEXT,
+				FOREIGN KEY (`employeeid`) REFERENCES employee(`id`),
+				FOREIGN KEY (`companyid`) REFERENCES company(`id`),
+				FOREIGN KEY (`kratemplateid`) REFERENCES kratemplate(`id`),
+				FOREIGN KEY (`kpitemplateid`) REFERENCES kpitemplate(`id`),
+				INDEX(`employeeid`)
+				)";
+
+		// check if Company table has been created
+		if( $conn->exec($sql) !== false ){
+			echo "Table KPI created successfully<br>";
+		}
+		
+		// create KPI Record table
+		$sql = "CREATE TABLE IF NOT EXISTS `kpirecord` (
+				`id` INT UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY, 
+				`kpiid` INT UNSIGNED NOT NULL,
+				`employeeid` INT UNSIGNED NOT NULL,
+				`companyid` INT UNSIGNED NOT NULL,
+				`date` DATE,
+				`progress` INT NOT NULL DEFAULT 0,
+				FOREIGN KEY (`kpiid`) REFERENCES kpi(`id`),
+				FOREIGN KEY (`employeeid`) REFERENCES employee(`id`),
+				FOREIGN KEY (`companyid`) REFERENCES company(`id`),
+				INDEX(`employeeid`)
+				)";
+
+		// check if Company table has been created
+		if( $conn->exec($sql) !== false ){
+			echo "Table KPI Record created successfully<br>";
+		}
+		
 		// create KPI table
 		/*$sql = "CREATE TABLE IF NOT EXISTS `kpi` (
 				`id` INT UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY, 

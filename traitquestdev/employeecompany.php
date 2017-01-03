@@ -1,19 +1,20 @@
-
-<?php
-	session_start();
-	if( ( isset($_SESSION['companyID']) || isset($_SESSION['userID']) ) && $_SESSION['logintype'] == "admin"){
-		header('location: admin.php');
+<?php/*
+session_start();
+	// to redirect user to home page once they have logged in
+	if( !isset($_SESSION['companyID']) || !isset($_SESSION['userID'])){
+		header('location: ../index.php');
 	}
-	else if( ( !isset($_SESSION['companyID']) || !isset($_SESSION['userID']) )){
-		header('location: index.php');
+	else if( ( isset($_SESSION['companyID']) && isset($_SESSION['userID']) ) && $_SESSION['logintype'] == "employee" ){
+		header('location: ../home.php');
 	}
+*/
 ?>
 <!DOCTYPE>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>People</title>
+<title>Company</title>
 <link rel="shortcut icon" href="images/icon.ico">
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 					CSS
@@ -26,7 +27,7 @@
 					JAVASCRIPT
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
-<script type="text/javascript" src="js/people.js"></script>
+<!--<script type="text/javascript" src="../js/admin/getcompany.js"></script>-->
 <script type="text/javascript" src="js/mobilenav.js"></script>
 <script type="text/javascript" src="js/setheight.js"></script>
 </head>
@@ -56,7 +57,7 @@
 		</div>
 		<div class="clear-both">
 			<ul class="padding-top-m">
-				<a href="#"><li class="padding-topbottom-s">
+				<a href="#"><li class="padding-topbottom-s sideBarSelected">
 					<h4 class="display-block display-inline padding-left10px"><i class="glyphicon glyphicon-briefcase"></i></h4>
 					<h4 class="display-block display-inline padding-left10px">Company</h4>
 				</li></a>
@@ -68,7 +69,7 @@
 					<h4 class="display-block display-inline padding-left10px"><i class="glyphicon glyphicon-stats"></i></h4>
 					<h4 class="display-block display-inline padding-left10px">KPI</h4>
 				</li></a>
-				<a href="#"><li class="padding-topbottom-s sideBarSelected">
+				<a href="#"><li class="padding-topbottom-s">
 					<h4 class="display-block display-inline padding-left10px"><i class="glyphicon glyphicon-user"></i></h4>
 					<h4 class="display-block display-inline padding-left10px">People</h4>
 				</li></a>
@@ -102,27 +103,35 @@
 	<div class="clear col-lg-10 col-lg-offset-2 col-md-10 col-md-offset-2 white-bg">
 
 			<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 padding-topbottom-s">
-				<h3>People</h3>
+				<h3>Company</h3>
 			</div>
 
 	</div>
 
 	<div class="col-lg-10 col-lg-offset-2 col-md-10 col-md-offset-2 col-sm-12 col-xs-12 grey95-bg padding-bottom-s"><!content goes here>
-		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-topbottom-s padding-leftright-s padding-bottom-s border-top-grey white-bg"><!1stwindow>
-				<div class="margin-top-s col-lg-4 col-md-4 col-sm-6 col-xs-12">
-					<img class="imageSize100px col-lg-6 col-md-6 col-sm-6 col-xs-6" src="./images/avatar5.jpg">
-					<ul class="margin-top-m padding-leftright-xs col-lg-6 col-md-6 col-sm-12 col-xs-12"><li>name</li><li>email</li></ul>
+		<div class="col-lg-12 col-md-12 padding-top-l"><!1stwindow>
+			<div class="padding-bottom-s padding-leftright-s border-top-grey white-bg">
+				<h3 id="companyName" class="grey30"></h3>
+				<div class="padding-top-s">
+					<h3 class="display-block display-inline"><i class="glyphicon glyphicon-map-marker"></i></h3>
+					<p id="companyAddress" class="padding-left10px fontsize-m display-block display-inline"></p>
 				</div>
-				<div class="margin-top-s col-lg-4 col-md-4 col-sm-6 col-xs-12">
-					<img class="imageSize100px col-lg-6 col-md-6 col-sm-6 col-xs-6" src="./images/avatar6.jpg">
-					<ul class="margin-top-m padding-leftright-xs col-lg-6 col-md-6 col-sm-12 col-xs-12"><li>name</li><li>email</li></ul>
+				<div class="padding-top-s">
+					<h3 class="display-block display-inline"><i class="glyphicon glyphicon-envelope"></i></h3>
+					<p id="companyEmail" class="padding-left10px fontsize-m display-block display-inline"></p>
 				</div>
-				<div class="margin-top-s col-lg-4 col-md-4 col-sm-6 col-xs-12">
-					<img class="imageSize100px col-lg-6 col-md-6 col-sm-6 col-xs-6" src="./images/avatar7.jpg">
-					<ul class="margin-top-m padding-leftright-xs col-lg-6 col-md-6 col-sm-12 col-xs-12"><li>name</li><li>email</li></ul>
+				<div class="padding-top-s">
+					<h3 class="display-block display-inline"><i class="glyphicon glyphicon-phone-alt"></i></h3>
+					<p id="companyPhone" class="padding-left10px fontsize-m display-block display-inline"></p>
+				</div>
+				<div class="padding-top-s">
+					<h3 class="display-block display-inline"><i class="glyphicon glyphicon-globe"></i></h3>
+					<p id="companyWebsite" class="padding-left10px fontsize-m display-block display-inline"></p>
 				</div>
 			</div>
+		</div>
 
+		<div id="companyData"></div><!-- Description, Vision, Mission etc go in here-->
 
 		<footer class="stickyFooter grey95-bg">
 			<div class="">

@@ -155,7 +155,7 @@
 		<div class="col-sm-6 hidden-xs padding-bottom-s">
 			<div class="col-md-12 col-sm-12 margin-topbottom-s">
 				<div class="col-md-3 col-sm-5">
-					<img src="./images/avatar.png" class="display-block center padding-topbottom-s imageMaxWidth100px"></img>
+					<img src="./images/avatar.png" class="display-block center padding-topbottom-s imageSize100px"></img>
 				</div>
 				<div class="cyan-bg col-md-6 col-sm-4 margin-topbottom-m padding-topbottom-m">
 					<p class="padding-bottom-s">I feel disengaged, unmotivated and dreaded to be at work</p>
@@ -163,10 +163,10 @@
 			</div>
 				<div class="col-md-12 col-sm-12 margin-topbottom-s">
 					<div class="darkgreen-bg col-md-6 col-md-offset-3 col-sm-4 col-sm-offset-5 margin-topbottom-s padding-topbottom-m">
-						<p>TraitQuest provides the platform for Fun to Work and you’ll be completing all tasks in no time</p>
+						<p>TraitQuest provides the platform for Fun to Work and you will be completing all tasks in no time</p>
 					</div>
 					<div class="col-md-3 col-sm-3">
-						<img src="./images/avatar1.png" class="display-block center padding-topbottom-s imageMaxWidth100px"></img>
+						<img src="./images/avatar1.png" class="display-block center padding-topbottom-s imageSize100px"></img>
 					</div>
 				</div>
 			</div>
@@ -179,6 +179,10 @@
 				TraitQuest unique solution uses gamification to track KPIs and gamify the data into individual Traits Profiling,
 				Training Needs Analysis, Performance Linked Rewards, and many more.
 			</p>
+			<p class="padding-topbottom-l">
+				TraitQuest is tailored to Gen-Y working mentality by applying fun, engagement, competition, and thus motivating them
+				in work environment.
+			</p>
 		</div>
 	</div>
 
@@ -188,13 +192,13 @@
 		<h1 class="text-center padding-topbottom-m">Features</h1>
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-topbottom-s margin-topbottom-s">
 			<div class="col-lg-3 col-lg-offset-2 col-md-3 col-md-offset-2 col-sm-6 col-xs-12 padding-bottom-s">
-				<img src="./images/featureicons/1.png" class="featureIcon display-block center padding-bottom-s"></img>
+				<img src="./images/featureicons/performancemanagementsystem.png" class="featureIcon display-block center padding-bottom-s"></img>
 				<h3 class="padding-top-s text-center">Performance Management System</h3>
 				<p class="padding-topbottom-m">From Daily to Weekly to Monthly to Quarterly feedbacks and constant updates.
 				KRAs, Objectives & KPIs are align and adjust according to department, position and personnel</p>
 			</div>
 			<div class="col-lg-3 col-lg-offset-2 col-md-3 col-md-offset-2 col-sm-6 col-xs-12 padding-top-s">
-				<img src="./images/featureicons/2.png" class="featureIcon display-block center padding-bottom-s"></img>
+				<img src="./images/featureicons/engagementplatform.png" class="featureIcon display-block center padding-bottom-s"></img>
 				<h3 class="padding-top-s text-center">Engagement Platform</h3>
 				<p class="padding-topbottom-m">Provides Realtime peer-to-peer and top down recognition. Surveys,
 				feedbacks from employees improve experience detailing job satisfaction and identifying training and competency requirement</p>
@@ -202,18 +206,18 @@
 		</div>
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-topbottom-s margin-topbottom-s">
 			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 padding-topbottom-l">
-				<img src="./images/featureicons/1.png" class="featureIcon display-block center padding-bottom-s"></img>
+				<img src="./images/featureicons/tracktracetreat.png" class="featureIcon display-block center padding-bottom-s"></img>
 				<h3 class="padding-top-s text-center">T<sup>3</sup> - Track, Trace, and Treats</h3>
 				<p class="padding-topbottom-m">Mentorship & Coaching through regular feedbacks, develop succession planning and career planning.
 					Digitally recorded, traceable and retrievable anytime with information security for privacy</p>
 			</div>
 			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 padding-topbottom-l">
-				<img src="./images/featureicons/1.png" class="featureIcon display-block center padding-bottom-s"></img>
+				<img src="./images/featureicons/rewardsandrecognition.png" class="featureIcon display-block center padding-bottom-s"></img>
 				<h3 class="padding-top-s text-center">Rewards and Recognition</h3>
 				<p class="padding-topbottom-m">Make it known through recognition and appreciate their efforts. Every employees are responsible.</p>
 			</div>
 			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 padding-topbottom-l">
-				<img src="./images/featureicons/1.png" class="featureIcon display-block center padding-bottom-s"></img>
+				<img src="./images/featureicons/staffretentionprogram.png" class="featureIcon display-block center padding-bottom-s"></img>
 				<h3 class="padding-top-s text-center">Staff Retention Program</h3>
 				<p class="padding-topbottom-m">Provides Ownership and autonomy. Engaged, Motivated and Valued.</p>
 			</div>

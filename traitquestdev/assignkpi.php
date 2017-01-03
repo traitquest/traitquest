@@ -18,46 +18,39 @@
 					CSS
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
-<link rel="stylesheet" type="text/css" href="css/bootstrap.datetimepicker.css"/>
 <link rel="stylesheet" type="text/css" href="css/color.css"/>
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
-<style>
-.bootstrap-datetimepicker-widget .datepicker-days table tbody tr:hover {
-    background-color: #eee;
-}
-</style>
+
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 					JAVASCRIPT
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-<!--<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.7/jquery.min.js"></script>-->
-<!--<script type="text/javascript" src="js/bootstrap.js"></script>-->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="//cdn.jsdelivr.net/momentjs/2.10.6/moment.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.js"></script>
-<!--<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>-->
-<script src="//cdn.jsdelivr.net/bootstrap.datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
-
-<script type="text/javascript" src="js/changekpi.js"></script>
+<script type="text/javascript" src="js/createeditkpi.js"></script>
 
 <body>
 <div id="wrapper">
 	<?php include "header.php"; ?>
 	<div id="mainContainer" class="container">
-		<form id="formKPI" method="post">
-			<div id="columnDate">
-				<input type="text" id="weeklyDatePicker" class="inputForm" placeholder="Select Week" />
-			</div>
-			<div id="columnKPICategory">
-				<select id="kpicategory" class="inputForm" >
-					<option value="1">Improve Customer Satisfaction</option>
-					<option value="2">Increase Sales Revenue</option>
-					<option value="3">Increase Employee Efficiency</option>
-					<option value="4">Others</option>
+		<form id="formAssignKPI" class="form" method="post">			
+			<div id="columnKRA" class="columnInput">
+				<select id="kra" class="inputForm" >
+					<option value="0">Select a KRA</option>
 				</select>
 			</div>
-			<div id="columnDescription">
+			<div id="columnKPI" class="columnInput">
+				<select id="kpi" class="inputForm" >
+					<option value="0">Select a KPI</option>
+				</select>
+			</div>
+			<div id="columnDescription" class="columnInput">
 				<textarea type="text" name="description" id="description" class="inputForm" rows="4" placeholder="Description"></textarea>
 			</div>
+			
+			<div id="editResponse"></div>
+			<input type="submit" name="submit" id="editKPISubmit" class="buttonForm button" value="Save" />
+			<input type="button" name="cancel" id="editKPICancel" class="buttonForm button" value="Cancel" />
+						
 		</form>
 	</div>
 </div>

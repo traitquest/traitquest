@@ -18,37 +18,27 @@
 					CSS
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
-<link rel="stylesheet" type="text/css" href="css/bootstrap.datetimepicker.css"/>
 <link rel="stylesheet" type="text/css" href="css/color.css"/>
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
-<style>
-.bootstrap-datetimepicker-widget .datepicker-days table tbody tr:hover {
-    background-color: #eee;
-}
-</style>
+<link rel="stylesheet" type="text/css" href="css/datepicker.css"/>
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 					JAVASCRIPT
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-<!--<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.7/jquery.min.js"></script>-->
-<!--<script type="text/javascript" src="js/bootstrap.js"></script>-->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="//cdn.jsdelivr.net/momentjs/2.10.6/moment.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.js"></script>
-<!--<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>-->
-<script src="//cdn.jsdelivr.net/bootstrap.datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
-
-<script type="text/javascript" src="js/peoplekpi.js"></script>
+<script type="text/javascript" src="js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="js/subkpi.js"></script>
 
 <body>
 <div id="wrapper">
 	<?php include "header.php"; ?>
 	<div id="mainContainer" class="container">
-
-		<div class="input-group" id="DateDemo">
-			<input type="text" id="weeklyDatePicker" placeholder="Select Week" />
+		<div class="input-append date" id="datepicker" data-date="102/2012" data-date-format="mm/yyyy" data-date-viewmode="years" data-date-minviewmode="months">  
+		<input class="span2" size="16" type="text" value="01/2015" readonly>
+		  <span class="add-on"><i class="glyphicon glyphicon-comment"></i></span>
 		</div>
 		<button id="buttonAssignKPI">Add new</button>
-		<div id="kpiListContainer"></div>
+		<div id="kpiList"></div>
 	</div>
 </div>
 </body>

@@ -2,22 +2,6 @@
 $(document).ready(function(){
 	var currentEmployeeID;
 	getSessionData();
-
-	/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-		TO RETRIEVE SESSION DATA
-	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-	function getSessionData(){
-		$.ajax({
-			type:'post',
-			url:'data/getsessiondata.php',
-			data:{},
-			success:function(result){
-				var data = JSON.parse(result);
-				currentEmployeeID = data['userID'];	
-				getSubordinateList();
-			}
-		})
-	}
 	
 	/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		TO RETRIEVE SUBORDINATE DATA

@@ -37,7 +37,7 @@ session_start();
 	<div id="mobileNav" class="mobileNav"><!mobilenav>
 		<a href="javascript:void(0)" id="closeMobileNav" class="closeBtn white">&times;</a>
 		<img class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 margin-top-s imageSize100px" src="../images/avatar2.jpg">
-		<p class="col-lg-10 col-md-10 col-sm-10 margin-top-s fontsize-s white breakword">User123456789 123456789</p>
+		<p class="userName col-lg-10 col-md-10 col-sm-10 margin-top-s fontsize-s white breakword">User123456789 123456789</p>
 		<a href="#" class="closeMobileNav padding-top-m display-block fontsize-m white">Company</a>
 		<a href="employee.php" class="closeMobileNav padding-top-m display-block fontsize-m white">Employees</a>
 		<a href="#" class="closeMobileNav padding-top-m display-block fontsize-m white">Settings</a>
@@ -47,7 +47,7 @@ session_start();
 	<div class="hidden-sm hidden-xs sideBar affix"><!sideBar>
 		<div class="col-lg-12 col-md-12 col-sm-12">
 			<img class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 margin-top-s imageSize100px" src="../images/avatar2.jpg">
-				<p class="col-lg-10 col-md-10 col-sm-10 margin-top-s fontsize-s breakword">User123456789 123456789</p>
+				<p class="userName col-lg-10 col-md-10 col-sm-10 margin-top-s fontsize-s breakword">User123456789 123456789</p>
 			</img>
 		</div>
 		<div class="clear-both">

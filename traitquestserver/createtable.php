@@ -64,8 +64,9 @@
 		
 		// create Supervisor table
 		$sql = "CREATE TABLE IF NOT EXISTS `supervisor` (
+				`id` INT UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY,
 				`companyid` INT UNSIGNED NOT NULL,
-				`superiorid` INT UNSIGNED NOT NULL PRIMARY KEY,
+				`superiorid` INT UNSIGNED NOT NULL,
 				`subordinateid` INT UNSIGNED NOT NULL,
 				FOREIGN KEY (`companyid`) REFERENCES company(`id`),
 				FOREIGN KEY (`superiorid`) REFERENCES employee(`id`),

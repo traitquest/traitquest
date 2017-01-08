@@ -1,19 +1,19 @@
 // JavaScript Document
-$(document).ready(function(){console.log('Hi');
+$(document).ready(function(){
 	populateData();
 })
 
 function populateData(){
 	$.ajax({
 			type		:'POST', 	//define the type of HTTP verb we want to use
-			url			:'../data/admin/company/getcompanyprocess.php',		//the url where we want to POST
+			url			:'../../data/admin/company/getcompanyprocess.php',		//the url where we want to POST
 			data		: {},		//our data object
 			dataType	:'json',		//what type of data do we expect back from the server
 			encode		:true
 	})
 	
 	//using the done promise callback
-	.done(function(data){console.log(data);
+	.done(function(data){
 		if(data['return']){
 			// Company Name
 			$('#companyName').append(data['company']['name']);
@@ -81,12 +81,12 @@ function populateData(){
 			}
 		}
 		else{
-			window.location.href = "../index.php";
+			window.location.href = "../../index.php";
 		}
 	})
 	//using the fail promise callback
 	.fail(function(data){
-		window.location.href = "../500.php";
+		window.location.href = "../../500.php";
 	});
 }
 

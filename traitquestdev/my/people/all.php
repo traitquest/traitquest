@@ -1,11 +1,11 @@
-
 <?php
 	session_start();
-	if( ( isset($_SESSION['companyID']) || isset($_SESSION['userID']) ) && $_SESSION['logintype'] == "admin"){
-		header('location: admin.php');
+	// to redirect user to home page once they have logged in
+	if( !isset($_SESSION['companyID']) || !isset($_SESSION['userID'])){
+		header('location: ../../index.php');
 	}
-	else if( ( !isset($_SESSION['companyID']) || !isset($_SESSION['userID']) )){
-		header('location: index.php');
+	else if( ( isset($_SESSION['companyID']) && isset($_SESSION['userID']) ) && $_SESSION['logintype'] == "admin" ){
+		header('location: ../../admin/employee.php');
 	}
 ?>
 <!DOCTYPE>
@@ -14,29 +14,30 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>People</title>
-<link rel="shortcut icon" href="images/icon.ico">
+<link rel="shortcut icon" href="../../images/icon.ico">
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 					CSS
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-<link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
-<link rel="stylesheet" type="text/css" href="css/color.css"/>
-<link rel="stylesheet" type="text/css" href="css/style.css"/>
+<link rel="stylesheet" type="text/css" href="../../css/bootstrap.css"/>
+<link rel="stylesheet" type="text/css" href="../../css/color.css"/>
+<link rel="stylesheet" type="text/css" href="../../css/style.css"/>
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 					JAVASCRIPT
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
-<script type="text/javascript" src="js/people.js"></script>
-<script type="text/javascript" src="js/mobilenav.js"></script>
-<script type="text/javascript" src="js/setheight.js"></script>
+<script type="text/javascript" src="../../js/my/global.js"></script>
+<script type="text/javascript" src="../../js/my/people/search.js"></script>
+<script type="text/javascript" src="../../js/mobilenav.js"></script>
+<script type="text/javascript" src="../../js/setheight.js"></script>
 </head>
 
 <body>
 
 	<div id="mobileNav" class="mobileNav"><!mobilenav>
 		<a href="javascript:void(0)" id="closeMobileNav" class="closeBtn white">&times;</a>
-		<img class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 margin-top-s imageSize100px" src="./images/avatar2.jpg">
-		<p class="col-lg-10 col-md-10 col-sm-10 margin-top-s fontsize-s white breakword">User123456789 123456789</p>
+		<img class="userPic col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 margin-top-s imageSize100px" src="../../images/avatar2.jpg">
+		<p class="userName col-lg-10 col-md-10 col-sm-10 margin-top-s fontsize-s white breakword">User123456789 123456789</p>
 		<a href="#" class="closeMobileNav padding-top-m display-block fontsize-m white">Company</a>
 		<a href="#" class="closeMobileNav padding-top-m display-block fontsize-m white">Profile</a>
 		<a href="#" class="closeMobileNav padding-top-m display-block fontsize-m white">KPI</a>
@@ -48,10 +49,10 @@
 	<div class="hidden-sm hidden-xs sideBar affix"><!sideBar>
 		<div class="col-lg-12 col-md-12 col-sm-12">
 			<div class="img-wrap">
-				<img class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 margin-top-s imageSize100px" src="./images/avatar2.jpg">
+				<img class="userPic col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 margin-top-s imageSize100px" src="../../images/avatar2.jpg">
 				<button id=""><p class="img-description fontsize-s black-bg white">Upload Photo</p></button>
 			</div>
-				<p class="col-lg-10 col-md-10 col-sm-10 margin-top-s fontsize-s breakword">User123456789 123456789</p>
+				<p class="userName col-lg-10 col-md-10 col-sm-10 margin-top-s fontsize-s breakword">User123456789 123456789</p>
 			</img>
 		</div>
 		<div class="clear-both">
@@ -89,7 +90,7 @@
 	<div class="clear col-lg-10 col-lg-offset-2 col-md-10 col-md-offset-2 padding-topbottom-xs grey95-bg">
 
 			<a href="http://traitquest.com/">
-			<img id="logo-image" src="images/logo.png" /></a>
+			<img id="logo-image" src="../../images/logo.png" /></a>
 
 		<i id="openMobileNav" class="glyphicon glyphicon-menu-hamburger
 			hidden-lg hidden-md col-sm-2 col-xs-2 float-right
@@ -108,21 +109,21 @@
 	</div>
 
 	<div class="col-lg-10 col-lg-offset-2 col-md-10 col-md-offset-2 col-sm-12 col-xs-12 grey95-bg padding-bottom-s"><!content goes here>
-		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-topbottom-s padding-leftright-s padding-bottom-s border-top-grey white-bg"><!1stwindow>
-				<div class="margin-top-s col-lg-4 col-md-4 col-sm-6 col-xs-12">
-					<img class="imageSize100px col-lg-6 col-md-6 col-sm-6 col-xs-6" src="./images/avatar5.jpg">
-					<ul class="margin-top-m padding-leftright-xs col-lg-6 col-md-6 col-sm-12 col-xs-12"><li>name</li><li>email</li></ul>
-				</div>
-				<div class="margin-top-s col-lg-4 col-md-4 col-sm-6 col-xs-12">
-					<img class="imageSize100px col-lg-6 col-md-6 col-sm-6 col-xs-6" src="./images/avatar6.jpg">
-					<ul class="margin-top-m padding-leftright-xs col-lg-6 col-md-6 col-sm-12 col-xs-12"><li>name</li><li>email</li></ul>
-				</div>
-				<div class="margin-top-s col-lg-4 col-md-4 col-sm-6 col-xs-12">
-					<img class="imageSize100px col-lg-6 col-md-6 col-sm-6 col-xs-6" src="./images/avatar7.jpg">
-					<ul class="margin-top-m padding-leftright-xs col-lg-6 col-md-6 col-sm-12 col-xs-12"><li>name</li><li>email</li></ul>
-				</div>
-			</div>
 
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-topbottom-s padding-leftright-s padding-bottom-s border-top-grey white-bg"><!1stwindow>
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<form id="formSearchEmployee" method="post">
+						<div class="col-lg-3 col-lg-offset-9 col-md-3 col-md-offset-9 col-sm-4 col-sm-offset-8 col-xs-9 col-xs-offset-3">
+							<div id="columnSearch" class="icon-addon icon-addon-right">
+								<input type="text" name="search" id="search" class="inputForm margin-top-s" placeholder="Search.." />
+								<button type="submit" id="submitSearch"><i class="glyphicon glyphicon-search"></i></button>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div id="employeeList"></div><!-- list of employee go in here -->
+
+		</div>
 
 		<footer class="stickyFooter grey95-bg">
 			<div class="">

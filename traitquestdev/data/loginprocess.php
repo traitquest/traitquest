@@ -60,6 +60,7 @@
 									// INPUT CODE HERE TO STORE USER DATA IN SESSION
 									$_SESSION['companyID'] = $userResult['companyid'];
 									$_SESSION['userID'] = $userResult['id'];
+									$_SESSION['profilePic'] = $userResult['imagelink'];
 									$_SESSION['name'] = $userResult['name'];
 									$_SESSION['logintype'] = "employee";
 									

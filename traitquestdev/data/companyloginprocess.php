@@ -59,6 +59,7 @@
 								// INPUT CODE HERE TO STORE USER DATA IN SESSION
 								$_SESSION['companyID'] = $companyResult['id'];
 								$_SESSION['userID'] = $userResult['id'];
+								$_SESSION['profilePic'] = $userResult['imagelink'];
 								$_SESSION['name'] = $companyResult['name'];
 								$_SESSION['logintype'] = "admin";
 								

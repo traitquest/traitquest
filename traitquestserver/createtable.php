@@ -79,14 +79,27 @@
 			echo "Table Supervisor created successfully<br>";
 		}
 		
+		// create KRA Category Template table
+		$sql = "CREATE TABLE IF NOT EXISTS `kracategorytemplate` (
+				`id` INT UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY, 
+				`title` LONGTEXT NOT NULL
+				)";
+		
+		// check if KRA Category Template table has been created
+		if( $conn->exec($sql) !== false ){
+			echo "Table KRA Category Template created successfully<br>";
+		}
+		
 		// create KRA Template table
 		$sql = "CREATE TABLE IF NOT EXISTS `kratemplate` (
 				`id` INT UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY, 
+				`categoryid` INT NOT NULL,
 				`title` LONGTEXT NOT NULL,
-				`description` LONGTEXT
+				`description` LONGTEXT,
+				FOREIGN KEY (`categoryid`) REFERENCES kracategorytemplate(`id`)
 				)";
 		
-		// check if KPI Template table has been created
+		// check if KRA Template table has been created
 		if( $conn->exec($sql) !== false ){
 			echo "Table KRA Template created successfully<br>";
 		}
@@ -103,6 +116,26 @@
 		// check if KPI Template table has been created
 		if( $conn->exec($sql) !== false ){
 			echo "Table KPI Template created successfully<br>";
+		}
+		
+		// create KRA table
+		$sql = "CREATE TABLE IF NOT EXISTS `kra` (
+				`id` INT UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY, 
+				`companyid` INT UNSIGNED NOT NULL,
+				`kracategorytemplateid` INT UNSIGNED NOT NULL,
+				`kratemplateid` INT UNSIGNED NOT NULL,
+				`description` LONGTEXT,
+				`startdate` DATE,
+				`enddate` DATE,
+				FOREIGN KEY (`companyid`) REFERENCES company(`id`),
+				FOREIGN KEY (`kracategorytemplateid`) REFERENCES kracategorytemplate(`id`),
+				FOREIGN KEY (`kratemplateid`) REFERENCES kratemplate(`id`),
+				INDEX(`companyid`)
+				)";
+
+		// check if Company table has been created
+		if( $conn->exec($sql) !== false ){
+			echo "Table KRA created successfully<br>";
 		}
 		
 		// create KPI table

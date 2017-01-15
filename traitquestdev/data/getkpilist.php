@@ -66,7 +66,8 @@
 						$month = '0'.$month;
 					}
 					$start = date($year.'-'.$month.'-01'); // hard-coded '01' for first day
-					$end  = date($year.'-'.$month.'-t');
+					$end = date("Y-m-t", strtotime($start));
+					//$end  = date($year.'-'.$month.'-t');
 					$checkKPISQL = "SELECT * FROM kpi 
 									 WHERE employeeid = :employeeid
 										AND startdate >= '".$start."'

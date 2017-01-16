@@ -10,7 +10,7 @@
 
 /* 1.0 BASE IMPORTS
 ------------------------------------------ */
-/*@import url("jquery.nouislider.css");*/
+@import url("jquery.nouislider.css");
 /*@import url(http://fonts.googleapis.com/css?family=Lato:100,400,700,400italic);*/
 
 /* 2.0 GLOBALS
@@ -147,6 +147,8 @@ button {
 .img-wrap .del:hover{color:#B83C30;}
 .img-wrap .edit{position:absolute;top:57;left:85;}
 .img-wrap .edit:hover{color:#1F8B4C;}
+.img-wrap .editobjective{position:absolute;top:-2;right:2;}
+.img-wrap .addobjective{position:absolute;top:-10;right:2;}
 .img-description{position:absolute;top:15;left:30.5;visibility:hidden;opacity:0;}
 .img-description-mobile{position:absolute;top:15;left:98;visibility:hidden;opacity:0;}
 .img-wrap:hover .img-description{visibility:visible;opacity:0.6;}

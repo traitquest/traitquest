@@ -123,7 +123,7 @@ session_start();
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-topbottom-s padding-leftright-s padding-bottom-s">
 				<div class="img-wrap">
 					<h4 class="addobjective"><a href="#"><i class="black glyphicon glyphicon-plus-sign"></i></a></h4>
-					<p>Date: <input type="text" id="datepicker"></p>
+					<p>Date: <input type="text" id="datepicker" readonly placeholder="Select Date"></p>
 				</div>
 			</div>
 

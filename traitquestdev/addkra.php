@@ -121,7 +121,10 @@ session_start();
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-topbottom-s padding-leftright-s padding-bottom-s border-top-grey white-bg"><!1stwindow>
 
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-topbottom-xs padding-leftright-s padding-bottom-s">
-					<p>Date: <input type="text" id="datepicker"></p>
+
+					<p>Date: <input type="text" id="datepicker" readonly placeholder="Select Date"></p>
+
+
 			</div>
 
 			<form>

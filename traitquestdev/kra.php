@@ -33,7 +33,7 @@ session_start();
 <script type="text/javascript" src="js/setheight.js"></script>
 <script type="text/javascript" src="js/toggledescription.js"></script>
 <script type="text/javascript" src="js/barwidth.js"></script>
-<script type="text/javascript" src="js/year-month-picker.js"></script>
+<script type="text/javascript" src="js/datepicker.js"></script>
 
 </head>
 
@@ -123,14 +123,7 @@ session_start();
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-topbottom-s padding-leftright-s padding-bottom-s">
 				<div class="img-wrap">
 					<h4 class="addobjective"><a href="#"><i class="black glyphicon glyphicon-plus-sign"></i></a></h4>
-
-				<select id="selectyear">
-					<option value="">Year</option>
-				</select>
-
-				<select id="month">
-    			<option value="">Month</option>
-				</select>
+					<p>Date: <input type="text" id="datepicker"></p>
 				</div>
 			</div>
 

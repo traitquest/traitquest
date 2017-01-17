@@ -33,7 +33,7 @@ session_start();
 <script type="text/javascript" src="js/setheight.js"></script>
 <script type="text/javascript" src="js/toggledescription.js"></script>
 <script type="text/javascript" src="js/barwidth.js"></script>
-<script type="text/javascript" src="js/startendyearmonthpicker.js"></script>
+<script type="text/javascript" src="js/datepicker.js"></script>
 
 </head>
 
@@ -121,27 +121,7 @@ session_start();
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-topbottom-s padding-leftright-s padding-bottom-s border-top-grey white-bg"><!1stwindow>
 
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-topbottom-xs padding-leftright-s padding-bottom-s">
-				<div class="col-lg-2 col-md-3 col-sm-12 col-xs-12 margin-topbottom-xs">
-					<p class="display-block display-inline">From</p>
-					<select id="startyear">
-						<option value="">Year</option>
-					</select>
-
-					<select id="startmonth">
-    				<option value="">Month</option>
-					</select>
-					</div>
-
-					<div class="col-lg-2 col-md-3 col-sm-12 col-xs-12 margin-topbottom-xs">
-						<p class="display-block display-inline">To</p>
-						<select id="endyear">
-							<option value="">Year</option>
-						</select>
-
-						<select id="endmonth">
-    					<option value="">Month</option>
-						</select>
-					</div>
+					<p>Date: <input type="text" id="datepicker"></p>
 			</div>
 
 			<form>

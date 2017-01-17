@@ -36,6 +36,20 @@
 			echo "Table Company created successfully<br>";
 		}	
 		
+		// create Department table
+		$sql = "CREATE TABLE IF NOT EXISTS `department` (
+				`id` INT UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY,
+				`companyid` INT UNSIGNED NOT NULL,
+				`name` VARCHAR(128) NOT NULL,
+				FOREIGN KEY (`companyid`) REFERENCES company(`id`),
+				INDEX(`companyid`)
+				)";
+
+		// check if Department table has been created
+		if( $conn->exec($sql) !== false ){
+			echo "Table Department created successfully<br>";
+		}
+		
 		// create Employee table
 		$sql = "CREATE TABLE IF NOT EXISTS `employee` (
 				`id` INT UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY,

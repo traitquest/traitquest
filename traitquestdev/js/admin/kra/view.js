@@ -185,6 +185,7 @@ function getKRAList(searchWorking, month, year){
 						+ '<ul class="padding-leftright-xs col-lg-6 col-md-6 col-sm-12 col-xs-12">'
 						+ '<li class="title">' + data['kra'][i]['template']['title'] + '</li>'
 						+ '<li class="description">' + data['kra'][i]['data']['description'] + '</li>'
+						+ '</ul>'
 						+ '</div>';
 				
 				target.append(html);

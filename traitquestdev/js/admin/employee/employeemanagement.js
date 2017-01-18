@@ -4,6 +4,7 @@ $(document).ready(function(){
 	if( currentEmployeeID === undefined || currentEmployeeID == '' ){
 		window.location.href = "employee.php";
 	}
+	getEmployeeData();
 	getSuperiorList();
 	getSubordinateList();
 	
@@ -38,17 +39,16 @@ $(document).ready(function(){
 				if (data['response'] == 'superiorAssigned') {
 					codeHTML = '';
 					if(data['employee']['code'] != '' && !$.isEmptyObject(data['employee']['code'] )){
-						codeHTML = '<li><i>( ' + data['employee']['code']  + ' )</i></li>'
+						codeHTML = ' - <i class="fontsize-xs">' + data['employee']['code'] + '</i>'
 					}
 					
 					var source = $('<div class="employeeRow margin-top-s col-lg-4 col-md-4 col-sm-6 col-xs-12">'
 								   + '<div class="img-wrap">'
 								   + '<img class="imageSize100px col-lg-6 col-md-6 col-sm-6 col-xs-6" src="' + data['employee']['imagelink'] + '">'
-								   + '<button class="removeSuperior" data-id="' + data['employee']['id'] + '"><i class="del red glyphicon glyphicon-remove-sign"></i></button>'
+								   + '<button class="removeSuperior" data-id="' + data['employee']['id'] + '"><i class="del red glyphicon glyphicon-trash"></i></button>'
 								   + '</div>'
 								   + '<ul class="margin-top-m padding-leftright-xs col-lg-6 col-md-6 col-sm-12 col-xs-12">'
-								   + '<li>' + data['employee']['name'] + '</li>'
-								   + codeHTML
+								   + '<li>' + data['employee']['name'] + codeHTML + '</li>'
 								   + '</ul>'
 								   + '</div>');
 					var target = '#superiorList';
@@ -83,17 +83,16 @@ $(document).ready(function(){
 				if (data['response'] == 'subordinateAssigned') {
 					codeHTML = '';
 					if(data['employee']['code'] != '' && !$.isEmptyObject(data['employee']['code'] )){
-						codeHTML = '<li><i>( ' + data['employee']['code']  + ' )</i></li>'
+						codeHTML = ' - <i class="fontsize-xs">' + data['employee']['code'] + '</i>'
 					}
 					
 					var source = $('<div class="employeeRow margin-top-s col-lg-4 col-md-4 col-sm-6 col-xs-12">'
 								   + '<div class="img-wrap">'
 								   + '<img class="imageSize100px col-lg-6 col-md-6 col-sm-6 col-xs-6" src="' + data['employee']['imagelink'] + '">'
-								   + '<button class="removeSubordinate" data-id="' + data['employee']['id'] + '"><i class="del red glyphicon glyphicon-remove-sign"></i></button>'
+								   + '<button class="removeSubordinate" data-id="' + data['employee']['id'] + '"><i class="del red glyphicon glyphicon-trash"></i></button>'
 								   + '</div>'
 								   + '<ul class="margin-top-m padding-leftright-xs col-lg-6 col-md-6 col-sm-12 col-xs-12">'
-								   + '<li>' + data['employee']['name'] + '</li>'
-								   + codeHTML
+								   + '<li>' + data['employee']['name'] + codeHTML + '</li>'
 								   + '</ul>'
 								   + '</div>');
 					var target = '#subordinateList';
@@ -188,17 +187,16 @@ $(document).ready(function(){
 					for(var i=0; i < resultNumber; i++){
 						codeHTML = '';
 						if(data['result'][i]['superior']['data']['code'] != '' && !$.isEmptyObject(data['result'][i]['superior']['data']['code'] )){
-							codeHTML = '<li><i>( ' + data['result'][i]['superior']['data']['code']  + ' )</i></li>'
+							codeHTML = ' - <i class="fontsize-xs">' + data['result'][i]['superior']['data']['code'] + '</i>'
 						}
 						
 						html = '<div class="employeeRow margin-top-s col-lg-4 col-md-4 col-sm-6 col-xs-12">'
 							   + '<div class="img-wrap">'
 							   + '<img class="imageSize100px col-lg-6 col-md-6 col-sm-6 col-xs-6" src="' + data['result'][i]['superior']['data']['imagelink'] + '">'
-							   + '<button class="removeSuperior" data-id="' + data['result'][i]['superior']['data']['id'] + '"><i class="del red glyphicon glyphicon-remove-sign"></i></button>'
+							   + '<button class="removeSuperior" data-id="' + data['result'][i]['superior']['data']['id'] + '"><i class="del red glyphicon glyphicon-trash"></i></button>'
 							   + '</div>'
 							   + '<ul class="margin-top-m padding-leftright-xs col-lg-6 col-md-6 col-sm-12 col-xs-12">'
-							   + '<li>' + data['result'][i]['superior']['data']['name'] + '</li>'
-							   + codeHTML
+							   + '<li>' + data['result'][i]['superior']['data']['name'] + codeHTML + '</li>'
 							   + '</ul>'
 							   + '</div>';
 							
@@ -240,17 +238,16 @@ $(document).ready(function(){
 					for(var i=0; i < resultNumber; i++){
 						codeHTML = '';
 						if(data['result'][i]['subordinate']['data']['code'] != '' && !$.isEmptyObject(data['result'][i]['subordinate']['data']['code'] )){
-							codeHTML = '<li><i>( ' + data['result'][i]['subordinate']['data']['code']  + ' )</i></li>'
+							codeHTML = ' - <i class="fontsize-xs">' + data['result'][i]['subordinate']['data']['code'] + '</i>'
 						}
 						
 						html = '<div class="employeeRow margin-top-s col-lg-4 col-md-4 col-sm-6 col-xs-12">'
 							   + '<div class="img-wrap">'
 							   + '<img class="imageSize100px col-lg-6 col-md-6 col-sm-6 col-xs-6" src="' + data['result'][i]['subordinate']['data']['imagelink'] + '">'
-							   + '<button class="removeSubordinate" data-id="' + data['result'][i]['subordinate']['data']['id'] + '"><i class="del red glyphicon glyphicon-remove-sign"></i></button>'
+							   + '<button class="removeSubordinate" data-id="' + data['result'][i]['subordinate']['data']['id'] + '"><i class="del red glyphicon glyphicon-trash"></i></button>'
 							   + '</div>'
 							   + '<ul class="margin-top-m padding-leftright-xs col-lg-6 col-md-6 col-sm-12 col-xs-12">'
-							   + '<li>' + data['result'][i]['subordinate']['data']['name'] + '</li>'
-							   + codeHTML
+							   + '<li>' + data['result'][i]['subordinate']['data']['name'] + codeHTML + '</li>'
 							   + '</ul>'
 							   + '</div>';
 							
@@ -271,6 +268,50 @@ $(document).ready(function(){
 			}
 		})
 		
+	}
+	
+	/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+			GET EMPLOYEE DATA
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+	function getEmployeeData(){
+		$.ajax({
+				type		:'POST', 	//define the type of HTTP verb we want to use
+				url			:'../../data/admin/employee/getemployeedataprocess.php',		//the url where we want to POST
+				data		: {'employeeID': currentEmployeeID},		//our data object
+				dataType	:'json',		//what type of data do we expect back from the server
+				encode		:true
+		})
+		
+		//using the done promise callback
+		.done(function(data){
+			if(data['return']){
+				var html;
+				var target = $('#employeeData');
+				var codeHTML = '';
+				if(data['employee']['code'] != '' && !$.isEmptyObject(data['employee']['code'])){
+					codeHTML = ' - <i class="fontsize-xs">' + data['employee']['code'] + '</i>'
+				}
+				
+				var html = '<div class="employeeRow margin-top-s col-lg-4 col-md-4 col-sm-6 col-xs-12">'
+							+ '<div class="img-wrap">'
+							+ '<img class="imageSize100px col-lg-6 col-md-6 col-sm-6 col-xs-6" src="' + data['employee']['imagelink'] + '">'
+							+ '</div>'
+							+ '<ul class="padding-leftright-xs col-lg-6 col-md-6 col-sm-12 col-xs-12">'
+							+ '<li>' + data['employee']['name'] + codeHTML + '</li>'
+							+ '</ul>'
+							+ '</div>';
+				
+				target.append(html);
+			}
+			else{
+				// go back to previous page
+				window.history.back();
+			}
+		})
+		//using the fail promise callback
+		.fail(function(data){
+			window.location.href = "../../500.php";
+		});
 	}
 	
 	function searchEmployee(){
@@ -308,14 +349,13 @@ $(document).ready(function(){
 						if( currentEmployeeID != data['result'][i]['employee']['id'] ){
 							var codeHTML = '';
 							if(data['result'][i]['employee']['code'] != '' && !$.isEmptyObject(data['result'][i]['employee']['code'])){
-								codeHTML = '<li><i>( ' + data['result'][i]['employee']['code'] + ' )</i></li>'
+								codeHTML = ' - <i class="fontsize-xs">' + data['result'][i]['employee']['code'] + '</i>'
 							}
 							
 							html = '<div class="employeeRow margin-top-s col-lg-12 col-md-12 col-sm-12 col-xs-12">'
 									+ '<img class="imageSize100px col-lg-1 col-md-1" src="' + data['result'][i]['employee']['imagelink'] + '">'
 									+ '<ul class="margin-top-m padding-leftright-xs col-lg-5 col-md-5">'
-									+ '<li>' + data['result'][i]['employee']['name'] + '</li>'
-									+ codeHTML
+									+ '<li>' + data['result'][i]['employee']['name'] + codeHTML + '</li>'
 									+ '</ul>'
 									+ '<button class="assignSuperior white assignButton assignButtonBlue margin-xs col-lg-3 col-md-3 margin-top-m" data-id="' + data['result'][i]['employee']['id'] + '">Superior</button>'
 									+ '<button class="assignSubordinate white assignButton assignButtonGreen margin-xs col-lg-3 col-md-3 margin-top-m" data-id="' + data['result'][i]['employee']['id'] + '">Subordinate</button>'

@@ -105,6 +105,11 @@
 					<div id="columnEmployeeCode" class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
 						<input type="text" name="employeeCode" id="employeeCode" class="inputForm margin-top-l" placeholder="Code" />
 					</div>
+					<div id="columnDepartment" class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+						<select id="department" class="inputForm margin-top-s" >
+							<option value="0">Select a department</option>
+						</select>
+					</div>
 					<div class="col-lg-3 col-lg-offset-0 col-md-4 col-md-offset-8 col-sm-4 col-sm-offset-8 col-xs-12">
 						<input type="submit" name="submit" id="editEmployeeSubmit" class="clear-both inputForm button margin-top-l" value="Save" />
 						<input type="button" name="cancel" id="editEmployeeCancel" class="buttonForm buttonCancel clear-both display-block display-inline margin-top-xs" value="Cancel" />

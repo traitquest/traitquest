@@ -90,6 +90,9 @@
 
 	<div class="col-lg-10 col-lg-offset-2 col-md-10 col-md-offset-2 col-sm-12 col-xs-12 grey95-bg padding-bottom-s"><!content goes here>
 		<div id="mainContainer">
+			<div id="employeeContainer" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-top-s padding-leftright-s padding-bottom-s border-top-grey white-bg">
+				<div id="employeeData"></div>
+			</div>
 			<div id="superiorContainer" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-top-s padding-leftright-s padding-bottom-s border-top-grey white-bg">
 				<h3>Superior</h3>
 				<div id="superiorList"></div>

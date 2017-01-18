@@ -14,7 +14,7 @@
 			$data['isAdmin'] = true;
 			$companyID = $_SESSION['companyID'];
 			
-			if (isset($_POST['code']))				                $code		= trim($_POST ['code']);
+			if (isset($_POST['departmentID']))				        $departmentID = isset($_POST['departmentID']) ? intval($_POST['departmentID']) : 0;
 			if (isset($_POST['name']))				                $name		= trim($_POST ['name']);
 			if (isset($_POST['email']))			                    $email 		= trim($_POST ['email']);
 
@@ -24,6 +24,10 @@
 			}
 			else if (!preg_match("/^[[:alnum:]][a-z0-9_.-]*@[a-z0-9.-]+\.[a-z]{2,4}$/i", trim($_POST['email']))){
 				$data['error'] = "You have entered an invalid email address";
+				$validated = false;
+			}
+			else if($departmentID == 0){
+				$data['error'] = "You have not selected a department";
 				$validated = false;
 			}
 
@@ -58,12 +62,12 @@
 						$password = md5('password');// to replace hardcoded string with randomPassword() in release version
 						
 						// insert a new company details and at the same time create an employee account
-						$addEmployeeSQL = "INSERT INTO `employee` (companyid, code, name, email, password) 
-														VALUES (:companyid, :code, :name, :email, :password)";
+						$addEmployeeSQL = "INSERT INTO `employee` (companyid, departmentid, name, email, password) 
+														VALUES (:companyid, :departmentid, :name, :email, :password)";
 						$addEmployeePDO = $conn->prepare($addEmployeeSQL);
 						$addEmployeePDO->execute(array(
 									':companyid'=> $companyID,
-									':code'=> $code,
+									':departmentid'=> $departmentID,
 									':name'=> $name,
 									':email'=> $email,
 									':password'=> $password

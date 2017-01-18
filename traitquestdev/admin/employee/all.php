@@ -102,8 +102,10 @@
 				<div id="columnEmail" class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
 					<input type="text" name="email" id="email" class="inputForm margin-top-s" placeholder="Email" />
 				</div>
-				<div id="columnCode" class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-					<input type="text" name="code" id="code" class="inputForm margin-top-s" placeholder="Employee Code" />
+				<div id="columnDepartment" class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+					<select id="department" class="inputForm margin-top-s" >
+						<option value="0">Select a department</option>
+					</select>
 				</div>
 				<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
 				<input type="submit" name="submit" id="submit" class="inputForm margin-top-s button" value="Add" />

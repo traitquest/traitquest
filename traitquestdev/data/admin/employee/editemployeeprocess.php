@@ -16,13 +16,22 @@
 			$employeeID = isset($_POST['employeeID']) ? intval($_POST['employeeID']) : 0;
 			if (isset($_POST['employeeName']))			    $name 		= trim($_POST ['employeeName']);
 			if (isset($_POST['employeeCode']))			    $code 		= trim($_POST ['employeeCode']);
+			if (isset($_POST['departmentID']))				$departmentID = isset($_POST['departmentID']) ? intval($_POST['departmentID']) : 0;
+			if (isset($_POST['employeeAddress']))			$address 		= trim($_POST ['employeeAddress']);
+			if (isset($_POST['employeeBank']))			    $bank 		= trim($_POST ['employeeBank']);
+			if (isset($_POST['employeeEPF']))			    $epf 		= trim($_POST ['employeeEPF']);
+			if (isset($_POST['employeeSocso']))			    $socso 		= trim($_POST ['employeeSocso']);
+			if (isset($_POST['employeeHiredDate']))			    $hireddate 		= trim($_POST ['employeeHiredDate']);
 			
 			if(!trim($_POST ['employeeName'])){//if employee's name is filled up
 				$data['error'] = "Employee name should not be left empty";
 				$validated = false;
 			}
-			
-			if($validated == true){
+			else if($departmentID == 0){
+				$data['error'] = "You have not selected a department";
+				$validated = false;
+			}
+			if($validated == true && $employeeID != 0){
 				// check if there is match of company name and admin email
 				$checkSQL = "SELECT * FROM employee 
 								 WHERE id = :id
@@ -37,13 +46,19 @@
 					$employeeResult = $employeePDO->fetch(PDO::FETCH_ASSOC);
 					
 					$updateSQL = "UPDATE employee
-								  SET name = :name, code = :code
+								  SET name = :name, code = :code, departmentid = :departmentid, address = :address, bank = :bank, epf = :epf, socso = :socso, hireddate = :hireddate
 								  WHERE id = :id";
 					$updateEmployeePDO = $conn->prepare($updateSQL);
 					$updateEmployeePDO->execute(array(
 												':id'=> $employeeID,
 												':name'=> $name,
-												':code'=> $code
+												':code'=> $code,
+												':departmentid'=> $departmentID,
+												':address'=> $address,
+												':bank'=> $bank,
+												':epf'=> $epf,
+												':socso'=> $socso,
+												':hireddate'=> $hireddate
 												));		
 					$data['editSuccess'] = true;
 					

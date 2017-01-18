@@ -5,6 +5,7 @@ $(document).ready(function(){
 	if( employeeID === undefined || employeeID == '' ){
 		window.location.href = "employee.php";
 	}
+	getDepartment();
 	populateForm();
 	
 	$('#formEditEmployee').submit(function(event){
@@ -71,6 +72,52 @@ $(document).ready(function(){
 	this.getElementById('editEmployeeCancel').addEventListener('click',function(){
 		window.history.back();
 	}, false);
+	
+	/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+			GET DEPARTMENT
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+	function getDepartment(){
+		$.ajax({
+				type		:'POST', 	//define the type of HTTP verb we want to use
+				url			:'../../data/admin/department/getdepartmentlist.php',		//the url where we want to POST
+				data		: {},		//our data object
+				dataType	:'json',		//what type of data do we expect back from the server
+				encode		:true
+		})
+		
+		//using the done promise callback
+		.done(function(data){
+			department = data['department'];
+			
+			// add the department to the dropdown
+			addDepartmentOption(department);
+		})
+		//using the fail promise callback
+		.fail(function(data){
+			window.location.href = "../../500.php";
+		});
+	}
+	
+	/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		ADD OPTION OF DEPARTMENT DROPDOWN
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+	function addDepartmentOption(department){
+		var departmentDropdown = document.getElementById('department');
+		$('#department').empty();
+		
+		var opt = document.createElement('option');
+		opt.value = 0;
+		opt.innerHTML = 'Select a department';
+		departmentDropdown.appendChild(opt);
+		opt.disabled = true;
+		
+		for(var i = 0; i < department.length; i++){
+			var opt = document.createElement('option');
+			opt.value = department[i]['id'];
+			opt.innerHTML = department[i]['name'];
+			departmentDropdown.appendChild(opt);
+		}
+	}
 	
 	/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 			TO POPULATE THE FORM

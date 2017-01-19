@@ -29,8 +29,8 @@
 				$endMonth = '0'.$endMonth;
 			}
 			$start = date($startYear.'-'.$startMonth.'-01'); // hard-coded '01' for first day
-			$end = date("Y-m-t", strtotime($start));
-			//$end  = date($endYear.'-'.$endMonth.'-t');
+			$startForEnd = date($endYear.'-'.$endMonth.'-01');
+			$end = date("Y-m-t", strtotime($startForEnd));
 			
 			$currentYear = date('Y');
 			$currentMonth = date('m');

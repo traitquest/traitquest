@@ -173,18 +173,18 @@ function getKRAList(searchWorking, month, year){
 	})
 	
 	//using the done promise callback
-	.done(function(data){ 
+	.done(function(data){ console.log('Test');
 		searchWorking = false;
 		var target = $('#kraList');
 		var html;
 		if(data['return']){
 			for(var i = 0; i < data['kra'].length; i++){
-				html = '<div class="kraRow margin-top-s col-lg-4 col-md-4 col-sm-6 col-xs-12">'
+				html = '<div class="kraRow margin-top-s col-lg-12 col-md-12 col-sm-12 col-xs-12">'
 						+ '<button class="deleteKRA" data-id="' + data['kra'][i]['data']['id'] + '"><i class="del red glyphicon glyphicon-remove-sign"></i></button>'
 						+ '<button class="editKRA" data-id="' + data['kra'][i]['data']['id'] + '" data-toggle="modal" data-target="#editKRAModal"><i class="edit green glyphicon glyphicon-edit"></i></button>'
-						+ '<ul class="padding-leftright-xs col-lg-6 col-md-6 col-sm-12 col-xs-12">'
-						+ '<li class="title">' + data['kra'][i]['template']['title'] + '</li>'
-						+ '<li class="description">' + data['kra'][i]['data']['description'] + '</li>'
+						+ '<ul class="padding-leftright-xs col-lg-12 col-md-12 col-sm-12 col-xs-12">'
+						+ '<li class="title breakword"><h4>' + data['kra'][i]['template']['title'] + '</h4></li>'
+						+ '<li class="description breakword">' + data['kra'][i]['data']['description'] + '</li>'
 						+ '</ul>'
 						+ '</div>';
 				

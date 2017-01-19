@@ -128,14 +128,14 @@ function getKRA(){
 		var html;
 		if(data['return']){
 			for(var i = 0; i < data['kraCategory'].length; i++){
-				html = '<p><b>' + data['kraCategory'][i]['category']['title'] + '</b></p>';
+				html = '<p class="margin-top-s"><b>' + data['kraCategory'][i]['category']['title'] + '</b></p>';
 				target.append(html);
 				for(var j = 0; j < data['kraCategory'][i]['kra'].length; j++){
-					html = '<input type="checkbox" name="kra_list[]" value="'+ data['kraCategory'][i]['category']['id']
+					html = '<div class="padding-leftright-s"><input type="checkbox" name="kra_list[]" value="'+ data['kraCategory'][i]['category']['id']
 							+ ',' + data['kraCategory'][i]['kra'][j]['id'] 
 							+ ',' + data['kraCategory'][i]['kra'][j]['description']
-							+ '">'
-						    + data['kraCategory'][i]['kra'][j]['title'] + '</br>';
+							+ '"> '
+						    + data['kraCategory'][i]['kra'][j]['title'] + '</div>';
 					target.append(html);
 				}
 			}

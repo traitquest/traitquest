@@ -23,7 +23,10 @@
 <link rel="stylesheet" type="text/css" href="../../css/color.css"/>
 <link rel="stylesheet" type="text/css" href="../../css/style.css"/>
 <link rel="stylesheet" type="text/css" href="../../css/datepicker.css"/>
-
+<style>
+.datepicker-icon-addon{width:200px;position:relative;}
+.datepicker-icon-addon .glyphicon{position:absolute;padding:10px;}
+</style>
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 					JAVASCRIPT
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -33,6 +36,7 @@
 <script type="text/javascript" src="../../js/mobilenav.js"></script>
 <script type="text/javascript" src="../../js/bootstrap-datepicker.js"></script>
 <script type="text/javascript" src="../../js/admin/kra/view.js"></script>
+<script type="text/javascript" src="../../js/admin/global.js"></script>
 
 </head>
 
@@ -42,7 +46,9 @@
 		<img class="userPic col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 margin-top-s imageSize100px" src="../../images/avatar2.jpg">
 		<p class="userName col-lg-10 col-md-10 col-sm-10 margin-top-s fontsize-s white breakword">User123456789 123456789</p>
 		<a href="#" class="closeMobileNav padding-top-m display-block fontsize-m white">Company</a>
-		<a href="employee.php" class="closeMobileNav padding-top-m display-block fontsize-m white">Employees</a>
+		<a href="#" class="closeMobileNav padding-top-m display-block fontsize-m white">Profile</a>
+		<a href="#" class="closeMobileNav padding-top-m display-block fontsize-m white">KPI</a>
+		<a href="#" class="closeMobileNav padding-top-m display-block fontsize-m white">People</a>
 		<a href="#" class="closeMobileNav padding-top-m display-block fontsize-m white">Settings</a>
 		<a href="#" class="closeMobileNav padding-top-m display-block fontsize-m white">Logout</a>
 	</div>
@@ -55,13 +61,25 @@
 		</div>
 		<div class="clear-both">
 			<ul class="padding-top-m">
-				<a href="#"><li class="padding-topbottom-s sideBarSelected">
+				<a href="#"><li class="padding-topbottom-s">
 					<h4 class="display-block display-inline padding-left10px"><i class="glyphicon glyphicon-briefcase"></i></h4>
 					<h4 class="display-block display-inline padding-left10px">Company</h4>
 				</li></a>
-				<a href="employee.php"><li class="padding-topbottom-s">
+				<a href="#"><li class="padding-topbottom-s">
 					<h4 class="display-block display-inline padding-left10px"><i class="glyphicon glyphicon-user"></i></h4>
-					<h4 class="display-block display-inline padding-left10px">Employees</h4>
+					<h4 class="display-block display-inline padding-left10px">Profile</h4>
+				</li></a>
+				<a href="#"><li class="padding-topbottom-s sideBarSelected">
+					<h4 class="display-block display-inline padding-left10px"><i class="glyphicon glyphicon-user"></i></h4>
+					<h4 class="display-block display-inline padding-left10px">KRA</h4>
+				</li></a>
+				<a href="#"><li class="padding-topbottom-s">
+					<h4 class="display-block display-inline padding-left10px"><i class="glyphicon glyphicon-stats"></i></h4>
+					<h4 class="display-block display-inline padding-left10px">KPI</h4>
+				</li></a>
+				<a href="#"><li class="padding-topbottom-s">
+					<h4 class="display-block display-inline padding-left10px"><i class="glyphicon glyphicon-user"></i></h4>
+					<h4 class="display-block display-inline padding-left10px">People</h4>
 				</li></a>
 				<a href="#"><li class="padding-topbottom-s">
 					<h4 class="display-block display-inline padding-left10px"><i class="glyphicon glyphicon-cog"></i></h4>
@@ -100,28 +118,32 @@
 
 
 	<div class="col-lg-10 col-lg-offset-2 col-md-10 col-md-offset-2 col-sm-12 col-xs-12 grey95-bg padding-bottom-s"><!content goes here>
-
-		<div class="input-append date" id="datepicker" data-date="102/2012" data-date-format="mm/yyyy" data-date-viewmode="years" data-date-minviewmode="months">  
-			<input class="span2" size="16" type="text" value="01/2015" readonly>
-			<span class="add-on"><i class="glyphicon glyphicon-comment"></i></span>
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-topbottom-s padding-leftright-s padding-topbottom-s border-top-grey white-bg">
+			<div class="datepicker-icon-addon input-append date" id="datepicker" data-date="102/2012" data-date-format="mm/yyyy" data-date-viewmode="years" data-date-minviewmode="months">  
+				<input class="span2 inputForm padding-left30px" size="16" type="text" value="01/2015" readonly>
+				<span class="add-on"><i class="glyphicon glyphicon-calendar"></i></span>
+			</div>
+			<div id="kraList"></div>
 		</div>
-		<div id="kraList"></div>
-
 	</div><!content ends here>
 	
 
 	<div id="editKRAModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="editKRAModal">
 		<div class="modal-dialog modal-sm" role="document">
 			<div class="modal-content">
-				<form id="formEditKRA" class="form" method="post">
-					<p id="kraTitle"></p>
-					<div id="columnKRADescription" class="columnInput">
-						<p class="clear-both padding-top-s">Description</p>
-						<textarea type="text" name="description" id="description" class="col-lg-12 col-md-12 col-sm-12 col-xs-12" rows="4"></textarea>
-					</div>
-					<input type="submit" name="submit" id="editKRASubmit" class="buttonForm button clear-both display-block display-inline margin-top-xs" value="Save" />
-					<input data-dismiss="modal" type="button" name="cancel" id="editKRACancel" class="buttonForm buttonCancel clear-both display-block display-inline margin-top-xs" value="Cancel" />
-				</form>
+				<div class="margin-m">
+					<form id="formEditKRA" class="form" method="post">
+						<p id="kraTitle"></p>
+						<div id="columnKRADescription" class="columnInput clear">
+							<i>Description</i><br/>
+							<textarea type="text" name="description" id="description" class="col-lg-12 col-md-12 col-sm-12 col-xs-12" rows="4"></textarea>
+						</div>
+						<div id="columnButton" class="columnInput clear">
+							<input type="submit" name="submit" id="editKRASubmit" class="center buttonForm button margin-top-xs" value="Save" />
+							<input data-dismiss="modal" type="button" name="cancel" id="editKRACancel" class="center buttonForm buttonCancel margin-top-xs" value="Cancel" />
+						</div>
+					</form>
+				</div>
 			</div>
 		</div>
 	</div><!EditModal.>

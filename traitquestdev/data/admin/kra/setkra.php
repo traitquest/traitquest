@@ -85,17 +85,17 @@
 											':enddate'=> $selectedEndDate
 								));
 							}
-							
-							$month++;
-							if($month > 12){
-								$month = 1;
-								$year++;
-							}
-							
-							if($month < 10){
-								$month = '0'.$month;
-							}
-							
+	
+						}
+						
+						$month++;
+						if($month > 12){
+							$month = 1;
+							$year++;
+						}
+						
+						if($month < 10){
+							$month = '0'.$month;
 						}
 					}
 				}

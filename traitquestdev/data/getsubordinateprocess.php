@@ -1,5 +1,5 @@
 <?php
-	include "../../traitquestserver/connection.php";
+	/*include "../../traitquestserver/connection.php";
 
 	session_start();
 	$data = array();		// array to pass back data
@@ -105,5 +105,5 @@
 		echo $e->getMessage();
 	}
 	$conn = null;
-
+*/
 ?>

@@ -1,5 +1,5 @@
 <?php
-	include "../../traitquestserver/connection.php";
+	include "../../../../traitquestserver/connection.php";
 
 	session_start();
 	$data = array();		// array to pass back data
@@ -24,7 +24,7 @@
 				$month = '0'.$month;
 			}
 			$start = date($year.'-'.$month.'-01'); // hard-coded '01' for first day
-			$end  = date($year.'-'.$month.'-t');
+			$end = date("Y-m-t", strtotime($start));
 			
 			$currentYear = date('Y');
 			$currentMonth = date('m');
@@ -66,8 +66,8 @@
 						$month = '0'.$month;
 					}
 					$start = date($year.'-'.$month.'-01'); // hard-coded '01' for first day
-					$end = date("Y-m-t", strtotime($start));
-					//$end  = date($year.'-'.$month.'-t');
+					//$end = date("Y-m-t", strtotime($start));
+					$end  = date($year.'-'.$month.'-t');
 					$checkKPISQL = "SELECT * FROM kpi 
 									 WHERE employeeid = :employeeid
 										AND startdate >= '".$start."'

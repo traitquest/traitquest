@@ -71,7 +71,7 @@
 				`epf` VARCHAR(128),	
 				`socso` VARCHAR(128),				
 				`hireddate` DATE,
-				`imagelink` VARCHAR(128) DEFAULT http://localhost/traitquest/traitquestdev/images/avatar.png,
+				`imagelink` VARCHAR(128) DEFAULT 'http://localhost/traitquest/traitquestdev/images/avatar.png',
 				`isadmin` BOOLEAN NOT NULL DEFAULT 0,
 				`isresigned` BOOLEAN NOT NULL DEFAULT 0,
 				FOREIGN KEY (`companyid`) REFERENCES company(`id`),
@@ -188,23 +188,19 @@
 			echo "Table KPI created successfully<br>";
 		}
 		
-		// create KPI Record table
-		$sql = "CREATE TABLE IF NOT EXISTS `kpirecord` (
+		// create KPI Log table
+		$sql = "CREATE TABLE IF NOT EXISTS `kpilog` (
 				`id` INT UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY, 
 				`kpiid` INT UNSIGNED NOT NULL,
-				`employeeid` INT UNSIGNED NOT NULL,
-				`companyid` INT UNSIGNED NOT NULL,
+				`remarks` LONGTEXT,
 				`date` DATE,
 				`progress` INT NOT NULL DEFAULT 0,
-				FOREIGN KEY (`kpiid`) REFERENCES kpi(`id`),
-				FOREIGN KEY (`employeeid`) REFERENCES employee(`id`),
-				FOREIGN KEY (`companyid`) REFERENCES company(`id`),
-				INDEX(`employeeid`)
+				FOREIGN KEY (`kpiid`) REFERENCES kpi(`id`)
 				)";
 
 		// check if Company table has been created
 		if( $conn->exec($sql) !== false ){
-			echo "Table KPI Record created successfully<br>";
+			echo "Table KPI Log created successfully<br>";
 		}
 		
 		// create KPI table

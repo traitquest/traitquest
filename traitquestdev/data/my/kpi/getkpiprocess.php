@@ -1,9 +1,10 @@
 <?php
-	include "../../traitquestserver/connection.php";
+	include "../../../../traitquestserver/connection.php";
 
 	session_start();
 	$data = array();		// array to pass back data
 	$validated = true;
+	$hasAuthorization = false;
 	try{	
 		//database connection
 		$conn = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);
@@ -17,19 +18,27 @@
 			$currentEmployeeID = $_SESSION['userID'];
 			$selectedEmployeeID = isset($_POST['employeeID']) ? intval($_POST['employeeID']) : 0;
 			
-			// check if there is logged in employee is the supervisor
-			$checkSQL = "SELECT * FROM supervisor 
-							 WHERE companyid = :companyid
-								AND superiorid = :superiorid
-								AND subordinateid = :subordinateid
-							 LIMIT 1";
-			$supervisorPDO = $conn->prepare($checkSQL);
-			$supervisorPDO->bindParam(':companyid', $companyID, PDO::PARAM_INT);
-			$supervisorPDO->bindParam(':superiorid', $currentEmployeeID, PDO::PARAM_INT);
-			$supervisorPDO->bindParam(':subordinateid', $selectedEmployeeID, PDO::PARAM_INT);
-			$supervisorPDO->execute();
+			if($currentEmployeeID == $selectedEmployeeID){
+				$hasAuthorization = true;
+			}
+			else{
+				// check if there is logged in employee is the supervisor
+				$checkSQL = "SELECT * FROM supervisor 
+								 WHERE companyid = :companyid
+									AND superiorid = :superiorid
+									AND subordinateid = :subordinateid
+								 LIMIT 1";
+				$supervisorPDO = $conn->prepare($checkSQL);
+				$supervisorPDO->bindParam(':companyid', $companyID, PDO::PARAM_INT);
+				$supervisorPDO->bindParam(':superiorid', $currentEmployeeID, PDO::PARAM_INT);
+				$supervisorPDO->bindParam(':subordinateid', $selectedEmployeeID, PDO::PARAM_INT);
+				$supervisorPDO->execute();
+				if($supervisorPDO->rowCount() > 0){
+					$hasAuthorization = true;
+				}
+			}
 			
-			if($supervisorPDO->rowCount() > 0){
+			if($hasAuthorization){
 				// check if there is match of kpi id
 				$checkSQL = "SELECT * FROM kpi 
 								 WHERE id = :id

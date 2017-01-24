@@ -1,4 +1,4 @@
-<?php
+<?php/*
 	session_start();
 	// to redirect user to home page once they have logged in
 	if( !isset($_SESSION['companyID']) || !isset($_SESSION['userID'])){
@@ -6,7 +6,7 @@
 	}
 	else if( ( isset($_SESSION['companyID']) && isset($_SESSION['userID']) ) && $_SESSION['logintype'] == "admin" ){
 		header('location: ../../admin/employee.php');
-	}
+	}*/
 ?>
 <!DOCTYPE>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -26,8 +26,8 @@
 					JAVASCRIPT
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
-<script type="text/javascript" src="../../js/my/global.js"></script>
-<script type="text/javascript" src="../../js/my/profile/editprofile.js"></script>
+<!--<script type="text/javascript" src="../../js/my/global.js"></script>
+<script type="text/javascript" src="../../js/my/profile/editprofile.js"></script>-->
 <script type="text/javascript" src="../../js/setheight.js"></script>
 <script type="text/javascript" src="../../js/mobilenav.js"></script>
 
@@ -36,8 +36,8 @@
 <body>
 	<div id="mobileNav" class="mobileNav"><!mobilenav>
 		<a href="javascript:void(0)" id="closeMobileNav" class="closeBtn white">&times;</a>
-		<img class="userPic col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 margin-top-s imageSize100px" src="../../images/avatar2.jpg">
-		<p class="userName col-lg-10 col-md-10 col-sm-10 margin-top-s fontsize-s white breakword">User123456789 123456789</p>
+		<img class="userPic clear-both center margin-top-s imageSize100px" src="../../images/avatar2.jpg">
+		<p class="userName clear-both center fontsize-s white breakword">User123456789 123456789</p>
 		<a href="#" class="closeMobileNav padding-top-m display-block fontsize-m white">Company</a>
 		<a href="#" class="closeMobileNav padding-top-m display-block fontsize-m white">Profile</a>
 		<a href="#" class="closeMobileNav padding-top-m display-block fontsize-m white">KPI</a>
@@ -49,10 +49,10 @@
 	<div class="hidden-sm hidden-xs sideBar affix"><!sideBar>
 		<div class="col-lg-12 col-md-12 col-sm-12">
 			<div class="img-wrap">
-				<img class="userPic col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 margin-top-s imageSize100px" src="../../images/avatar2.jpg">
-				<button id=""><p class="img-description fontsize-s black-bg white">Upload Photo</p></button>
+				<img class="center margin-top-s imageSize100px" src="../../images/avatar2.jpg">
+				<button id=""><p class="img-description fontsize-s black-bg white width100px">Upload Photo</p></button>
 			</div>
-				<p class="userName col-lg-10 col-md-10 col-sm-10 margin-top-s fontsize-s breakword">User123456789 123456789</p>
+				<p class="text-center margin-top-s fontsize-s breakword">User123456789 123456789</p>
 			</img>
 		</div>
 		<div class="clear-both">
@@ -111,19 +111,61 @@
 		<div class="col-lg-12 col-md-12 margin-topbottom-s padding-topbottom-l padding-leftright-s border-top-grey white-bg">
 		<div id="mainContainer">
 			<form id="formEditProfile" class="form" method="post">
+				<div id="columnPhone" class="columnInput">
+					<p class="clear-both padding-top-s">Mobile</p>
+					<input type="text" name="phone" id="phone" class="clear-both col-lg-5 col-md-5 col-sm-12 col-xs-12" placeholder="Mobile Phone No." />
+				</div>
+				<div id="" class="columnInput">
+					<p class="clear-both padding-top-s">D.O.B</p>
+					<input type="text" name="" id="" class="clear-both col-lg-5 col-md-5 col-sm-12 col-xs-12" placeholder="Date of Birth" />
+				</div>
+				<div id="" class="columnInput">
+					<p class="clear-both padding-top-s">Nationality</p>
+					<?php include 'countryselect.php' ?>
+				</div>
+				<div id="" class="columnInput">
+					<p class="clear-both padding-top-s">Race</p>
+					<select class="clear-both col-lg-5 col-md-5 col-sm-12 col-xs-12" name="race">
+						<option value="">Select</option>
+						<option value="chinese">Chinese</option>
+						<option value="malay">Malay</option>
+						<option value="indian">Indian</option>
+						<option value="other">Other</option>
+					</select>
+				</div>
+				<div id="" class="columnInput">
+					<p class="clear-both padding-top-s">Religion</p>
+					<input type="text" name="" id="" class="clear-both col-lg-5 col-md-5 col-sm-12 col-xs-12" placeholder="Religion" />
+				</div>
+				<div id="" class="columnInput">
+					<p class="clear-both padding-top-s">Marital Status</p>
+					<select class="clear-both col-lg-5 col-md-5 col-sm-12 col-xs-12" name="race">
+						<option value="">Select</option>
+						<option value="single">Single</option>
+						<option value="married">Married</option>
+						<option value="other">Other</option>
+					</select>
+				</div>
+				<div id="" class="columnInput">
+					<p class="clear-both padding-top-s">Bio</p>
+					<textarea type="text" name="" id="" class="clear-both col-lg-5 col-md-5 col-sm-12 col-xs-12" rows="4" placeholder="Bio"></textarea>
+				</div>
 				<div id="columnAddress" class="columnInput">
 					<p class="clear-both padding-top-s">Address</p>
-					<textarea type="text" name="address" id="address" class="col-lg-12 col-md-12 col-sm-12 col-xs-12" rows="4"></textarea>
+					<textarea type="text" name="address" id="address" class="clear-both col-lg-5 col-md-5 col-sm-12 col-xs-12" rows="4" placeholder="Address"></textarea>
 				</div>
-				<div id="columnPhone" class="columnInput">
-					<p class="clear-both padding-top-s">Phone</p>
-					<input type="text" name="phone" id="phone" class="col-lg-12 col-md-12 col-sm-12 col-xs-12" />
+				<div id="" class="columnInput">
+					<p class="clear-both padding-top-s">Emergency Contact</p>
+					<input type="text" name="" id="" class="clear-both col-lg-5 col-md-5 col-sm-12 col-xs-12 margin-bottom-xs" placeholder="Name" />
+					<input type="text" name="" id="" class="clear-both col-lg-5 col-md-5 col-sm-12 col-xs-12 margin-bottom-xs" placeholder="Relationship" />
+					<input type="text" name="" id="" class="clear-both col-lg-5 col-md-5 col-sm-12 col-xs-12 margin-bottom-xs" placeholder="Phone No." />
+					<input type="text" name="" id="" class="clear-both col-lg-5 col-md-5 col-sm-12 col-xs-12 margin-bottom-xs" placeholder="Alt. Phone No." />
 				</div>
 
 				<div id="editResponse"></div>
-				<div class="text-right">
+				<div class="clear-both text-right">
 					<input type="submit" name="submit" id="editProfileSubmit" class="buttonForm button clear-both display-block display-inline margin-top-xs" value="Save" />
-					<input type="button" name="cancel" id="editProfileCancel" class="buttonForm buttonCancel clear-both display-block display-inline margin-top-xs" value="Cancel" />
+					<input type="submit" name="submit" id="editProfileCancel" class="buttonForm buttonCancel clear-both display-block display-inline margin-top-xs" value="Cancel" />
 				</div>
 			</form>
 		</div>

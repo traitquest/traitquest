@@ -49,10 +49,10 @@
 	<div class="hidden-sm hidden-xs sideBar affix"><!sideBar>
 		<div class="col-lg-12 col-md-12 col-sm-12">
 			<div class="img-wrap">
-				<img class="center margin-top-s imageSize100px" src="../../images/avatar2.jpg">
+				<img class="userPic center margin-top-s imageSize100px" src="../../images/avatar2.jpg">
 				<button id=""><p class="img-description fontsize-s black-bg white width100px">Upload Photo</p></button>
 			</div>
-				<p class="text-center margin-top-s fontsize-s breakword">User123456789 123456789</p>
+				<p class="userName text-center margin-top-s fontsize-s breakword">User123456789 123456789</p>
 			</img>
 		</div>
 		<div class="clear-both">
@@ -126,7 +126,7 @@
 				<div id="" class="columnInput">
 					<p class="clear-both padding-top-s">Race</p>
 					<select class="clear-both col-lg-5 col-md-5 col-sm-12 col-xs-12" name="race">
-						<option value="">Select</option>
+						<option value="" selected="true" disabled="disabled">Select a race</option>
 						<option value="chinese">Chinese</option>
 						<option value="malay">Malay</option>
 						<option value="indian">Indian</option>
@@ -140,7 +140,7 @@
 				<div id="" class="columnInput">
 					<p class="clear-both padding-top-s">Marital Status</p>
 					<select class="clear-both col-lg-5 col-md-5 col-sm-12 col-xs-12" name="race">
-						<option value="">Select</option>
+						<option value="" selected="true" disabled="disabled">Select a marital status</option>
 						<option value="single">Single</option>
 						<option value="married">Married</option>
 						<option value="other">Other</option>
@@ -165,7 +165,7 @@
 				<div id="editResponse"></div>
 				<div class="clear-both text-right">
 					<input type="submit" name="submit" id="editProfileSubmit" class="buttonForm button clear-both display-block display-inline margin-top-xs" value="Save" />
-					<input type="submit" name="submit" id="editProfileCancel" class="buttonForm buttonCancel clear-both display-block display-inline margin-top-xs" value="Cancel" />
+					<input type="button" name="cancel" id="editProfileCancel" class="buttonForm buttonCancel clear-both display-block display-inline margin-top-xs" value="Cancel" />
 				</div>
 			</form>
 		</div>

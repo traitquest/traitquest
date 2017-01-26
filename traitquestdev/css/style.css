@@ -148,14 +148,15 @@ button {
 .img-wrap .edit:hover{color:#1F8B4C;}
 .img-wrap .editobjective{position:absolute;top:-2;right:2;}
 .img-wrap .addobjective{position:absolute;top:-10;right:2;}
-.img-description{position:absolute;top:15;left:30.5;visibility:hidden;opacity:0;}
-.img-description-mobile{position:absolute;top:15;left:98;visibility:hidden;opacity:0;}
+.img-description{position:absolute;top:0;left:94;visibility:hidden;opacity:0;}
 .img-wrap:hover .img-description{visibility:visible;opacity:0.6;}
 .img-wrap:hover .img-description-mobile{visibility:visible;opacity:0.6;}
 .breakword{word-wrap:break-word;}
-.statuspending{width:70px;height:20px;background-color:#33E9ED;}
-.statusverified{width:70px;height:20px;background-color:#55FF99;}
-
+.width100px{width:100px;}
+a.modalText{outline:0;}
+a.modalText:hover{color:rgba(0,0,0,0.6);}
+a.modalText:focus{color:#333333;}
+.horizontal-divider{border-top:1px solid #337AB7;}
 /*#wrapper{ padding-bottom: 80px;  min-height:100%; position:relative;}*/
 
 /* 3.0 HEADER

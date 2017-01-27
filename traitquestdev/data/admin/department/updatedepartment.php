@@ -52,7 +52,7 @@
 					$addDepartmentPDO = $conn->prepare($addDepartmentSQL);
 					$addDepartmentPDO->execute(array(
 								':companyid'=> $companyID,
-								':name'=> $departmentName,
+								':name'=> $departmentName
 								));
 					$data['newSuccess'] = true;
 					

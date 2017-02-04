@@ -1,13 +1,27 @@
 // JavaScript Document
 $(document).ready(function(){
 	var working = false;
+	var day, month, year;
 	var employeeID = getUrlParameter('id');
 	if( employeeID === undefined || employeeID == '' ){
-		window.location.href = "employee.php";
+		window.location.href = "all.php";
 	}
 	getDepartment();
 	populateForm();
-	
+	/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+			SELECT A DATE
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+	$('#datepicker').datepicker()
+		.on('changeDate', function(ev) {
+			selectedDate = new Date(ev.date);
+			day = selectedDate.getDate();
+			month = selectedDate.getMonth() + 1; //months from 1-12
+			year = selectedDate.getFullYear();
+	});
+		
+	/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		 EDIT EMPLOYEE
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 	$('#formEditEmployee').submit(function(event){
 		event.preventDefault();
 		
@@ -27,7 +41,16 @@ $(document).ready(function(){
 		var formData= {
 			'employeeID'						: employeeID,
 			'employeeName'						:$('input[name=employeeName]').val(),
-			'employeeCode'						:$('input[name=employeeCode]').val()
+			'employeeCode'						:$('input[name=employeeCode]').val(),
+			'employeeDepartment'				:$('#employeeDepartment').val(),
+			'employeeExt'						:$('input[name=employeeExt]').val(),
+			'employeeHiredDay'					:day,
+			'employeeHiredMonth'				:month,
+			'employeeHiredYear'					:year,
+			'employeeAddress'					:$('#employeeAddress').val(),
+			'employeeBank'						:$('input[name=employeeBank]').val(),
+			'employeeEpf'						:$('input[name=employeeEpf]').val(),
+			'employeeSocso'						:$('input[name=employeeSocso]').val()
 		};
 		//console.log(formData);
 		
@@ -46,13 +69,18 @@ $(document).ready(function(){
 			//here we will handle errors and validation messages
 			if(data['adminloggedIn']){				
 				//check if it has errors
-                if(!data['editSuccess']){
-                    $('#editEmployeeResponse').append('<div class="editError text-center red">' + data['error'] + '</div>');
-                }
-                else{
-					// redirect after editing
-					window.history.back();
+                if(!data['fatalError']){
+					if(!data['editSuccess']){
+						$('#editEmployeeResponse').append('<div class="editError text-center red">' + data['error'] + '</div>');
+					}
+					else{
+						// redirect after editing
+						window.history.back();
+					}
 				}
+				else{
+					window.location.href = "../../500.php";
+				}				
 			}
 			else{
 				// redirect to home page when user is not logged in as admin
@@ -102,8 +130,8 @@ $(document).ready(function(){
 		ADD OPTION OF DEPARTMENT DROPDOWN
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 	function addDepartmentOption(department){
-		var departmentDropdown = document.getElementById('department');
-		$('#department').empty();
+		var departmentDropdown = document.getElementById('employeeDepartment');
+		$('#employeeDepartment').empty();
 		
 		var opt = document.createElement('option');
 		opt.value = 0;
@@ -138,6 +166,21 @@ $(document).ready(function(){
 				$("#columnEmployeePic").append(imageHTML);
 				$("#employeeName").val( data['employee']['name'] ); 
 				$("#employeeCode").val( data['employee']['code'] );
+				$("#employeeDepartment").val( data['employee']['departmentid'] );
+				$("#employeeExt").val( data['employee']['ext'] );
+				// Split timestamp into [ Y, M, D, h, m, s ]
+				var t = data['employee']['hireddate'];
+				var date = t.split(/[-]/);
+				// Apply each element to the Date function
+				var d = new Date(Date.UTC(date[0], date[1]-1, date[2]));
+				year = date[0];
+				month = date[1]-1;
+				day = date[2];
+				$('#datepicker').datepicker('setValue', d );
+				$("#employeeAddress").val( data['employee']['address'] );
+				$("#employeeBank").val( data['employee']['bank'] );
+				$("#employeeEpf").val( data['employee']['epf'] );
+				$("#employeeSocso").val( data['employee']['socso'] );
 			}
 			else{
 				// go back to previous page

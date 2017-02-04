@@ -1,4 +1,4 @@
-<?php/*
+<?php
 	session_start();
 	// to redirect user to home page once they have logged in
 	if( !isset($_SESSION['companyID']) || !isset($_SESSION['userID'])){
@@ -6,7 +6,7 @@
 	}
 	else if( ( isset($_SESSION['companyID']) && isset($_SESSION['userID']) ) && $_SESSION['logintype'] == "admin" ){
 		header('location: ../../admin/employee.php');
-	}*/
+	}
 ?>
 <!DOCTYPE>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -21,15 +21,20 @@
 <link rel="stylesheet" type="text/css" href="../../css/bootstrap.css"/>
 <link rel="stylesheet" type="text/css" href="../../css/color.css"/>
 <link rel="stylesheet" type="text/css" href="../../css/style.css"/>
-
+<link rel="stylesheet" type="text/css" href="../../css/datepicker.css"/>
+<style>
+.datepicker-icon-addon{position:relative;}
+.datepicker-icon-addon .glyphicon{position:absolute;padding-top:5px;padding-left:10px;}
+</style>
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 					JAVASCRIPT
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
-<!--<script type="text/javascript" src="../../js/my/global.js"></script>
-<script type="text/javascript" src="../../js/my/profile/editprofile.js"></script>-->
+<script type="text/javascript" src="../../js/my/global.js"></script>
+<script type="text/javascript" src="../../js/my/profile/editprofile.js"></script>
 <script type="text/javascript" src="../../js/setheight.js"></script>
 <script type="text/javascript" src="../../js/mobilenav.js"></script>
+<script type="text/javascript" src="../../js/bootstrap-datepicker.js"></script>
 
 </head>
 
@@ -117,7 +122,10 @@
 				</div>
 				<div id="" class="columnInput">
 					<p class="clear-both padding-top-s">D.O.B</p>
-					<input type="text" name="" id="" class="clear-both col-lg-5 col-md-5 col-sm-12 col-xs-12" placeholder="Date of Birth" />
+					<div class="datepicker-icon-addon input-append date" id="datepicker" data-date="102/2012" data-date-format="dd/mm/yyyy" data-date-viewmode="days" data-date-minviewmode="days">  
+						<input class="span2 padding-left30px clear-both col-lg-5 col-md-5 col-sm-12 col-xs-12" size="16" type="text" value="01/01/1901" readonly>
+						<span class="add-on"><i class="glyphicon glyphicon-calendar"></i></span>
+					</div>
 				</div>
 				<div id="" class="columnInput">
 					<p class="clear-both padding-top-s">Nationality</p>
@@ -125,30 +133,30 @@
 				</div>
 				<div id="" class="columnInput">
 					<p class="clear-both padding-top-s">Race</p>
-					<select class="clear-both col-lg-5 col-md-5 col-sm-12 col-xs-12" name="race">
+					<select id="race" class="clear-both col-lg-5 col-md-5 col-sm-12 col-xs-12" name="race">
 						<option value="" selected="true" disabled="disabled">Select a race</option>
-						<option value="chinese">Chinese</option>
-						<option value="malay">Malay</option>
-						<option value="indian">Indian</option>
-						<option value="other">Other</option>
+						<option value="Chinese">Chinese</option>
+						<option value="Malay">Malay</option>
+						<option value="Indian">Indian</option>
+						<option value="Other">Others</option>
 					</select>
 				</div>
 				<div id="" class="columnInput">
 					<p class="clear-both padding-top-s">Religion</p>
-					<input type="text" name="" id="" class="clear-both col-lg-5 col-md-5 col-sm-12 col-xs-12" placeholder="Religion" />
+					<input type="text" name="religion" id="religion" class="clear-both col-lg-5 col-md-5 col-sm-12 col-xs-12" placeholder="Religion" />
 				</div>
 				<div id="" class="columnInput">
 					<p class="clear-both padding-top-s">Marital Status</p>
-					<select class="clear-both col-lg-5 col-md-5 col-sm-12 col-xs-12" name="race">
+					<select id="maritalStatus" class="clear-both col-lg-5 col-md-5 col-sm-12 col-xs-12" name="maritalStatus">
 						<option value="" selected="true" disabled="disabled">Select a marital status</option>
-						<option value="single">Single</option>
-						<option value="married">Married</option>
-						<option value="other">Other</option>
+						<option value="Single">Single</option>
+						<option value="Married">Married</option>
+						<option value="Others">Others</option>
 					</select>
 				</div>
 				<div id="" class="columnInput">
 					<p class="clear-both padding-top-s">Bio</p>
-					<textarea type="text" name="" id="" class="clear-both col-lg-5 col-md-5 col-sm-12 col-xs-12" rows="4" placeholder="Bio"></textarea>
+					<textarea type="text" name="bio" id="bio" class="clear-both col-lg-5 col-md-5 col-sm-12 col-xs-12" rows="4" placeholder="Bio"></textarea>
 				</div>
 				<div id="columnAddress" class="columnInput">
 					<p class="clear-both padding-top-s">Address</p>
@@ -156,10 +164,10 @@
 				</div>
 				<div id="" class="columnInput">
 					<p class="clear-both padding-top-s">Emergency Contact</p>
-					<input type="text" name="" id="" class="clear-both col-lg-5 col-md-5 col-sm-12 col-xs-12 margin-bottom-xs" placeholder="Name" />
-					<input type="text" name="" id="" class="clear-both col-lg-5 col-md-5 col-sm-12 col-xs-12 margin-bottom-xs" placeholder="Relationship" />
-					<input type="text" name="" id="" class="clear-both col-lg-5 col-md-5 col-sm-12 col-xs-12 margin-bottom-xs" placeholder="Phone No." />
-					<input type="text" name="" id="" class="clear-both col-lg-5 col-md-5 col-sm-12 col-xs-12 margin-bottom-xs" placeholder="Alt. Phone No." />
+					<input type="text" name="emergencyContactName" id="emergencyContactName" class="clear-both col-lg-5 col-md-5 col-sm-12 col-xs-12 margin-bottom-xs" placeholder="Name" />
+					<input type="text" name="emergencyContactRelationship" id="emergencyContactRelationship" class="clear-both col-lg-5 col-md-5 col-sm-12 col-xs-12 margin-bottom-xs" placeholder="Relationship" />
+					<input type="text" name="emergencyContactPhone" id="emergencyContactPhone" class="clear-both col-lg-5 col-md-5 col-sm-12 col-xs-12 margin-bottom-xs" placeholder="Phone No." />
+					<input type="text" name="emergencyContactAltPhone" id="emergencyContactAltPhone" class="clear-both col-lg-5 col-md-5 col-sm-12 col-xs-12 margin-bottom-xs" placeholder="Alt. Phone No." />
 				</div>
 
 				<div id="editResponse"></div>

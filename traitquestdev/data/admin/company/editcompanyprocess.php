@@ -16,6 +16,7 @@
 			
 			if (isset($_POST['address']))				            {$address 	= trim($_POST ['address']);} else { $address='';}
 			if (isset($_POST['phone']))			                    $phone 		= trim($_POST ['phone']);
+			if (isset($_POST['fax']))			                    $fax 		= trim($_POST ['fax']);
 			if (isset($_POST['website']))			                $website 	= trim($_POST ['website']);
 			if (isset($_POST['description']))				        {$description 	= trim($_POST ['description']);} else { $description='';}
 			if (isset($_POST['vision']))				            {$vision 	= trim($_POST ['vision']);} else { $vision='';}
@@ -33,13 +34,14 @@
 				$companyResult = $companyPDO->fetch(PDO::FETCH_ASSOC);
 				
 				$updateSQL = "UPDATE company
-                              SET address= :address, phone= :phone, website= :website, description= :description, vision= :vision, mission= :mission
+                              SET address= :address, phone= :phone, fax= :fax, website= :website, description= :description, vision= :vision, mission= :mission
                               WHERE id = :id";
 				$updateCompanyPDO = $conn->prepare($updateSQL);
 				$updateCompanyPDO->execute(array(
 											':id'=> $companyid,
 											':address'=> $address,
 											':phone'=> $phone,
+											':fax'=> $fax,
 											':website'=> $website,
 											':description'=> $description,
 											':vision'=> $vision,

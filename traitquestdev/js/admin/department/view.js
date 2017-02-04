@@ -45,10 +45,20 @@ $(document).ready(function(){
 	
 	/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 			TO PROMPT THE DELETE FORM
-	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/	
 	$(this).on('click','.deleteDepartment',function(){
 		departmentID = $(this).attr('data-id'); // Get the clicked id for deletion 
 		currentRow = $(this).closest('.departmentRow'); // Get a reference to the row that has the button we clicked
+		
+		var title = currentRow.find('.departmentName').text();
+		titleHTML = "Are you sure you want to delete <b>" + title + "</b>?";
+		$('#confirmationMessage').empty();
+		$('#confirmationMessage').append(titleHTML);
+		$('#confirmationModal').modal('show');
+	})
+	
+	$(this).on('click','#confirmationYes',function(){
+		$('#confirmationModal').modal('hide');
 		
 		//get the form data
 		var formData= {
@@ -79,6 +89,12 @@ $(document).ready(function(){
 					currentRow.slideUp(500,function(){
 						currentRow.remove();
 					})
+				}
+				else if(data['deleteNotAllowed']){
+					html = 'There is still employee(s) in this department. You are not allowed to remove this department.';
+					$('#errorMessage').empty();
+					$('#errorMessage').append(html);
+					$('#errorModal').modal('show');
 				}
 			}
 			else{
@@ -122,8 +138,8 @@ $(document).ready(function(){
 		//using the done promise callback
 		.done(function(data){
 			working = false;
-			var target = $('#departmentList');
-			var html;
+			var target = '#departmentList';
+			var source;
 			if(data['isAdmin']){
 				if(data['fatalError']){
 					window.location.href = "../../500.php";
@@ -139,16 +155,14 @@ $(document).ready(function(){
 				else if(data['newSuccess']){
 					$('#addDepartmentModal').modal('hide');
 					$('#formDepartment')[0].reset();
-					
-					html = '<div class="departmentRow margin-top-s col-lg-12 col-md-12 col-sm-12 col-xs-12">'
-							+ '<button class="deleteDepartment" data-id="' + data['newdepartment']['id'] + '"><i class="del red glyphicon glyphicon-remove-sign"></i></button>'
+					source = $('<div class="departmentRow margin-top-s col-lg-12 col-md-12 col-sm-12 col-xs-12">'
+							+ '<div class="departmentName padding-leftright-xs fontsize-m display-inline">' + data['newdepartment']['name'] + '</div>'
 							+ '<button class="editDepartment" data-id="' + data['newdepartment']['id'] + '" ><i class="edit green glyphicon glyphicon-edit"></i></button>'
-							+ '<ul class="padding-leftright-xs col-lg-12 col-md-12 col-sm-12 col-xs-12">'
-							+ '<li class="departmentName">' + data['newdepartment']['name'] + '</li>'
-							+ '</ul>'
-							+ '</div>';
+							+ '<button class="deleteDepartment" data-id="' + data['newdepartment']['id'] + '"><i class="del red glyphicon glyphicon-remove-sign"></i></button>'
+							+ '</div>');
 				
-					target.append(html);
+					source.prependTo(target).hide().slideDown();
+					//target.append(html);
 
 				}
 			}
@@ -189,11 +203,9 @@ function getDepartmentList(searchWorking){
 		if(data['return']){
 			for(var i = 0; i < data['department'].length; i++){
 				html = '<div class="departmentRow margin-top-s col-lg-12 col-md-12 col-sm-12 col-xs-12">'
-						+ '<button class="deleteDepartment" data-id="' + data['department'][i]['id'] + '"><i class="del red glyphicon glyphicon-remove-sign"></i></button>'
+						+ '<div class="departmentName padding-leftright-xs fontsize-m display-inline">' + data['department'][i]['name'] + '</div>'
 						+ '<button class="editDepartment" data-id="' + data['department'][i]['id'] + '" ><i class="edit green glyphicon glyphicon-edit"></i></button>'
-						+ '<ul class="padding-leftright-xs col-lg-12 col-md-12 col-sm-12 col-xs-12">'
-						+ '<li class="departmentName">' + data['department'][i]['name'] + '</li>'
-						+ '</ul>'
+						+ '<button class="deleteDepartment" data-id="' + data['department'][i]['id'] + '"><i class="del red glyphicon glyphicon-remove-sign"></i></button>'
 						+ '</div>';
 				
 				target.append(html);
@@ -201,7 +213,10 @@ function getDepartmentList(searchWorking){
 			}
 		}
 		else{
-			alert('There is no department. Please add at least one(1) department.');
+			html = 'There is no department. Please add at least one(1) department.';
+			$('#errorMessage').empty();
+			$('#errorMessage').append(html);
+			$('#errorModal').modal('show');
 		}
 	})
 	//using the fail promise callback

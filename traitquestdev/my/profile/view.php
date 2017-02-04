@@ -1,4 +1,4 @@
-<?php/*
+<?php
 	session_start();
 	// to redirect user to home page once they have logged in
 	if( !isset($_SESSION['companyID']) || !isset($_SESSION['userID'])){
@@ -7,7 +7,7 @@
 	else if( ( isset($_SESSION['companyID']) && isset($_SESSION['userID']) ) && $_SESSION['logintype'] == "admin" ){
 		header('location: ../../admin/employee.php');
 	}
-*/
+
 ?>
 <!DOCTYPE>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -27,8 +27,8 @@
 					JAVASCRIPT
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
-<!--<script type="text/javascript" src="../../js/my/global.js"></script>
-<script type="text/javascript" src="../../js/my/profile/getemployee.js"></script>-->
+<script type="text/javascript" src="../../js/my/global.js"></script>
+<script type="text/javascript" src="../../js/my/profile/getemployee.js"></script>
 <script type="text/javascript" src="../../js/setheight.js"></script>
 <script type="text/javascript" src="../../js/mobilenav.js"></script>
 </head>
@@ -102,7 +102,7 @@
 			<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 padding-topbottom-s">
 				<h3>Profile</h3>
 			</div>
-			<div class="text-right col-lg-2 col-md-2 col-sm-2 col-xs-2 padding-topbottom-s">
+			<div id="editProfileButton" class="text-right col-lg-2 col-md-2 col-sm-2 col-xs-2 padding-topbottom-s">
 				<a href="edit.php"><h3><i class="glyphicon glyphicon-edit"></i></h3></a>
 			</div>
 
@@ -115,34 +115,34 @@
 				<div class="clear-both margin-top-s">
 
 						<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 margin-top-s">
-							<img class="center margin-top-s imageSize100px" src="../../images/avatar2.jpg">
-							<button class="center">upload</button>
+							<img id="employeePic" class="center margin-top-s imageSize100px" src="../../images/avatar2.jpg">
+							<button id="uploadPicButton" class="margin-topbottom-xs btn btn-default center fontsize-s">Change picture</button>
 						</div>
 						<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 margin-top-s">
 							<div class="clear-both visible-sm visible-xs horizontal-divider"></div>
-							<div class="clear-both margin-top-xs">
-								<p class="fontsize-m col-lg-3 col-md-3 col-sm-12 col-xs-12">Name</p>
-								<p class="fontsize-m col-lg-9 col-md-9 col-sm-12 col-xs-12 breakword">asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf</p>
+							<div class="clear-both padding-topbottom-xs">
+								<p class="col-lg-3 col-md-3 col-sm-12 col-xs-12"><b>Name</b></p>
+								<p id="employeeName" class="col-lg-9 col-md-9 col-sm-12 col-xs-12 breakword"></p>
 							</div>
 							<div class="clear-both visible-sm visible-xs horizontal-divider"></div>
-							<div class="clear-both margin-top-xs">
-								<p class="black fontsize-m col-lg-3 col-md-3 col-sm-12 col-xs-12">Email</p>
-								<p class="fontsize-m col-lg-9 col-md-9 col-sm-12 col-xs-12 breakword">asdf@asdf.com</p>
+							<div class="clear-both padding-topbottom-xs">
+								<p class="col-lg-3 col-md-3 col-sm-12 col-xs-12"><b>Email</b></p>
+								<p id="employeeEmail" class="col-lg-9 col-md-9 col-sm-12 col-xs-12 breakword"></p>
 							</div>
 							<div class="clear-both visible-sm visible-xs horizontal-divider"></div>
-							<div class="clear-both margin-top-xs">
-								<p class="black fontsize-m col-lg-3 col-md-3 col-sm-12 col-xs-12">Department</p>
-								<p class="fontsize-m col-lg-9 col-md-9 col-sm-12 col-xs-12 breakword">Accounting</p>
+							<div class="clear-both padding-topbottom-xs">
+								<p class="col-lg-3 col-md-3 col-sm-12 col-xs-12"><b>Department</b></p>
+								<p id="employeeDepartment" class="col-lg-9 col-md-9 col-sm-12 col-xs-12 breakword"></p>
 							</div>
 							<div class="clear-both visible-sm visible-xs horizontal-divider"></div>
-							<div class="clear-both margin-top-xs">
-								<p class="black fontsize-m col-lg-3 col-md-3 col-sm-12 col-xs-12">Extension</p>
-								<p class="fontsize-m col-lg-9 col-md-9 col-sm-12 col-xs-12 breakword">227</p>
+							<div class="clear-both padding-topbottom-xs">
+								<p class="col-lg-3 col-md-3 col-sm-12 col-xs-12"><b>Extension</b></p>
+								<p id="employeeExt" class="col-lg-9 col-md-9 col-sm-12 col-xs-12 breakword"></p>
 							</div>
 							<div class="clear-both visible-sm visible-xs horizontal-divider"></div>
-							<div class="clear-both margin-top-xs">
-								<p class="black fontsize-m col-lg-3 col-md-3 col-sm-12 col-xs-12">Hire Date</p>
-								<p class="fontsize-m col-lg-9 col-md-9 col-sm-12 col-xs-12 breakword">5/1/2017</p>
+							<div class="clear-both padding-topbottom-xs">
+								<p class="col-lg-3 col-md-3 col-sm-12 col-xs-12"><b>Hired Date</b></p>
+								<p id="employeeHiredDate" class="col-lg-9 col-md-9 col-sm-12 col-xs-12 breakword"></p>
 							</div>
 							<div class="clear-both visible-sm visible-xs horizontal-divider"></div>
 						</div>
@@ -151,45 +151,44 @@
 
 					<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 margin-top-s padding-leftright-s padding-bottom-s">
 
-							<div class="panel panel-primary">
+							<div class="panel panel-default">
 								<div class="panel-heading">
-									<h3 class="clear-both white">Personal Info</h3>
+									<h4 class="clear-both">Personal Info</h4>
 								</div>
 								<div class="panel-body">
-									<div class="clear-both margin-top-xs">
-										<p class="fontsize-m col-lg-5 col-md-5 col-sm-12 col-xs-12 ">Mobile</p>
-										<p class="fontsize-m col-lg-7 col-md-7 col-sm-12 col-xs-12 breakword">0123456789</p>
+									<div class="clear-both padding-topbottom-xs">
+										<p class="col-lg-5 col-md-5 col-sm-12 col-xs-12 "><b>Mobile</b></p>
+										<p id="employeePhone" class="col-lg-7 col-md-7 col-sm-12 col-xs-12 breakword"></p>
 									</div>
 									<div class="clear-both visible-sm visible-xs horizontal-divider"></div>
-									<div class="clear-both margin-top-xs">
-										<p class="fontsize-m col-lg-5 col-md-5 col-sm-12 col-xs-12 ">D.O.B</p>
-										<p class="fontsize-m col-lg-7 col-md-7 col-sm-12 col-xs-12 breakword">22/2/2002</p>
+									<div class="clear-both padding-topbottom-xs">
+										<p class="col-lg-5 col-md-5 col-sm-12 col-xs-12 "><b>D.O.B</b></p>
+										<p id="employeeDOB" class="col-lg-7 col-md-7 col-sm-12 col-xs-12 breakword"></p>
 									</div>
 									<div class="clear-both visible-sm visible-xs horizontal-divider"></div>
-									<div class="clear-both margin-top-xs">
-										<p class="fontsize-m col-lg-5 col-md-5 col-sm-12 col-xs-12 ">Nationality</p>
-										<p class="fontsize-m col-lg-7 col-md-7 col-sm-12 col-xs-12 breakword">Malaysia</p>
+									<div class="clear-both padding-topbottom-xs">
+										<p class="col-lg-5 col-md-5 col-sm-12 col-xs-12 "><b>Nationality</b></p>
+										<p id="employeeNationality" class="col-lg-7 col-md-7 col-sm-12 col-xs-12 breakword"></p>
 									</div>
 									<div class="clear-both visible-sm visible-xs horizontal-divider"></div>
-									<div class="clear-both margin-top-xs">
-										<p class="fontsize-m col-lg-5 col-md-5 col-sm-12 col-xs-12 ">Race</p>
-										<p class="fontsize-m col-lg-7 col-md-7 col-sm-12 col-xs-12 breakword">Indian</p>
+									<div class="clear-both padding-topbottom-xs">
+										<p class="col-lg-5 col-md-5 col-sm-12 col-xs-12 "><b>Race</b></p>
+										<p id="employeeRace" class="col-lg-7 col-md-7 col-sm-12 col-xs-12 breakword"></p>
 									</div>
 									<div class="clear-both visible-sm visible-xs horizontal-divider"></div>
-									<div class="clear-both margin-top-xs">
-										<p class="fontsize-m col-lg-5 col-md-5 col-sm-12 col-xs-12 ">Religion</p>
-										<p class="fontsize-m col-lg-7 col-md-7 col-sm-12 col-xs-12 breakword">Hindu</p>
+									<div class="clear-both padding-topbottom-xs">
+										<p class="col-lg-5 col-md-5 col-sm-12 col-xs-12 "><b>Religion</b></p>
+										<p id="employeeReligion" class="col-lg-7 col-md-7 col-sm-12 col-xs-12 breakword"></p>
 									</div>
 									<div class="clear-both visible-sm visible-xs horizontal-divider"></div>
-									<div class="clear-both margin-top-xs">
-										<p class="fontsize-m col-lg-5 col-md-5 col-sm-12 col-xs-12 ">Marital Status</p>
-										<p class="fontsize-m col-lg-7 col-md-7 col-sm-12 col-xs-12 breakword">Married</p>
+									<div class="clear-both padding-topbottom-xs">
+										<p class="col-lg-5 col-md-5 col-sm-12 col-xs-12 "><b>Marital Status</b></p>
+										<p id="employeeMaritalStatus" class="col-lg-7 col-md-7 col-sm-12 col-xs-12 breakword"></p>
 									</div>
 									<div class="clear-both visible-sm visible-xs horizontal-divider"></div>
-									<div class="clear-both margin-top-xs">
-										<p class="fontsize-m col-lg-5 col-md-5 col-sm-12 col-xs-12 ">Bio</p>
-										<p class="fontsize-m col-lg-7 col-md-7 col-sm-12 col-xs-12 breakword">asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
-											asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf</p>
+									<div class="clear-both padding-topbottom-xs">
+										<p class="col-lg-5 col-md-5 col-sm-12 col-xs-12 "><b>Bio</b></p>
+										<p id="employeeBio" class="col-lg-7 col-md-7 col-sm-12 col-xs-12 breakword"></p>
 									</div>
 								</div>
 							</div>
@@ -197,34 +196,34 @@
 					</div>
 					<div class="col-lg-5 col-lg-offset-1 col-md-5 col-md-offset-1 col-sm-12 col-xs-12 margin-top-s padding-leftright-s padding-bottom-s">
 
-							<div class="panel panel-primary">
+							<div class="panel panel-default">
 								<div class="panel-heading">
-									<h3 class="clear-both white">Employee Info</h3>
+									<h4 class="clear-both">Employee Info</h4>
 								</div>
 								<div class="panel-body">
-									<div class="clear-both margin-top-xs">
-										<p class="fontsize-m col-lg-5 col-md-5 col-sm-12 col-xs-12">Employee No.</p>
-										<p class="fontsize-m col-lg-7 col-md-7 col-sm-12 col-xs-12 breakword">T032</p>
+									<div class="clear-both padding-topbottom-xs">
+										<p class="col-lg-5 col-md-5 col-sm-12 col-xs-12"><b>Employee No.</b></p>
+										<p id="employeeCode" class="col-lg-7 col-md-7 col-sm-12 col-xs-12 breakword"></p>
 									</div>
 									<div class="clear-both visible-sm visible-xs horizontal-divider"></div>
-									<div class="clear-both margin-top-xs">
-										<p class="fontsize-m col-lg-5 col-md-5 col-sm-12 col-xs-12">Address</p>
-										<p class="fontsize-m col-lg-7 col-md-7 col-sm-12 col-xs-12 breakword">606-3727 Ullamcorper. Street, Roseville NH 11523</p>
+									<div class="clear-both padding-topbottom-xs">
+										<p class="col-lg-5 col-md-5 col-sm-12 col-xs-12"><b>Address</b></p>
+										<p id="employeeAddress" class="col-lg-7 col-md-7 col-sm-12 col-xs-12 breakword"></p>
 									</div>
 									<div class="clear-both visible-sm visible-xs horizontal-divider"></div>
-									<div class="clear-both margin-top-xs">
-										<p class="fontsize-m col-lg-5 col-md-5 col-sm-12 col-xs-12">Bank Info</p>
-										<p class="fontsize-m col-lg-7 col-md-7 col-sm-12 col-xs-12 breakword">CIMB 1561851684</p>
+									<div class="private clear-both padding-topbottom-xs">
+										<p class="col-lg-5 col-md-5 col-sm-12 col-xs-12"><b>Bank Info</b></p>
+										<p id="employeeBank" class="col-lg-7 col-md-7 col-sm-12 col-xs-12 breakword"></p>
 									</div>
 									<div class="clear-both visible-sm visible-xs horizontal-divider"></div>
-									<div class="clear-both margin-top-xs">
-										<p class="fontsize-m col-lg-5 col-md-5 col-sm-12 col-xs-12">EPF</p>
-										<p class="fontsize-m col-lg-7 col-md-7 col-sm-12 col-xs-12 breakword">146852</p>
+									<div class="private clear-both padding-topbottom-xs">
+										<p class="col-lg-5 col-md-5 col-sm-12 col-xs-12"><b>EPF</b></p>
+										<p id="employeeEpf" class="col-lg-7 col-md-7 col-sm-12 col-xs-12 breakword"></p>
 									</div>
 									<div class="clear-both visible-sm visible-xs horizontal-divider"></div>
-									<div class="clear-both margin-top-xs">
-										<p class="fontsize-m col-lg-5 col-md-5 col-sm-12 col-xs-12">Socso</p>
-										<p class="fontsize-m col-lg-7 col-md-7 col-sm-12 col-xs-12 breakword">57415215</p>
+									<div class="private clear-both padding-topbottom-xs">
+										<p class="col-lg-5 col-md-5 col-sm-12 col-xs-12"><b>SOCSO</b></p>
+										<p id="employeeSocso" class="col-lg-7 col-md-7 col-sm-12 col-xs-12 breakword"></p>
 									</div>
 								</div>
 							</div>
@@ -233,29 +232,29 @@
 
 					<div class="col-lg-5 col-lg-offset-1 col-md-5 col-md-offset-1 col-sm-12 col-xs-12 margin-top-s padding-leftright-s padding-bottom-s">
 
-							<div class="panel panel-primary">
+							<div class="panel panel-default">
 								<div class="panel-heading">
-									<h3 class="clear-both white">Emergency Contact</h3>
+									<h4 class="clear-both">Emergency Contact</h4>
 								</div>
 								<div class="panel-body">
-									<div class="clear-both margin-top-xs">
-										<p class="fontsize-m col-lg-5 col-md-5 col-sm-12 col-xs-12 ">Name</p>
-										<p class="fontsize-m col-lg-7 col-md-7 col-sm-12 col-xs-12 breakword">sdasdagfa</p>
+									<div class="clear-both padding-topbottom-xs">
+										<p class="col-lg-5 col-md-5 col-sm-12 col-xs-12"><b>Name</b></p>
+										<p id="employeeEmergencyContactName" class="col-lg-7 col-md-7 col-sm-12 col-xs-12 breakword"></p>
 									</div>
 									<div class="clear-both visible-sm visible-xs horizontal-divider"></div>
-									<div class="clear-both margin-top-xs">
-										<p class="fontsize-m col-lg-5 col-md-5 col-sm-12 col-xs-12 ">Relationship</p>
-										<p class="fontsize-m col-lg-7 col-md-7 col-sm-12 col-xs-12 breakword">Spouse</p>
+									<div class="clear-both padding-topbottom-xs">
+										<p class="col-lg-5 col-md-5 col-sm-12 col-xs-12 "><b>Relationship</b></p>
+										<p id="employeeEmergencyContactRelationship" class="col-lg-7 col-md-7 col-sm-12 col-xs-12 breakword"></p>
 									</div>
 									<div class="clear-both visible-sm visible-xs horizontal-divider"></div>
-									<div class="clear-both margin-top-xs">
-										<p class="fontsize-m col-lg-5 col-md-5 col-sm-12 col-xs-12 ">Phone No.</p>
-										<p class="fontsize-m col-lg-7 col-md-7 col-sm-12 col-xs-12 breakword">0147258369</p>
+									<div class="clear-both padding-topbottom-xs">
+										<p class="col-lg-5 col-md-5 col-sm-12 col-xs-12 "><b>Phone No.</b></p>
+										<p id="employeeEmergencyContactPhone" class="col-lg-7 col-md-7 col-sm-12 col-xs-12 breakword"></p>
 									</div>
 									<div class="clear-both visible-sm visible-xs horizontal-divider"></div>
-									<div class="clear-both margin-top-xs">
-										<p class="fontsize-m col-lg-5 col-md-5 col-sm-12 col-xs-12 ">Alt. Phone No.</p>
-										<p class="fontsize-m col-lg-7 col-md-7 col-sm-12 col-xs-12 breakword">0369258147</p>
+									<div class="clear-both padding-topbottom-xs">
+										<p class="col-lg-5 col-md-5 col-sm-12 col-xs-12 "><b>Alt. Phone No.</b></p>
+										<p id="employeeEmergencyContactAltPhone" class="col-lg-7 col-md-7 col-sm-12 col-xs-12 breakword"></p>
 									</div>
 								</div>
 							</div>
@@ -265,47 +264,20 @@
 
 
 			<div id="superiorContainer" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-top-s padding-leftright-s padding-bottom-s">
-				<div class="panel panel-primary">
+				<div class="panel panel-default">
 					<div class="panel-heading">
-						<h3 class="clear-both white">Superior</h3>
+						<h4 class="clear-both">Superior(s)</h4>
 					</div>
-					<div class="panel-body">
-						<div class="margin-top-s col-lg-4 col-md-4 col-sm-6 col-xs-12">
-							<img class="imageSize100px col-lg-6 col-md-6 col-sm-6 col-xs-6" src="../../images/avatar3.jpg">
-							<ul class="margin-top-m padding-leftright-xs col-lg-6 col-md-6 col-sm-12 col-xs-12"><li>name</li><li>email</li></ul>
-						</div>
-						<div class="clear-both visible-sm visible-xs horizontal-divider"></div>
-						<div class="margin-top-s col-lg-4 col-md-4 col-sm-6 col-xs-12">
-							<img class="imageSize100px col-lg-6 col-md-6 col-sm-6 col-xs-6" src="../../images/avatar4.jpg">
-							<ul class="margin-top-m padding-leftright-xs col-lg-6 col-md-6 col-sm-12 col-xs-12"><li>name</li><li>email</li></ul>
-						</div>
-						<div id="superiorList"></div>
-					</div>
+					<div id="superiorList" class="panel-body"></div>
 				</div>
 			</div>
 
 			<div id="subordinateContainer" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-topbottom-s padding-leftright-s padding-bottom-s">
-				<div class="panel panel-primary">
+				<div class="panel panel-default">
 					<div class="panel-heading">
-						<h3 class="clear-both white">Subordinate</h3>
+						<h4 class="clear-both">Subordinate(s)</h4>
 					</div>
-					<div class="panel-body">
-						<div class="margin-top-s col-lg-4 col-md-4 col-sm-6 col-xs-12">
-							<img class="imageSize100px col-lg-6 col-md-6 col-sm-6 col-xs-6" src="../../images/avatar5.jpg">
-							<ul class="margin-top-m padding-leftright-xs col-lg-6 col-md-6 col-sm-12 col-xs-12"><li>name</li><li>email</li></ul>
-						</div>
-						<div class="clear-both visible-sm visible-xs horizontal-divider"></div>
-						<div class="margin-top-s col-lg-4 col-md-4 col-sm-6 col-xs-12">
-							<img class="imageSize100px col-lg-6 col-md-6 col-sm-6 col-xs-6" src="../../images/avatar6.jpg">
-							<ul class="margin-top-m padding-leftright-xs col-lg-6 col-md-6 col-sm-12 col-xs-12"><li>name</li><li>email</li></ul>
-						</div>
-						<div class="clear-both visible-sm visible-xs horizontal-divider"></div>
-						<div class="margin-top-s col-lg-4 col-md-4 col-sm-6 col-xs-12">
-							<img class="imageSize100px col-lg-6 col-md-6 col-sm-6 col-xs-6" src="../../images/avatar7.jpg">
-							<ul class="margin-top-m padding-leftright-xs col-lg-6 col-md-6 col-sm-12 col-xs-12"><li>name</li><li>email</li></ul>
-						</div>
-						<div id="subordinateList"></div>
-					</div>
+					<div id="subordinateList" class="panel-body"></div>
 				</div>
 			</div>
 

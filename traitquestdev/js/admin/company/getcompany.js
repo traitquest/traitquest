@@ -42,6 +42,14 @@ function populateData(){
 				$('#companyPhone').append('<i>No information<i>');
 			}
 			
+			// Company Fax
+			if(data['company']['fax'] != '' && !$.isEmptyObject(data['company']['fax'])){
+				$('#companyFax').append(data['company']['fax']);
+			}
+			else{
+				$('#companyFax').append('<i>No information<i>');
+			}
+			
 			// Company Website
 			if(data['company']['website'] != '' && !$.isEmptyObject(data['company']['website'])){
 				$('#companyWebsite').append(data['company']['website']);

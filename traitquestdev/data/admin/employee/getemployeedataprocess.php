@@ -15,7 +15,7 @@
 			$employeeID = isset($_POST['employeeID']) ? intval($_POST['employeeID']) : 0;
 			$companyID = $_SESSION['companyID'];
 			
-			// check if there is match of company name and admin email
+			// check if there is match of company name and employee id
 			$checkSQL = "SELECT * FROM employee 
 							 WHERE id = :id
 								   AND companyid = :companyid
@@ -28,6 +28,20 @@
 			if($userPDO->rowCount() != 0){
 				$userResult = $userPDO->fetch(PDO::FETCH_ASSOC);
 				$data['employee'] = $userResult;
+				
+				$data['department'] = null;
+				$departmentID = $userResult['departmentid'];
+				$deptSQL = "SELECT * FROM department 							 
+							 WHERE id = :id
+							 LIMIT 1";
+				$deptPDO = $conn->prepare($deptSQL);
+				$deptPDO->bindParam(':id', $departmentID, PDO::PARAM_INT);
+				$deptPDO->execute();
+				
+				if($deptPDO->rowCount() != 0){
+					$deptResult = $deptPDO->fetch(PDO::FETCH_ASSOC);
+					$data['department'] = $deptResult;
+				}
 				$data['return'] = true;
 			}
 			else{

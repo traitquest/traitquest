@@ -1,17 +1,17 @@
-<select class="clear-both col-lg-5 col-md-5 col-sm-12 col-xs-12" name="nationality">
-  <option value="malaysian">Malaysian</option>
-  <option value="afghan">Afghan</option>
-  <option value="albanian">Albanian</option>
-  <option value="algerian">Algerian</option>
-  <option value="american">American</option>
-  <option value="andorran">Andorran</option>
-  <option value="angolan">Angolan</option>
-  <option value="antiguans">Antiguans</option>
-  <option value="argentinean">Argentinean</option>
-  <option value="armenian">Armenian</option>
-  <option value="australian">Australian</option>
-  <option value="austrian">Austrian</option>
-  <option value="azerbaijani">Azerbaijani</option>
+<select id="nationality" class="clear-both col-lg-5 col-md-5 col-sm-12 col-xs-12" name="nationality">
+  <option value="Malaysian">Malaysian</option>
+  <option value="Afghan">Afghan</option>
+  <option value="Albanian">Albanian</option>
+  <option value="Algerian">Algerian</option>
+  <option value="American">American</option>
+  <option value="Andorran">Andorran</option>
+  <option value="Angolan">Angolan</option>
+  <option value="Antiguans">Antiguans</option>
+  <option value="Argentinean">Argentinean</option>
+  <option value="Armenian">Armenian</option>
+  <option value="Australian">Australian</option>
+  <option value="Austrian">Austrian</option>
+  <option value="Azerbaijani">Azerbaijani</option>
   <option value="bahamian">Bahamian</option>
   <option value="bahraini">Bahraini</option>
   <option value="bangladeshi">Bangladeshi</option>

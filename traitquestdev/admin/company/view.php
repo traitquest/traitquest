@@ -100,24 +100,34 @@ session_start();
 	</div>
 
 	<div class="col-lg-10 col-lg-offset-2 col-md-10 col-md-offset-2 col-sm-12 col-xs-12 grey95-bg padding-bottom-s"><!content goes here>
-		<div class="col-lg-12 col-md-12 padding-top-l"><!1stwindow>
-			<div class="padding-bottom-s padding-leftright-s border-top-grey white-bg">
-				<h3 id="companyName" class="grey30"></h3>
-				<div class="padding-top-s">
-					<h3 class="display-block display-inline"><i class="glyphicon glyphicon-map-marker"></i></h3>
-					<p id="companyAddress" class="padding-left10px fontsize-m display-block display-inline"></p>
+		<div class="col-lg-12 col-md-12 padding-top-l"><!1stwindow>			
+			<div class="padding-bottom-s padding-leftright-s border-top-grey white-bg clear">
+				<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+					<img class="userPic center margin-top-s imageSize100px" src="../../images/avatar2.jpg">
+					<button class="margin-topbottom-xs btn btn-default center fontsize-s">Change picture</button>
 				</div>
-				<div class="padding-top-s">
-					<h3 class="display-block display-inline"><i class="glyphicon glyphicon-envelope"></i></h3>
-					<p id="companyEmail" class="padding-left10px fontsize-m display-block display-inline"></p>
-				</div>
-				<div class="padding-top-s">
-					<h3 class="display-block display-inline"><i class="glyphicon glyphicon-phone-alt"></i></h3>
-					<p id="companyPhone" class="padding-left10px fontsize-m display-block display-inline"></p>
-				</div>
-				<div class="padding-top-s">
-					<h3 class="display-block display-inline"><i class="glyphicon glyphicon-globe"></i></h3>
-					<p id="companyWebsite" class="padding-left10px fontsize-m display-block display-inline"></p>
+				<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+					<h3 id="companyName" class="grey30"></h3>
+					<div class="padding-top-s">
+						<h3 class="display-block display-inline"><i class="glyphicon glyphicon-map-marker"></i></h3>
+						<p id="companyAddress" class="padding-left10px fontsize-m display-block display-inline"></p>
+					</div>
+					<div class="padding-top-s">
+						<h3 class="display-block display-inline"><i class="glyphicon glyphicon-envelope"></i></h3>
+						<p id="companyEmail" class="padding-left10px fontsize-m display-block display-inline"></p>
+					</div>
+					<div class="padding-top-s">
+						<h3 class="display-block display-inline"><i class="glyphicon glyphicon-phone-alt"></i></h3>
+						<p id="companyPhone" class="padding-left10px fontsize-m display-block display-inline"></p>
+					</div>
+					<div class="padding-top-s">
+						<h3 class="display-block display-inline"><i class="glyphicon glyphicon-send"></i></h3>
+						<p id="companyFax" class="padding-left10px fontsize-m display-block display-inline"></p>
+					</div>
+					<div class="padding-top-s">
+						<h3 class="display-block display-inline"><i class="glyphicon glyphicon-globe"></i></h3>
+						<p id="companyWebsite" class="padding-left10px fontsize-m display-block display-inline"></p>
+					</div>
 				</div>
 			</div>
 		</div>

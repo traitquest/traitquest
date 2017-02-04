@@ -88,17 +88,14 @@
 			<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 padding-topbottom-s">
 				<h3>Department</h3>
 			</div>
-
+			<div class="text-right col-lg-2 col-md-2 col-sm-2 col-xs-2 padding-topbottom-s">
+				<a id="addDepartmentButton" href="#"><h3><i class="glyphicon glyphicon-plus-sign"></i></h3></a>
+			</div>
 	</div>
 
 <div class="col-lg-10 col-lg-offset-2 col-md-10 col-md-offset-2 col-sm-12 col-xs-12 grey95-bg padding-bottom-s"><!content goes here>
 
 	<div id="mainContainer">
-			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-topbottom-s padding-leftright-s padding-bottom-s">
- 				<div class="img-wrap">
- 					<h4><a id="addDepartmentButton" href="#"><i class="black glyphicon glyphicon-plus-sign"></i></a></h4>
- 				</div>
- 			</div>
 
 			<div class="form col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-topbottom-s padding-leftright-s padding-bottom-s border-top-grey white-bg">
 				<div id="departmentList"></div><!-- list of department go in here -->
@@ -126,7 +123,9 @@
 			<p class="text-center fontsize-s padding-top-xs grey30"><strong>&copy; 2016 TraitQuest. All rights reserved.</strong></p>
 		</div>
 	</footer>
-
+	
+	<!-- POPUP DIALOG -->
+	<?php include "../../general/popup.php" ?>
 </div>
 
 </body>

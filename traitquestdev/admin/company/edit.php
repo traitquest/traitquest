@@ -110,6 +110,10 @@
 							<p class="clear-both padding-top-s">Phone</p>
 							<input type="text" name="phone" id="phone" class="col-lg-12 col-md-12 col-sm-12 col-xs-12"/>
 						</div>
+						<div id="columnFax" class="columnInput">
+							<p class="clear-both padding-top-s">Fax</p>
+							<input type="text" name="fax" id="fax" class="col-lg-12 col-md-12 col-sm-12 col-xs-12"/>
+						</div>
 						<div id="columnWebsite" class="columnInput">
 							<p class="clear-both padding-top-s">Website</p>
 							<input type="text" name="website" id="website" class="col-lg-12 col-md-12 col-sm-12 col-xs-12"/>

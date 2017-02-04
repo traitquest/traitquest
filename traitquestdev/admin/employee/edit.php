@@ -22,7 +22,11 @@
 <link rel="stylesheet" type="text/css" href="../../css/bootstrap.css"/>
 <link rel="stylesheet" type="text/css" href="../../css/color.css"/>
 <link rel="stylesheet" type="text/css" href="../../css/style.css"/>
-
+<link rel="stylesheet" type="text/css" href="../../css/datepicker.css"/>
+<style>
+.datepicker-icon-addon{position:relative;}
+.datepicker-icon-addon .glyphicon{position:absolute;padding-top:5px;padding-left:10px;}
+</style>
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 					JAVASCRIPT
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -31,6 +35,7 @@
 <script type="text/javascript" src="../../js/admin/global.js"></script>
 <script type="text/javascript" src="../../js/setheight.js"></script>
 <script type="text/javascript" src="../../js/mobilenav.js"></script>
+<script type="text/javascript" src="../../js/bootstrap-datepicker.js"></script>
 
 </head>
 
@@ -97,22 +102,52 @@
 	<div class="col-lg-10 col-lg-offset-2 col-md-10 col-md-offset-2 col-sm-12 col-xs-12 grey95-bg padding-bottom-s"><!content goes here>
 			<div id="mainContainer" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-topbottom-s padding-topbottom-l padding-leftright-s border-top-grey white-bg">
 				<form id="formEditEmployee" class="form" method="post">
-					<div id="editEmployeeResponse" class="red text-center col-lg-12 col-md-12 col-sm-12 col-xs-12"></div>
-					<div id="columnEmployeePic" class="col-lg-3 col-md-4 col-sm-4 col-xs-12"></div>
-					<div id="columnEmployeeName" class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-						<input type="text" name="employeeName" id="employeeName" class="inputForm margin-top-l" placeholder="Name" />
+					<div id="columnEmployeePic" class="col-lg-12 col-md-12 col-sm-12 col-xs-12"></div>
+					<div id="columnEmployeeName" class="columnInput">
+						<p class="clear-both padding-top-s">Name</p>
+						<input type="text" name="employeeName" id="employeeName" class="clear-both col-lg-5 col-md-5 col-sm-12 col-xs-12" placeholder="Name" />
 					</div>
-					<div id="columnEmployeeCode" class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-						<input type="text" name="employeeCode" id="employeeCode" class="inputForm margin-top-l" placeholder="Code" />
+					<div id="columnEmployeeCode" class="columnInput">
+						<p class="clear-both padding-top-s">Employee No.</p>
+						<input type="text" name="employeeCode" id="employeeCode" class="clear-both col-lg-5 col-md-5 col-sm-12 col-xs-12" placeholder="Employee No." />
 					</div>
-					<div id="columnDepartment" class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-						<select id="department" class="inputForm margin-top-s" >
+					<div id="columnDepartment" class="columnInput">
+						<p class="clear-both padding-top-s">Department</p>
+						<select id="employeeDepartment" class="clear-both col-lg-5 col-md-5 col-sm-12 col-xs-12" >
 							<option value="0">Select a department</option>
 						</select>
 					</div>
-					<div class="col-lg-3 col-lg-offset-0 col-md-4 col-md-offset-8 col-sm-4 col-sm-offset-8 col-xs-12">
-						<input type="submit" name="submit" id="editEmployeeSubmit" class="clear-both inputForm button margin-top-l" value="Save" />
-						<input type="button" name="cancel" id="editEmployeeCancel" class="buttonForm buttonCancel clear-both display-block display-inline margin-top-xs" value="Cancel" />
+					<div id="columnEmployeeExt" class="columnInput">
+						<p class="clear-both padding-top-s">Extension No.</p>
+						<input type="text" name="employeeExt" id="employeeExt" class="clear-both col-lg-5 col-md-5 col-sm-12 col-xs-12" placeholder="Extension No." />
+					</div>
+					<div id="columnEmployeeHiredDate" class="columnInput">
+						<p class="clear-both padding-top-s">Hired Date</p>						
+						<div class="datepicker-icon-addon input-append date" id="datepicker" data-date="102/2012" data-date-format="dd/mm/yyyy" data-date-viewmode="days" data-date-minviewmode="days">  
+							<input class="span2 padding-left30px clear-both col-lg-5 col-md-5 col-sm-12 col-xs-12" size="16" type="text" value="01/01/1901" readonly>
+							<span class="add-on"><i class="glyphicon glyphicon-calendar"></i></span>
+						</div>
+					</div>
+					
+					<div id="columnEmployeeAddress" class="columnInput">
+						<p class="clear-both padding-top-s">Address</p>
+						<textarea type="text" name="employeeAddress" id="employeeAddress" class="clear-both col-lg-5 col-md-5 col-sm-12 col-xs-12" rows="4" placeholder="Address"></textarea>
+					</div>
+					<div id="columnEmployeeBank" class="columnInput">
+						<p class="clear-both padding-top-s">Bank Account No.</p>
+						<input type="text" name="employeeBank" id="employeeBank" class="clear-both col-lg-5 col-md-5 col-sm-12 col-xs-12" placeholder="Bank Account No." />
+					</div>
+					<div id="columnEmployeeEpf" class="columnInput">
+						<p class="clear-both padding-top-s">EPF No.</p>
+						<input type="text" name="employeeEpf" id="employeeEpf" class="clear-both col-lg-5 col-md-5 col-sm-12 col-xs-12" placeholder="EPF No." />
+					</div>
+					<div id="columnEmployeeSocso" class="columnInput">
+						<p class="clear-both padding-top-s">SOCSO No.</p>
+						<input type="text" name="employeeSocso" id="employeeSocso" class="clear-both col-lg-5 col-md-5 col-sm-12 col-xs-12" placeholder="SOCSO No." />
+					</div>
+					<div class="col-lg-12 col-md-12 col-xs-12">
+						<input type="submit" name="submit" id="editEmployeeSubmit" class="display-inline inputForm button margin-top-l" value="Save" />
+						<input type="button" name="cancel" id="editEmployeeCancel" class="buttonForm buttonCancel display-inline margin-top-xs" value="Cancel" />
 					</div>
 				</form>
 			</div>
@@ -122,6 +157,6 @@
 				</div>
 			</footer>
 	</div>
-
+	<?php include "../../general/popup.php"; ?>
 </body>
 </html>

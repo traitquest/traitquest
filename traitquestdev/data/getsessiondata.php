@@ -3,13 +3,16 @@
 	$data = array();		// array to pass back data
 	$data['active'] = false;
 	
-	if(isset($_SESSION['companyID']) 
+	if(isset($_SESSION['companyID'])
 		&& isset($_SESSION['userID']) 
 		&& isset($_SESSION['name']) 
 		&& isset($_SESSION['profilePic']) 
 		&& isset($_SESSION['logintype']) ){
 		
-		$data['companyID'] = $_SESSION['companyID'];	
+		$data['companyID'] = $_SESSION['companyID'];
+		if(isset($_SESSION['companyPic'])){
+			$data['companyPic'] = $_SESSION['companyPic']; 	
+		}	
 		$data['userID'] = $_SESSION['userID'];	
 		$data['name'] = $_SESSION['name'];
 		$data['profilePic'] = $_SESSION['profilePic']; 

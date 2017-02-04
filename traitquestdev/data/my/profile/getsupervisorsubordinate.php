@@ -14,7 +14,12 @@
 		if (isset($_SESSION['companyID']) && isset($_SESSION['userID']) ){// if employee is not logged in as admin
 			$data['userLoggedIn'] = true;
 			$companyID = $_SESSION['companyID'];
-			$currentID = $_SESSION['userID'];
+			$selectedEmployee = isset($_POST['employeeID']) ? intval($_POST['employeeID']) : 0;
+			
+			if($selectedEmployee == 0){
+				$selectedEmployee = $_SESSION['userID'];
+				$data['ownProfile'] = true;
+			}
 				
 			// Get superiors of the current employee
 			$supervisorSQL = "SELECT * FROM supervisor 
@@ -23,7 +28,7 @@
 			$supervisorPDO = $conn->prepare($supervisorSQL);
 			$supervisorPDO->execute(array(
 									':companyid'=> $companyID,
-									':subordinateid'=> $currentID
+									':subordinateid'=> $selectedEmployee
 									));	
 			
 			if($supervisorPDO->rowCount() > 0){
@@ -57,7 +62,7 @@
 			$subordinatePDO = $conn->prepare($subordinateSQL);
 			$subordinatePDO->execute(array(
 									':companyid'=> $companyID,
-									':superiorid'=> $currentID
+									':superiorid'=> $selectedEmployee
 									));	
 
 			if($subordinatePDO->rowCount() > 0){

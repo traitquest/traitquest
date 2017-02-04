@@ -1,7 +1,19 @@
 // JavaScript Document
 $(document).ready(function(){
-	var working = false;
+	var working = false;	
+	var day, month, year;
 	populateForm();
+	
+	/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+			SELECT A DATE
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+	$('#datepicker').datepicker()
+		.on('changeDate', function(ev) {
+			selectedDate = new Date(ev.date);
+			day = selectedDate.getDate();
+			month = selectedDate.getMonth() + 1; //months from 1-12
+			year = selectedDate.getFullYear();
+	});
 	
 	$('#formEditProfile').submit(function(event){
 		event.preventDefault();
@@ -20,8 +32,21 @@ $(document).ready(function(){
 				
 		//get the form data
 		var formData= {
+			'phone'						:$('input[name=phone]').val(),
+			'dobDay'					:day,
+			'dobMonth'					:month,
+			'dobYear'					:year,
+			'nationality'				:$("#nationality").val(),
+			'race'				   		:$("#race").val(),
+			'religion'				    :$('input[name=religion]').val(),
+			'maritalStatus'				:$("#maritalStatus").val(),
+			'bio'				  		:$("#bio").val(),
 			'address'				    :$("#address").val(),
-			'phone'						:$('input[name=phone]').val()
+			'emergencyContactName'			:$('input[name=emergencyContactName]').val(),
+			'emergencyContactRelationship'	:$('input[name=emergencyContactRelationship]').val(),
+			'emergencyContactPhone'			:$('input[name=emergencyContactPhone]').val(),
+			'emergencyContactAltPhone'		:$('input[name=emergencyContactAltPhone]').val()
+			
 		};
 		//console.log(formData);
 		
@@ -59,8 +84,7 @@ $(document).ready(function(){
 		});
 		
 	});
-	
-	
+		
 	/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 			GO BACK TO PREVIOUS PAGE
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
@@ -68,30 +92,49 @@ $(document).ready(function(){
 		window.history.back();
 	}, false);
 	
+	function populateForm(){
+		$.ajax({
+				type		:'POST', 	//define the type of HTTP verb we want to use
+				url			:'../../data/my/profile/getemployeeprocess.php',		//the url where we want to POST
+				data		: {},		//our data object
+				dataType	:'json',		//what type of data do we expect back from the server
+				encode		:true
+		})
+		
+		//using the done promise callback
+		.done(function(data){
+			if(data['return']){
+				$("#phone").val( data['employee']['phone'] ); 
+				// Split timestamp into [ Y, M, D, h, m, s ]
+				var t = data['employee']['dob'];
+				var date = t.split(/[-]/);
+				// Apply each element to the Date function
+				var d = new Date(Date.UTC(date[0], date[1]-1, date[2]));
+				year = date[0];
+				month = date[1]-1;
+				day = date[2];
+				$('#datepicker').datepicker('setValue', d );
+				$("#nationality").val( data['employee']['nationality'] ); 
+				$("#race").val( data['employee']['race'] );
+				$("#religion").val( data['employee']['religion'] );
+				$("#maritalStatus").val( data['employee']['maritalstatus'] );
+				$("#bio").val( data['employee']['bio'] );
+				$("#address").val( data['employee']['address'] );
+				$("#emergencyContactName").val( data['employee']['emergencycontactname'] );
+				$("#emergencyContactRelationship").val( data['employee']['emergencycontactrelationship'] );
+				$("#emergencyContactPhone").val( data['employee']['emergencycontactphone'] );
+				$("#emergencyContactAltPhone").val( data['employee']['emergencycontactaltphone'] );
+			}
+			else{
+				window.location.href = "../../index.php";
+			}
+		})
+		//using the fail promise callback
+		.fail(function(data){console.log(data);
+			window.location.href = "../../500.php";
+		});
+	}
+	
 })
 
 
-function populateForm(){
-	$.ajax({
-			type		:'POST', 	//define the type of HTTP verb we want to use
-			url			:'../../data/my/profile/getemployeeprocess.php',		//the url where we want to POST
-			data		: {},		//our data object
-			dataType	:'json',		//what type of data do we expect back from the server
-			encode		:true
-	})
-	
-	//using the done promise callback
-	.done(function(data){
-		if(data['return']){
-			$("#address").val( data['employee']['address'] ); 
-			$("#phone").val( data['employee']['phone'] );
-		}
-		else{
-			window.location.href = "../../index.php";
-		}
-	})
-	//using the fail promise callback
-	.fail(function(data){console.log(data);
-		window.location.href = "../../500.php";
-	});
-}

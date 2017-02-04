@@ -15,11 +15,11 @@ $(document).ready(function(){
 	});
 	
 	/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-		TO EDIT EMPLOYEE
+		TO VIEW EMPLOYEE
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 	$(this).on('click','.viewEmployee',function(){
 		id = $(this).attr('data-id'); // Get the clicked id for deletion 
-		url = 'view.php?id=' + id;
+		url = '../profile/view.php?id=' + id;
 		window.location.href = url;
 	})
 	
@@ -54,15 +54,24 @@ $(document).ready(function(){
 					var resultNumber = data['result'].length;
 					
 					for(var i=0; i<resultNumber; i++){
-						
 						html = '<div class="employeeRow margin-top-s col-lg-4 col-md-4 col-sm-6 col-xs-12">'
+								+ '<div class="img-wrap">'
+								+ '<img class="imageSize100px col-lg-6 col-md-6 col-sm-6 col-xs-6" src="' + data['result'][i]['employee']['imagelink'] + '">'
+								+ '</div>'
+								+ '<ul class="padding-leftright-xs col-lg-6 col-md-6 col-sm-12 col-xs-12">'
+								+ '<li>' + data['result'][i]['employee']['name'] + '</li>'
+								+ '<li><a class="black" href="mailto:' + data['result'][i]['employee']['email'] + '">' + data['result'][i]['employee']['email'] + '</a></li>'
+								+ '<button class="viewEmployee" data-id="' + data['result'][i]['employee']['id'] + '"><i class="view green glyphicon glyphicon-user"></i></button>'
+								+ '</ul>'
+								+ '</div>';
+						/*html = '<div class="employeeRow margin-top-s col-lg-4 col-md-4 col-sm-6 col-xs-12">'
 								+ '<div class="img-wrap">'
 								+ '<img class="imageSize100px col-lg-6 col-md-6 col-sm-6 col-xs-6" src="' + data['result'][i]['employee']['imagelink'] + '">'
 								+ '</div>'
 								+ '<ul class="padding-leftright-xs col-lg-6 col-md-6 col-sm-12 col-xs-12">'
 								+ '<li><a href="view.php?id=' + data['result'][i]['employee']['id'] + '">' + data['result'][i]['employee']['name'] + '</a></li>'
 								+ '<li><a href="mailto:' + data['result'][i]['employee']['email'] + '">' + data['result'][i]['employee']['email'] + '</a></li></ul>'
-								+ '</div>';
+								+ '</div>';*/
 						
 						target.append(html);
 					}

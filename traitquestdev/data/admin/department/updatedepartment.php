@@ -35,10 +35,15 @@
 							$data['editSuccess'] = true;
 						}
 						else if($action == 'delete'){
-							$deleteSQL = "DELETE FROM department WHERE id=".$departmentID." LIMIT 1";
-							$updateDepartmentPDO = $conn->prepare($deleteSQL);
-							$updateDepartmentPDO->execute();
-							$data['deleteSuccess'] = true;
+							if(checkDepartmentUsed($conn, $companyID, $departmentID) == 0){
+								$deleteSQL = "DELETE FROM department WHERE id=".$departmentID." LIMIT 1";
+								$updateDepartmentPDO = $conn->prepare($deleteSQL);
+								$updateDepartmentPDO->execute();
+								$data['deleteSuccess'] = true;
+							}
+							else{
+								$data['deleteNotAllowed'] = true;
+							}
 						}
 					}
 					else{
@@ -92,5 +97,18 @@
 								':id'=> $id
 								));	
 		return $checkPDO->rowCount(); 
+	}
+	
+	function checkDepartmentUsed( $conn, $companyID, $departmentID ){
+		$deptSQL = "SELECT * FROM employee 
+					 WHERE companyid = :companyid
+					 AND departmentid = :departmentid
+					 LIMIT 1";
+		$deptPDO = $conn->prepare($deptSQL);
+		$deptPDO->execute(array(
+								':companyid'=> $companyID,
+								':departmentid'=> $departmentID
+								));	
+		return $deptPDO->rowCount(); 
 	}
 ?>

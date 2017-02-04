@@ -114,8 +114,7 @@
 
 			<div class="form col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-topbottom-s padding-leftright-s padding-bottom-s border-top-grey white-bg">
 				<form id="formSearchEmployee" method="post">
-					<h3 class="col-lg-6 col-md-6">Employee List</h3>
-					<div class="col-lg-3 col-lg-offset-3 col-md-3 col-md-offset-3">
+					<div class="col-lg-3 col-lg-offset-9 col-md-3 col-md-offset-9">
 						<div id="columnSearch" class="icon-addon icon-addon-right">
 							<input type="text" name="search" id="search" class="inputForm margin-top-s" placeholder="Search.." />
 							<button type="submit" id="submitSearch"><i class="glyphicon glyphicon-search"></i></button>

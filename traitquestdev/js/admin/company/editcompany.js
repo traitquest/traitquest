@@ -11,17 +11,13 @@ $(document).ready(function(){
 		working = true;
 		
 		//clearing messages and errors
-		$('.columnError').remove();
-        $('.editSuccess').remove();
-        $('.editError').remove();
-		$('.inputForm').each(function(){
-            $(this).removeClass('error');
-        });
+		$('#editResponse').empty();
 				
 		//get the form data
 		var formData= {
 			'address'				    :$("#address").val(),
 			'phone'						:$('input[name=phone]').val(),
+			'fax'						:$('input[name=fax]').val(),
 			'website'					:$('input[name=website]').val(),
 			'description'				:$("#description").val(),
 			'vision'					:$("#vision").val(),
@@ -45,7 +41,7 @@ $(document).ready(function(){
 			if(data['adminLoggedIn']){				
 				//check if it has errors
                 if(!data['editSuccess']){
-                    $('#editResponse').append('<div class="editError text-center red fontsize-xs">' + data['error'] + '</div>');
+					$('#editResponse').append('<div class="editError text-center red fontsize-xs">' + data['error'] + '</div>');
                 }
                 else{
 					// redirect after editing
@@ -84,6 +80,7 @@ function populateForm(){
 		if(data['return']){
 			$("#address").val( data['company']['address'] ); 
 			$("#phone").val( data['company']['phone'] );
+			$("#fax").val( data['company']['fax'] );
 			$("#website").val( data['company']['website'] );
 			$("#description").val( data['company']['description'] );
 			$("#vision").val( data['company']['vision'] );

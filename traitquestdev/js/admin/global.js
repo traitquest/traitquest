@@ -15,7 +15,7 @@ $(document).ready(function(){
 				var data = JSON.parse(result);
 				if(data['active']){
 					name = data['name'];	
-					profilePic = data['profilePic'];
+					profilePic = data['companyPic'];
 					
 					$('.userPic').each(function(){
 						$(this).attr('src', profilePic);

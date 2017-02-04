@@ -16,7 +16,8 @@
 			$companyID = $_SESSION['companyID'];
 	
 			$checkSQL = "SELECT * FROM department 
-								 WHERE companyid = :companyid";
+								 WHERE companyid = :companyid
+								 ORDER BY name";
 			$departmentPDO = $conn->prepare($checkSQL);
 			$departmentPDO->bindParam(':companyid', $companyID, PDO::PARAM_INT);
 			$departmentPDO->execute();
